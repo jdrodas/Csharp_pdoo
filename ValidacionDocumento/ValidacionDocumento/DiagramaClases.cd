@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ValidacionDocumento.Program">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ValidacionDocumento.Documento">
+    <Position X="4.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAQBAAAAAAAAAAAAAAAAAIAAAACAAAAAAEAAAABAAQ=</HashCode>
+      <FileName>Documento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ValidacionDocumento.ValidadorDocumento">
+    <Position X="7" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAQAACAAAAAgAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ValidadorDocumento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
