@@ -9,4 +9,9 @@ La siguiente especificación de contenidos presenta los proyectos según el avan
 
 >>### ValidacionDocumento
 >>- Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos
->>- Demostración de separación funcional en clases con propósito específico: visualizacion (UI) y lógica del problema
+>>- Demostración de separación funcional en clases con propósito específico: visualizacion en Consola (UI) y lógica del problema
+
+>>### simRadio_OO
+>>- Demostración de separación funcional en clases con propósito específico: visualizacion en Windows Forms (UI) y lógica del problema
+>>- Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos
+>>- Implementación funcionalidad de memoria de frecuencias, almacenando los valores en un arreglo
