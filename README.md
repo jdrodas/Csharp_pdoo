@@ -20,3 +20,6 @@ La siguiente especificación de contenidos presenta los proyectos según el avan
 >>- Demostración de separación funcional en clases con propósito específico: visualizacion en consola (UI) y lógica del problema
 >>- Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
 >>- Implementación de métodos utilizando parametros por referencia.
+
+>>### HerenciaFiguras
+>>- Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
