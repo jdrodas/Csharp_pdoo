@@ -107,7 +107,7 @@ namespace ex01_VentaConsolas
                 losPedidos[i] = new Pedido();
                 losPedidos[i].Ciudad = ciudades[aleatorio.Next(ciudades.Length)];
                 losPedidos[i].Consola = consolas[aleatorio.Next(consolas.Length)];
-                losPedidos[i].Fecha = new DateTime(2018, 1, 1).AddDays(aleatorio.Next(366)); //fecha inicio + aleatorio de 365 días
+                losPedidos[i].Fecha = new DateTime(2018, 1, 1).AddDays(aleatorio.Next(365)); //fecha inicio + aleatorio de 365 días
             }
 
             Console.WriteLine("Finalizado!");
