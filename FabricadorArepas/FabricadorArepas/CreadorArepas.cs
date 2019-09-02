@@ -11,6 +11,8 @@ namespace FabricadorArepas
         //los atributos
         private int totalAsadas, totalCongeladas, totalProcesadas;
         private Arepa[] misArepas;
+        private float tempPromedio;
+        private int molinoModa, cantidadArepasMolinoModa;
 
         //el constructor de la clase
         public CreadorArepas()
@@ -19,10 +21,25 @@ namespace FabricadorArepas
             totalCongeladas = 0;
             totalProcesadas = 0;
 
+            tempPromedio = 0f;
+            molinoModa = 0;
+            cantidadArepasMolinoModa = 0;
+
             misArepas = new Arepa[100];
         }
 
+        #region Propiedades para los atributos
         //las propiedades para los atributos
+        public int MolinoModa
+        {
+            get { return molinoModa; }
+        }
+
+        public int CantidadArepasMolinoModa
+        {
+            get { return cantidadArepasMolinoModa; }
+        }
+
         public int TotalAsadas
         {
             get { return totalAsadas; }
@@ -38,12 +55,20 @@ namespace FabricadorArepas
             get { return totalProcesadas; }
         }
 
+        public string TemperaturaPromedio
+        {
+            get { return tempPromedio.ToString("0.00"); }
+        }
+
+        #endregion
+
         public void InicializaArepas()
         {
             //Cada ejecución de la simulacion comienza con los totales en cero
             totalAsadas = 0;
             totalCongeladas = 0;
             totalProcesadas = 0;
+            tempPromedio = 0f;
 
             Random aleatorio = new Random(DateTime.Now.Millisecond);
 
@@ -75,7 +100,9 @@ namespace FabricadorArepas
                         misArepas[i] = new ArepaAsada(datoTemperatura, 
                             datoDiasCaducidad, 
                             datoMolino);
+
                         totalAsadas++;
+                        tempPromedio += datoTemperatura;
                         break;
 
                     case 2:
@@ -87,6 +114,42 @@ namespace FabricadorArepas
                             datoDiasCaducidad);
                         totalProcesadas++;
                         break;
+                }
+            }
+
+            //finalmente, calculamos el promedio
+            tempPromedio /= totalAsadas;
+
+            //Y calculamos los totales para el molino de Moda
+            TotalizaMolinoModa();
+
+        }
+
+        private void TotalizaMolinoModa()
+        {
+
+            //Aqui almacenamos los totales del Molino: 10 molinos
+            int[] totalArepasMolino = new int[10];
+
+            for (int i = 0; i < totalArepasMolino.Length; i++)
+                totalArepasMolino[i] = 0;
+
+            //Recorremos el arreglo de arepas identificando el molino
+            for (int i = 0; i < misArepas.Length; i++)
+                totalArepasMolino[(misArepas[i].NumeroMolino - 1)]++;
+
+            //Finalmente, identificamos cual es el mayor
+
+            //Arbitrariamente definimos que el molino de moda es el 1
+            molinoModa = 1;
+            cantidadArepasMolinoModa = totalArepasMolino[0]; //Primera posición del arreglo, primer molino
+
+            for (int i = 0; i < totalArepasMolino.Length; i++)
+            {
+                if (totalArepasMolino[i] > cantidadArepasMolinoModa)
+                {
+                    cantidadArepasMolinoModa = totalArepasMolino[i];
+                    molinoModa = i + 1;
                 }
             }
         }
@@ -109,7 +172,5 @@ namespace FabricadorArepas
 
             return resultado.ToString();
         }
-
-
     }
 }

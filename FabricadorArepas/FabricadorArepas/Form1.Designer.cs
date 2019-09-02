@@ -39,12 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtInformacion = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTemPromedio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtMasArepasMolino = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMolinoProductor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -148,11 +148,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtTemPromedio);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtMasArepasMolino);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtMolinoProductor);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(155, 77);
             this.groupBox2.Name = "groupBox2";
@@ -161,30 +161,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Estadísticos";
             // 
-            // textBox1
+            // txtTemPromedio
             // 
-            this.textBox1.Location = new System.Drawing.Point(233, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTemPromedio.Location = new System.Drawing.Point(233, 88);
+            this.txtTemPromedio.Name = "txtTemPromedio";
+            this.txtTemPromedio.Size = new System.Drawing.Size(43, 20);
+            this.txtTemPromedio.TabIndex = 7;
+            this.txtTemPromedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Molino más productor:";
+            this.label7.Location = new System.Drawing.Point(61, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(166, 30);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Temperatura promedio de cocción de Arepas asadas";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // txtMasArepasMolino
             // 
-            this.textBox2.Location = new System.Drawing.Point(233, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(43, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMasArepasMolino.Location = new System.Drawing.Point(233, 52);
+            this.txtMasArepasMolino.Name = "txtMasArepasMolino";
+            this.txtMasArepasMolino.Size = new System.Drawing.Size(43, 20);
+            this.txtMasArepasMolino.TabIndex = 5;
+            this.txtMasArepasMolino.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -195,22 +195,22 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Cantidad Arepas del molino más productor:";
             // 
-            // textBox3
+            // txtMolinoProductor
             // 
-            this.textBox3.Location = new System.Drawing.Point(233, 88);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(43, 20);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMolinoProductor.Location = new System.Drawing.Point(233, 25);
+            this.txtMolinoProductor.Name = "txtMolinoProductor";
+            this.txtMolinoProductor.Size = new System.Drawing.Size(43, 20);
+            this.txtMolinoProductor.TabIndex = 3;
+            this.txtMolinoProductor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label7
+            // label5
             // 
-            this.label7.Location = new System.Drawing.Point(61, 83);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 30);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Temperatura promedio de cocción de Arepas asadas";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(117, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Molino más productor:";
             // 
             // Form1
             // 
@@ -247,11 +247,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtInformacion;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTemPromedio;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMasArepasMolino;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMolinoProductor;
         private System.Windows.Forms.Label label5;
     }
 }

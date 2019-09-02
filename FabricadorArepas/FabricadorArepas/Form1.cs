@@ -28,6 +28,10 @@ namespace FabricadorArepas
             txtTotalCongeladas.Text = elCreador.TotalCongeladas.ToString();
             txtTotalProcesadas.Text = elCreador.TotalProcesadas.ToString();
 
+            txtTemPromedio.Text = elCreador.TemperaturaPromedio;
+            txtMolinoProductor.Text = elCreador.MolinoModa.ToString();
+            txtMasArepasMolino.Text = elCreador.CantidadArepasMolinoModa.ToString();
+
             txtInformacion.Text = elCreador.ObtieneTotalInfo();
         }
     }
