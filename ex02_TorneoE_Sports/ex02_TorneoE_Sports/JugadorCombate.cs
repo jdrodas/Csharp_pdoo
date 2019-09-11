@@ -24,25 +24,11 @@ namespace ex02_TorneoE_Sports
         public int BatallasGanadas
         {
             get { return batallasGanadas; }
-            set
-            {
-                if (value >= 0 && value <= 100)
-                    batallasGanadas = value;
-                else
-                    batallasGanadas = 0;
-            }
         }
 
         public int NivelEnergia
         {
             get { return nivelEnergia; }
-            set
-            {
-                if (value >= 0 && value <= 100)
-                    nivelEnergia = value;
-                else
-                    nivelEnergia = 0;
-            }
         }
 
         public override void EvaluaEntusiasmo()

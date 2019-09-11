@@ -24,25 +24,11 @@ namespace ex02_TorneoE_Sports
         public int CarrerasGanadas
         {
             get { return carrerasGanadas; }
-            set
-            {
-                if (value >= 0 && value <= 20)
-                    carrerasGanadas = value;
-                else
-                    carrerasGanadas = 0;
-            }
         }
 
         public int KmsRecorridos
         {
             get { return kmsRecorridos; }
-            set
-            {
-                if (value >= 0 && value <= 1000)
-                    kmsRecorridos = value;
-                else
-                    kmsRecorridos = 0;
-            }
         }
 
         public override void EvaluaEntusiasmo()

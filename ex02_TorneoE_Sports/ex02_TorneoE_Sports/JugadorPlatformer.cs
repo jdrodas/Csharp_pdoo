@@ -24,25 +24,11 @@ namespace ex02_TorneoE_Sports
         public int NivelesAlcanzados
         {
             get { return nivelesAlcanzados; }
-            set
-            {
-                if (value >= 0 && value <= 24)
-                    nivelesAlcanzados = value;
-                else
-                    nivelesAlcanzados = 0;
-            }
         }
 
         public int CantidadRecompensas
         {
             get { return cantidadRecompensas; }
-            set
-            {
-                if (value >= 0 && value <= 1000)
-                    cantidadRecompensas = value;
-                else
-                    cantidadRecompensas = 0;
-            }
         }
 
         public override void EvaluaEntusiasmo()

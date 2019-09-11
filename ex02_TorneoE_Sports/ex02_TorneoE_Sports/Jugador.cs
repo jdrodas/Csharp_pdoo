@@ -27,13 +27,11 @@ namespace ex02_TorneoE_Sports
         public string Facultad
         {
             get { return facultad; }
-            set { facultad = value; }
         }
 
         public string Torneo
         {
             get { return torneo; }
-            set { torneo = value; }
         }
 
         public bool EsEntusiasta
