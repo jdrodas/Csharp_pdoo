@@ -39,27 +39,30 @@ namespace adoo_ps_FabricaAbstracta
 
         private Continente SeleccionaContinente(string nombreContinente)
         {
-            //Definimos predeterminadamente, injustificadamente, Africa como el continente inicial
-            //Cambia si hay otro valor diferente
-            Continente resultado = new ContinenteAfrica();
-            resultado.Nombre = "Africa";
+            Continente resultado;
 
-            if (nombreContinente == "Africa")
+            switch (nombreContinente)
             {
-                resultado = new ContinenteAfrica();
-                resultado.Nombre = "Africa";
-            }
+                case "Africa":
+                    resultado = new ContinenteAfrica();
+                    resultado.Nombre = "Africa";
+                    break;
 
-            if (nombreContinente == "Asia")
-            {
-                resultado = new ContinenteAsia();
-                resultado.Nombre = "Asia";
-            }
+                case "Asia":
+                    resultado = new ContinenteAsia();
+                    resultado.Nombre = "Asia";
+                    break;
 
-            if (nombreContinente == "Oceanía")
-            {
-                resultado = new ContinenteOceania();
-                resultado.Nombre = "Oceanía";
+                case "Oceanía":
+                    resultado = new ContinenteOceania();
+                    resultado.Nombre = "Oceanía";
+                    break;
+
+                // De manera predeterminada, injustificada y arbitraria, asignamos el continente Africa
+                default:
+                    resultado = new ContinenteAfrica();
+                    resultado.Nombre = "Africa";
+                    break;
             }
 
             return resultado;
