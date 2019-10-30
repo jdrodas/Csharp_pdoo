@@ -30,24 +30,23 @@ namespace poo_ps_CadenaResponsabilidad
 
         public void AsignaValoresEjecutivo(string tipoEjecutivo, string nombre, int monto)
         {
-            if (tipoEjecutivo == "Coordinador")
+            switch (tipoEjecutivo)
             {
-                elCoordinador.Nombre = nombre;
-                elCoordinador.Monto = monto;
-            }
+                case "Coordinador":
+                    elCoordinador.Nombre = nombre;
+                    elCoordinador.Monto = monto;
+                    break;
 
-            if (tipoEjecutivo == "Director")
-            {
-                elDirector.Nombre = nombre;
-                elDirector.Monto = monto;
-            }
+                case "Director":
+                    elDirector.Nombre = nombre;
+                    elDirector.Monto = monto;
+                    break;
 
-            if (tipoEjecutivo == "Presidente")
-            {
-                elPresidente.Nombre = nombre;
-                elPresidente.Monto = monto;
+                case "Presidente":
+                    elPresidente.Nombre = nombre;
+                    elPresidente.Monto = monto;
+                    break;
             }
-
         }
 
         //Evalua si la jerarquia es válida para aprobar pedidos
@@ -71,7 +70,7 @@ namespace poo_ps_CadenaResponsabilidad
             }
             else
             {
-                resultado = "No se han asignado valores para los montos de los ejecutivos!";
+                resultado = "No se han asignado valores o los valores son negativos para los montos de los ejecutivos!";
             }
 
             return resultado;
@@ -90,9 +89,7 @@ namespace poo_ps_CadenaResponsabilidad
                     elPedido.Valor = elValor;
                     //se le asigna al ejecutivo más bajo en la jerarquía
                     elCoordinador.ProcesaPedido(elPedido);
-
                     resultado = elPedido.Aprobador;
-
                 }
                 else
                 {
