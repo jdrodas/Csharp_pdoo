@@ -17,7 +17,6 @@ desastres de grandes proporciones.
 
 Para ello, se han instalado dispositivos de monitoreo de caudal en las principales quebradas de 
 la ciudad: 
-
 •	La Presidenta
 •	La Iguaná
 •	La Picacha
@@ -33,65 +32,124 @@ de cada una de las quebradas, esté en capacidad de generar las respectivas aler
 crítico y condición de emergencia.
 
 Requerimientos:
-
 •	Se pide que se modele este problema utilizando un Objeto “Quebrada” en cuya definición se 
     tengan los atributos de nombre, caudal y estado crítico.
-
 •	Al momento de inicializar el objeto “Quebrada”, el valor del caudal se asigna como un número 
     entero entre 0 y 100. Si el valor asignado es superior al 80% se establece el estado como crítico.
-
 •	Se debe implementar una función denominada “ValoraCondicionEmergencia” que devuelve un valor 
     booleano si se presenta las condiciones indicadas en el enunciado.
-
 •	Se debe visualizar los resultados para cada quebrada y si hay la condición emergencia para 
     la ciudad.
-
 •	Se debe implementar el control de excepciones y las validaciones para que los valores numéricos 
     ingresados por el usuario cumplan los rangos especificados.
-
 •	Se debe implementar un proyecto de pruebas unitarias que permita evaluar escenarios de ejecución 
     correcta para la función “ValoraCondicionEmergencia”
+
  */
 
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonitoreoQuebradas
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Monitoreo de quebradas en Medellín\n");
+            Console.WriteLine("Programa para monitorear Quebradas");
+
+            string[] nombresQuebradas = { "La Picacha",
+                                          "La Presidenta",
+                                          "Santa Elena",
+                                          "La Hueso",
+                                          "La Iguaná" };
 
             Console.WriteLine("Se vigilarán las siguientes quebradas:");
 
-            string[] nombresQuebradas = { "La Presidenta", "La Iguaná", "La Picacha", "Santa Elena", "La Hueso" };
+            foreach (string nombreCharquito in nombresQuebradas)
+                Console.WriteLine($"- {nombreCharquito}");
 
-            foreach (string unNombre in nombresQuebradas)
-                Console.WriteLine($"-{unNombre}");
-
-            //Aqui declaramos un arreglo de quebradas con tantas posiciones como nombres tengamoss definidos
+            //Aqui definimos el arreglo de quebradas
             Quebrada[] lasQuebradas = new Quebrada[nombresQuebradas.Length];
 
-            //Aqui inicializamos el arreglo, inicializando cada posición con una instancia de la clase quebrada
-            //Luego, a cada posición le podemos asignar el atributo de nombre a través de la propiedad
+            //Aqui inicializamos el arreglo y asignamos el nombre de cada quebrada
             for (int i = 0; i < lasQuebradas.Length; i++)
             {
                 lasQuebradas[i] = new Quebrada();
                 lasQuebradas[i].Nombre = nombresQuebradas[i];
             }
 
-            //Aqui visualizamos la información de cada posición usando el método GetInfo()
+            int contadorQuebradas = 0;
+            while (contadorQuebradas < lasQuebradas.Length)
+            {
+                try
+                {
+                    Console.Write($"\nIngresa el caudal para la quebrada {lasQuebradas[contadorQuebradas].Nombre}: ");
+                    lasQuebradas[contadorQuebradas].Caudal = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\n\nInformación detallada de cada quebrada: \n");
+                    if (lasQuebradas[contadorQuebradas].Caudal >= 0 && lasQuebradas[contadorQuebradas].Caudal <= 100)
+                        contadorQuebradas++;
+                    else
+                        Console.WriteLine("El dato de caudal debe estar entre [0;100]. Intenta nuevamente!");
+                }
+                catch (FormatException elError)
+                {
+                    Console.WriteLine("El dato de caudal debe ser número entero. Intenta nuevamente!");
+                    Console.WriteLine($"Error: {elError.Message}");
+                }
+            }
+
+            //Aqui visualizamos la información ingresada
+            Console.WriteLine("\n\nLos datos de las quebradas son:");
 
             foreach (Quebrada unaQuebrada in lasQuebradas)
-                Console.WriteLine(unaQuebrada.GetInfo());
+                Console.WriteLine($"- {unaQuebrada.GetInfo()}");
+
+            //Aqui evaluamos si hay condición de emergencia
+            if (EvaluaCondicionEmergencia(lasQuebradas))
+            {
+                Console.WriteLine("\n*** ALERTAAAAAA *****");
+                Console.WriteLine("Tres o más quebradas están en estado crítico!");
+            }
+            else
+            {
+                Console.WriteLine("\nTodavía no hay alerta. Favor estar atento!");
+            }
+        }
+
+        /// <summary>
+        /// Identifica si se presenta condición de emergencia en la ciudad
+        /// </summary>
+        /// <param name="arregloQuebradas">Las quebradas que son monitoreadas</param>
+        /// <returns>Hay o no condición de emergencia</returns>
+        public static bool EvaluaCondicionEmergencia(Quebrada[] arregloQuebradas)
+        {
+            //Condición de emergencia se da cuando tres o más quebradas
+            //Están en estado crítico
+            bool resultado = false;
+
+            // Identificamos cuantas quebradas están en estado crítico
+            int totalCriticas = TotalQuebradasCriticas(arregloQuebradas);
+
+            if (totalCriticas >= 3)
+                resultado = true;
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Cuenta cuantas de las quebradas están en estado crítico
+        /// </summary>
+        /// <param name="arregloQuebradas">Las quebradas</param>
+        /// <returns>Total Quebradas criticas</returns>
+        public static int TotalQuebradasCriticas(Quebrada[] arregloQuebradas)
+        {
+            int totalCriticas = 0;
+
+            foreach (Quebrada unaQuebrada in arregloQuebradas)
+                if (unaQuebrada.EstadoCritico == "SI")
+                    totalCriticas++;
+
+            return totalCriticas;
         }
     }
 }

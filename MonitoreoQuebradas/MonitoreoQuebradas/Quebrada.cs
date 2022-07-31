@@ -1,37 +1,35 @@
-﻿using System;
-
-
-namespace MonitoreoQuebradas
+﻿namespace MonitoreoQuebradas
 {
     public class Quebrada
     {
-        //Zona de atrrributos
+
+        //Definición de Atributos
         private string nombre;
         private int caudal;
         private bool estadoCritico;
 
-        //Zona de Constructor de la clase
+        //Definición de Constructor de la clase
         public Quebrada()
         {
             nombre = "";
             caudal = 0;
             estadoCritico = false;
         }
-        
-        //Zona de propiedades
-        
+
+        //Definición de Metodos
+
         /// <summary>
-        /// Obtiene o establece el valor del nombre de la quebrada
+        /// Obtiene o establece el nombre de la quebrada
         /// </summary>
+
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
 
-
         /// <summary>
-        /// Obtiene o establece el valor del caudal de la quebrada
+        /// Obtiene o establece el caudal de la quebrada
         /// </summary>
         public int Caudal
         {
@@ -39,31 +37,39 @@ namespace MonitoreoQuebradas
             set
             {
                 caudal = value;
-
+                //Si el caudal es superior a 80, la quebrada está en estado crítico
                 if (caudal > 80)
                     estadoCritico = true;
                 else
                     estadoCritico = false;
             }
         }
-
         /// <summary>
-        /// Obtiene el valor del atributo de estado crítico de la quebrada
+        /// Obtiene el valor del estado critico de la quebrada
         /// </summary>
-        public bool EstadoCritico
+
+        public string EstadoCritico
         {
-            get { return estadoCritico; }
-            
+            get
+            {
+                if (estadoCritico)
+                    return "SI";
+                else
+                    return "NO";
+            }
         }
 
         /// <summary>
-        /// Obtiene la información general de la quebrada
+        /// Obtiene toda la información de la quebrada
         /// </summary>
-        /// <returns>La información de la quebrada</returns>
+        /// <returns>string con los valores de los atributos de la quebrada</returns>
         public string GetInfo()
         {
-            string informacion = $"Nombre: {nombre}, Caudal: {caudal}%, estado crítico: {estadoCritico}";
+            string informacion = $"Nombre: {nombre} -" +
+                                 $"Caudal: {caudal} -" +
+                                 $"Estado Crítico? {EstadoCritico}";
             return informacion;
         }
     }
 }
+
