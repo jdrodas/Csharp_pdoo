@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaGomita_OO", "TiendaGomita_OO\TiendaGomita_OO.csproj", "{7F16B581-0DF6-41C8-950E-85726628E8CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasPedidoGomitas", "PruebasPedidoGomitas\PruebasPedidoGomitas.csproj", "{492ED115-8BA6-4E3A-915E-D1F010B7909C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F16B581-0DF6-41C8-950E-85726628E8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F16B581-0DF6-41C8-950E-85726628E8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F16B581-0DF6-41C8-950E-85726628E8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F16B581-0DF6-41C8-950E-85726628E8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492ED115-8BA6-4E3A-915E-D1F010B7909C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492ED115-8BA6-4E3A-915E-D1F010B7909C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492ED115-8BA6-4E3A-915E-D1F010B7909C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492ED115-8BA6-4E3A-915E-D1F010B7909C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8730B3A4-A2A7-4180-B4CD-DD9A4A4F2065}
+	EndGlobalSection
+EndGlobal
