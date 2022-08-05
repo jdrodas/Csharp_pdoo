@@ -55,7 +55,7 @@ namespace ValidacionDocumento
             int totalPersonas = 5; //Personas a las que se le validará el documento
 
             Console.WriteLine("Programa para validar documentos de identidad");
-            Console.WriteLine("Se validará estructura y concordancia del documento para {0} personas", totalPersonas);
+            Console.WriteLine($"Se validará estructura y concordancia del documento para {totalPersonas} personas");
 
             //aqui declaramos el arreglo de documentos de Persona
             Documento[] losDocs = new Documento[totalPersonas];
@@ -69,7 +69,7 @@ namespace ValidacionDocumento
             {
                 try
                 {
-                    Console.WriteLine("\nIngresando información para la persona No. {0}", contadorDocs + 1);
+                    Console.WriteLine($"\nIngresando información para la persona No. {contadorDocs + 1}");
 
                     Console.Write("Género de la persona: (F)emenino o (M)ásculino: ");
                     datoGenero = Console.ReadLine().ToUpper();
@@ -117,15 +117,11 @@ namespace ValidacionDocumento
 
             for (int i = 0; i < losDocs.Length; i++)
             {
-                Console.WriteLine("Persona No. {0}, género: {1}, tipo doc: {2}, número: {3}",
-                    i + 1,
-                    losDocs[i].Genero,
-                    losDocs[i].Tipo,
-                    losDocs[i].Numero);
+                Console.WriteLine($"Persona No. {i + 1}, género: {losDocs[i].Genero}, tipo doc: {losDocs[i].Tipo}, número: {losDocs[i].Numero}");
 
                 miValidador.ElDocumento = losDocs[i];
 
-                Console.WriteLine("Resultado: {0}\n", miValidador.ResultadoValidacion);
+                Console.WriteLine($"Resultado: {miValidador.ResultadoValidacion}\n");
             }
 
             Console.WriteLine("\nFin del programa.");
