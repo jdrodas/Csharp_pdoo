@@ -19,75 +19,40 @@ namespace HerenciaFiguras
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Programa para demostrar el concepto de herencia de clases");
-            Console.WriteLine("Jerarquía de figuras geométricas cerradas");
+            Console.WriteLine("Programa para demostrar conceptos de OO");
+            Console.WriteLine("Herencia - Encapsulación - Polimorfismo\n");
 
+            //Aqui creamos la instancia de la figura invocando el constructor predeterminado
             Figura miFigura = new Figura();
 
-            Console.Write("Ingresa la coordenada X del centro de la figura: ");
-            miFigura.CentroX = int.Parse(Console.ReadLine());
+            miFigura.CentroX = 13;
+            miFigura.CentroY = -12;
 
-            Console.Write("Ingresa la coordenada Y del centro de la figura: ");
-            miFigura.CentroY = int.Parse(Console.ReadLine());
+            //Aqui creamos la instancia de la figura invocando el constructor con parámetros
+            Figura otraFigura = new Figura(23, 100);
 
-            Console.WriteLine("La figura tiene centro en las coordenadas ({0},{1})",
-                miFigura.CentroX, miFigura.CentroY);
+            Console.WriteLine($"Información de una Figura: \n{miFigura.Informacion()}\n");
+            Console.WriteLine($"Información de otra Figura: \n{otraFigura.Informacion()}");
 
+            //Aqui hacemos un circulo
+            Console.WriteLine("\n\nAhora para un circulo...\n");
+
+            //Aqui creamos la instancia del circulo invocando el constructor con parámetros
+            Circulo miCirculo = new Circulo(3, 4, 10);
+
+            //Aqui invoco el método Información del círculo que utiliza parametros por referencia
+            string datoInformacion="";
+            miCirculo.Informacion(ref datoInformacion);
+            Console.WriteLine($"Información: \n{datoInformacion}");
+            Console.WriteLine($"Area: {miCirculo.AreaFigura()}");
+
+            //Aqui hacemos un triangulo
             Console.WriteLine("\n\nAhora para un triangulo...");
 
-            Triangulo miTria = new Triangulo();
+            Triangulo miTriangulo = new Triangulo(-20, -12, 6, 8);
 
-            Console.WriteLine("Antes de inicializar, El triangulo tiene centro en las coordenadas ({0},{1})",
-                miTria.CentroX, miTria.CentroY);
-
-            Console.Write("Ingresa la coordenada X del centro del triangulo: ");
-            miTria.CentroX = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa la coordenada Y del centro del triangulo: ");
-            miTria.CentroY = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("El triangulo tiene centro en las coordenadas ({0},{1})",
-                miTria.CentroX, miTria.CentroY);
-
-
-            Console.WriteLine("\n\nAhora para otro triangulo...");
-            int x, y, a, b;
-            string t;
-            
-            Console.Write("Ingresa la coordenada X del centro del triangulo: ");
-            x = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa la coordenada Y del centro del triangulo: ");
-            y = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa la base del triangulo: ");
-            b = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa la altura del triangulo: ");
-            a = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa el tipo del triangulo: ");
-            t = Console.ReadLine();
-
-            Triangulo otroTri = new Triangulo(t,a,b,x,y);
-
-            Console.WriteLine(otroTri.Info());
-            Console.WriteLine(otroTri.ObtieneArea());
-
-            Console.WriteLine("\n\nAhora para un circulo...");
-
-            Circulo miCi = new Circulo();
-
-            Console.Write("Ingresa la coordenada X del centro del circulo: ");
-            miCi.CentroX = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa la coordenada Y del centro del circulo: ");
-            miCi.CentroY = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingresa el valor del radio del circulo: ");
-            miCi.Radio = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(miCi.Info());
+            Console.WriteLine("Información: \n" + miTriangulo.Informacion());
+            Console.WriteLine(miTriangulo.AreaFigura());
         }
     }
 }

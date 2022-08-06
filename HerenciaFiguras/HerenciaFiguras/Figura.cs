@@ -3,16 +3,29 @@
 
 namespace HerenciaFiguras
 {
-    class Figura
+    public class Figura
     {
-        //Atributos de la clase
-        protected int centroX, centroY;
+        //Atributos
+        protected int _centroX, _centroY;
 
-        //Constructor de la clase
+        /// <summary>
+        /// Constructor Predeterminado de la clase
+        /// </summary>
         public Figura()
         {
-            centroX = 0;
-            centroY = 0;
+            _centroX = 0;
+            _centroY = 0;
+        }
+
+        /// <summary>
+        /// Sobrecarga del constructor con parametros
+        /// </summary>
+        /// <param name="centroX">Componente x del centro</param>
+        /// <param name="centroY">Componente y del centro</param>
+        public Figura(int centroX, int centroY)
+        {
+            this._centroX = centroX;
+            this._centroY = centroY;
         }
 
         /// <summary>
@@ -20,8 +33,8 @@ namespace HerenciaFiguras
         /// </summary>
         public int CentroX
         {
-            get { return centroX; }
-            set { centroX = value; }
+            get { return _centroX; }
+            set { _centroX = value; }
         }
 
         /// <summary>
@@ -29,29 +42,27 @@ namespace HerenciaFiguras
         /// </summary>
         public int CentroY
         {
-            get { return centroY; }
-            set { centroY = value; }
+            get { return _centroY; }
+            set { _centroY = value; }
         }
 
         /// <summary>
-        /// Obtiene información sobre la figura
+        /// Obtiene la información detallada de la figura
         /// </summary>
-        /// <returns>Información sobre los párametros de la figura</returns>
-        public virtual string Info()
+        /// <returns>la información</returns>
+        public virtual string Informacion()
         {
-            string resultado = "La figura tiene centro en (" + centroX + "," + centroY + ")";
-
-            return resultado;
+            string informacion = $"Esta figura tiene centro en ({_centroX},{_centroY})";
+            return informacion;
         }
 
         /// <summary>
         /// Obtiene la información sobre el área de la figura
         /// </summary>
         /// <returns></returns>
-        public string ObtieneArea()
+        public string AreaFigura()
         {
-            string mensaje = "No hay información suficiente para calcular el área";
-            return mensaje;
+            return ("Información insuficiente para calcular el area");
         }
     }
 }

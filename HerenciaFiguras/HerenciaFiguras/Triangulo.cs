@@ -4,103 +4,86 @@ namespace HerenciaFiguras
 {
     class Triangulo : Figura
     {
-        //Atributos de la clase
-        private string v_tipo;
-        private int v_base;
-        private float v_altura;
+        private int _altura, _base;
 
         /// <summary>
-        /// Constructor básico de la clase Triángulo
+        /// Constructor predeterminado de la clase
         /// </summary>
         public Triangulo()
         {
-            v_tipo = "";
-            v_base = 0;
-            v_altura = 0;
-            centroX = 10;
-            centroY = 10;
+            _centroX = 0;
+            _centroY = 0;
+            _altura = 0;
+            _base = 0;
         }
 
         /// <summary>
-        /// Constructor de la clase con parámetros del centro
+        /// Constructor de la clase con parámetros del centro 
         /// </summary>
-        /// <param name="p_cx"> Parámetro x</param>
-        /// <param name="p_cy"> Parámetro y</param>
-        public Triangulo(int p_cx, int p_cy)
+        /// <param name="p_centroX"></param>
+        /// <param name="p_centroY"></param>
+        /// <param name="p_base"></param>
+        /// <param name="p_altura"></param>
+        public Triangulo(int p_centroX, int p_centroY, int p_base, int p_altura)
         {
-            v_tipo = "";
-            v_base = 0;
-            v_altura = 0;
-            centroX = p_cx;
-            centroY = p_cy;
-        }
-        /// <summary>
-        /// Constructor con datos de tipo, centro, altura y base
-        /// </summary>
-        /// <param name="p_tipo">tipo de triangulo</param>
-        /// <param name="p_altura">altura del triangulo</param>
-        /// <param name="p_base">base del triangulo</param>
-        /// <param name="p_cx">coordenada x del centro</param>
-        /// <param name="p_cy">coordenada y del centro</param>
-        public Triangulo(string p_tipo, int p_altura, int p_base, int p_cx, int p_cy)
-        {
-            v_tipo = p_tipo;
-            v_base = p_base;
-            v_altura = p_altura;
-            centroX = p_cx;
-            centroY = p_cy;
-        }
-
-        /// <summary>
-        /// Obtiene o establece el componente en tipo de triángulo
-        /// </summary>
-        public string V_tipo
-        {
-            get { return v_tipo; }
-            set { v_tipo = value; }
+            _centroX = p_centroX;
+            _centroY = p_centroY;
+            _base = p_base;
+            _altura = p_altura;
         }
 
         /// <summary>
         /// Obtiene o establece el valor de la base del triángulo
         /// </summary>
-        public int V_base
+        public int Base
         {
-            get { return v_base; }
-            set { v_base = value; }
+            get { return _base; }
+            set { _base = value; }
         }
 
         /// <summary>
         /// Obtiene o establece el valor de la altura del triángulo
         /// </summary>
-        public float V_altura
+        public int Altura
         {
-            get { return v_altura; }
-            set { v_altura = value; }
+            get { return _altura; }
+            set { _altura = value; }
         }
 
         /// <summary>
         /// Obtiene la información general sobre el triángulo
         /// </summary>
         /// <returns></returns>
-        public override string Info()
-        {
-            string resultado = base.Info() +
-                "\nEl triángulo tiene base " + v_base +
-                " y altura " + v_altura + "\nEs de tipo: " + v_tipo ;
+        //public override string Info()
+        //{
+        //    string resultado = base.Info() +
+        //        "\nEl triángulo tiene base " + v_base +
+        //        " y altura " + v_altura + "\nEs de tipo: " + v_tipo ;
 
-            return resultado;
+        //    return resultado;
+        //}
+
+
+        public override string Informacion()
+        {
+            string informacion = $"Este Triangulo tiene centro en ({_centroX},{_centroY})," +
+                $" tiene base: {_base} y altura: {_altura}";
+            return informacion;
         }
+
 
         /// <summary>
         /// Obtiene el área del triángulo
         /// </summary>
         /// <returns>frase describiendo el resultado</returns>
-        public new string ObtieneArea()
-        {
-            float area = (1f * v_base * v_altura) / 2;
+        public new string AreaFigura()
 
-            string mensaje = "El area del triángulo es " + area.ToString("0.00");
-            return mensaje;
+        {
+            //Para un triangulo
+            float area = (1f * _base * _altura) / 2;
+
+            string informacionArea = $"Area: {area.ToString("0.000")}";
+            return informacionArea;
         }
     }
 }
