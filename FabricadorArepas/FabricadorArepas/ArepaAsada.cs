@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FabricadorArepas
+﻿namespace FabricadorArepas
 {
-    class ArepaAsada:Arepa, IAsable
+    public class ArepaAsada:Arepa, IAsable
     {
         private int temperaturaCoccion;
 
@@ -18,12 +12,14 @@ namespace FabricadorArepas
         public ArepaAsada(string tipoDeMasa,
                               int diasCaducidad,
                               int numeroMolino,
-                              int temperaturaCoccion)
+                              int temperaturaCoccion,
+                              string tipoArepa)
         {
             this.tipoDeMasa = tipoDeMasa;
             this.diasCaducidad = diasCaducidad;
             this.numeroMolino = numeroMolino;
             this.temperaturaCoccion = temperaturaCoccion;
+            this.tipoArepa = tipoArepa;
         }
 
         public int TemperaturaCoccion
@@ -40,10 +36,10 @@ namespace FabricadorArepas
 
         public override string ObtieneInformacion()
         {
-            string info = "Esta arepa fue asada. \n" +
+            string info = $"Esta arepa fue {tipoArepa}. \n" +
                 $"La masa es de {tipoDeMasa} \n" +
                 $"Salió del molino {numeroMolino} \n" +
-                $"Dias caducidad: {diasCaducidad}" +
+                $"Dias caducidad: {diasCaducidad} \n" +
                 InfoCoccion();
             return info;
         }

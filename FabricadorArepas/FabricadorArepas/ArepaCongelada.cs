@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FabricadorArepas
+﻿namespace FabricadorArepas
 {
-    class ArepaCongelada : Arepa, ICongelable
+    public class ArepaCongelada : Arepa, ICongelable
     {
         private int diasMaximosCongelado;
 
@@ -18,8 +12,9 @@ namespace FabricadorArepas
         public ArepaCongelada(string tipoDeMasa,
                               int diasCaducidad,
                               int numeroMolino,
-                              int diasMaximosCongelado) : base(
-                                  tipoDeMasa, diasCaducidad, numeroMolino)
+                              int diasMaximosCongelado,
+                              string tipoArepa) : base(
+                                  tipoDeMasa, diasCaducidad, numeroMolino, tipoArepa)
         {
             this.diasMaximosCongelado = diasMaximosCongelado;
         }
@@ -38,10 +33,10 @@ namespace FabricadorArepas
 
         public override string ObtieneInformacion()
         {
-            string info = "Esta arepa fue congelada. \n" +
+            string info = $"Esta arepa fue {tipoArepa}. \n" +
                 $"La masa es de {tipoDeMasa} \n" +
                 $"Salió del molino {numeroMolino} \n" +
-                $"Dias caducidad: {diasCaducidad}" +
+                $"Dias caducidad: {diasCaducidad} \n" +
                 InfoCongelacion();
             return info;
         }
