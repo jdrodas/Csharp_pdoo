@@ -34,3 +34,14 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 
 >### [HerenciaFiguras](https://github.com/jdrodas/Csharp_pdoo/tree/master/HerenciaFiguras)
 >>- Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
+
+
+# ---------------------------------------
+
+## Soluciones a examenes anteriores
+
+### Examen No. 1
+
+>### [ex01_UsoAlternativoOrquideas](https://github.com/jdrodas/Csharp_pdoo/tree/master/ex01_UsoAlternativoOrquideas)
+>>- Revisión de conceptos básicos de programación orientada a objetos
+>>- Implementación de proyecto de pruebas unitarias con MSTEST
