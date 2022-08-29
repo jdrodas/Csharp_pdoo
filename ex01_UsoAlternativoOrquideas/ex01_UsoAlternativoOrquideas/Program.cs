@@ -90,7 +90,7 @@ namespace ex01_UsoAlternativoOrquideas
             foreach (string utilizacion in posiblesUtilizaciones)
                 Console.WriteLine($" - {utilizacion}");
 
-            Console.Write("\nGenerando 1000 orquídeas...");
+            Console.Write("\nGenerando 1000 orquídeas... ");
 
             Orquidea[] lasOrquideas = new Orquidea[1000];
             Random aleatorio = new Random();
@@ -107,15 +107,8 @@ namespace ex01_UsoAlternativoOrquideas
 
             Console.WriteLine("Listo!");
 
-            Console.WriteLine("\n\nOrquídeas generadas:");
-
-            int j = 1;
-            foreach (Orquidea unaOrquidea in lasOrquideas)
-            {
-                Console.WriteLine($"No. {j}: \n" + unaOrquidea.InformacionOrquidea());
-                j++;
-            }
-
+            //Console.WriteLine("\n\nOrquídeas generadas:");
+            //VisualizaDetalleOrquideas(lasOrquideas);
 
             //Aqui calculamos el mes de floración más exitoso
 
@@ -261,16 +254,14 @@ namespace ex01_UsoAlternativoOrquideas
                             totalesMesesRegion[i, j]++;
 
             //Aqui visualizamos resultados -- Depuración
-            /*
-            Console.WriteLine("*** Totales por región y mes:\n");
-            for (int i = 0; i < regionesOrigen.Length; i++)
-                for (int j = 0; j < mesesFloracion.Length; j++)
-                {
-                    Console.WriteLine($"Region: {regionesOrigen[i]}, mes: {mesesFloracion[j]}, Valor Obtenido: {totalesMesesRegion[i, j]}");
-                }
+            //Console.WriteLine("*** Totales por región y mes:\n");
+            //for (int i = 0; i < regionesOrigen.Length; i++)
+            //    for (int j = 0; j < mesesFloracion.Length; j++)
+            //    {
+            //        Console.WriteLine($"Region: {regionesOrigen[i]}, mes: {mesesFloracion[j]}, Valor Obtenido: {totalesMesesRegion[i, j]}");
+            //    }
 
-            Console.ReadKey();
-            */
+            //Console.ReadKey();
 
             return totalesMesesRegion;
         }
@@ -304,18 +295,31 @@ namespace ex01_UsoAlternativoOrquideas
                             totalesUtilizacionPorRegion[i, j]++;
 
             //Aqui visualizamos resultados -- Depuración
-            /*
-            Console.WriteLine("*** Totales por región y Utilizacion:\n");
-            for (int i = 0; i < regionesOrigen.Length; i++)
-                for (int j = 0; j < posiblesUtilizaciones.Length; j++)
-                {
-                    Console.WriteLine($"Region: {regionesOrigen[i]}, Utilización: {posiblesUtilizaciones[j]}, Valor Obtenido: {totalesUtilizacionPorRegion[i, j]}");
-                }
 
-            Console.ReadKey();
-            */
+            //Console.WriteLine("*** Totales por región y Utilizacion:\n");
+            //for (int i = 0; i < regionesOrigen.Length; i++)
+            //    for (int j = 0; j < posiblesUtilizaciones.Length; j++)
+            //    {
+            //        Console.WriteLine($"Region: {regionesOrigen[i]}, Utilización: {posiblesUtilizaciones[j]}, Valor Obtenido: {totalesUtilizacionPorRegion[i, j]}");
+            //    }
+
+            //Console.ReadKey();
 
             return totalesUtilizacionPorRegion;
+        }
+
+        /// <summary>
+        /// Visualiza en Consola el detalle de cada orquidea
+        /// </summary>
+        /// <param name="lasOrquideas">Arreglo de Orquideas</param>
+        public static void VisualizaDetalleOrquideas(Orquidea[] lasOrquideas)
+        {
+            int j = 1;
+            foreach (Orquidea unaOrquidea in lasOrquideas)
+            {
+                Console.WriteLine($"No. {j}: \n" + unaOrquidea.InformacionOrquidea());
+                j++;
+            }
         }
     }
 }
