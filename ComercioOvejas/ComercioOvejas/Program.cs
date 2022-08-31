@@ -26,9 +26,8 @@ de lana.
     Solo se aprovechará el 20% del peso de la oveja como cantidad de lana 
     producida.
 •	Se ha determinado que la producción lechera de las hembras debe ser 
-    mínimo de 1200 ml de los cuales 800 ml deben ser para alimentación 
-    de las crías. Rango de producción lechera entre 0.75 kg y 3.5 kg. 
-    Densidad de la leche: 1.046 mg/ml.  
+    mínimo de 1.200 lts de los cuales 0.8 lts deben ser para alimentación 
+    de las crías. Rango de producción lechera entre 2 lts y 6 lts. 
 
 La cooperativa definió precios de venta de $1500 por litro de leche y $800 
 por Kg de lana. La cooperativa cobrará 5% de comisión por gestionar la 
@@ -52,7 +51,7 @@ namespace ComercioOvejas
         static void Main(string[] args)
         {
             Console.WriteLine("Comercio de OOOvejas");
-            Console.WriteLine("Se simularán 1000 ovejas para identificar su producción");
+            Console.WriteLine("Se simularán 1000 ovejas para identificar su producción\n");
 
             Oveja[] lasOvejas= new Oveja[1000];
             Random aleatorio = new Random();
@@ -67,11 +66,13 @@ namespace ComercioOvejas
 
                 if (elSexo == "Macho")
                 {
-                    lasOvejas[i] = new Oveja();
-                    lasOvejas[i].Edad = aleatorio.Next(0,100);
-                    lasOvejas[i].Peso = aleatorio.Next(20,100);
-                    lasOvejas[i].Sexo = elSexo;
-                    lasOvejas[i].CantidadLana = aleatorio.Next(1,10);
+                    lasOvejas[i] = new OvejaLanuda()
+                    {
+                        Edad = aleatorio.Next(0, 100),
+                        Peso = aleatorio.Next(20, 100),
+                        Sexo = elSexo,
+                        CantidadLana = aleatorio.Next(1, 10)
+                    };
                 }
                 else
                 {
@@ -80,19 +81,63 @@ namespace ComercioOvejas
                         Edad = aleatorio.Next(0, 100),
                         Peso = aleatorio.Next(20, 100),
                         Sexo = elSexo,
-                        CantidadLana = 0,
-                        LitrosLeche = aleatorio.Next(1, 10)
+                        LitrosLeche = aleatorio.Next(1, 6)
                     };
                 }
             }
 
-            //Aqui visualizamos el arreglo de ovejas
-            int contadorOvejas = 1;
+            //Aqui visualizamos El total por tipo de ovejas
+            int totalOvejasLanudas = 0, totalOvejasLecheras = 0;
+            int totalOvejasLanudasAptas = 0, totalOvejasLecherasAptas = 0;
+            float porcentajeLanudasAptas, porcentajeLecherasAptas;
+
             foreach (Oveja unaOveja in lasOvejas)
             {
-                Console.WriteLine($"Oveja No. {contadorOvejas}\n{unaOveja.ToString()}");
-                contadorOvejas++;
+                if (unaOveja.EsApta)
+                    if (unaOveja.Sexo == "Macho")
+                        totalOvejasLanudasAptas++;
+                    else
+                        totalOvejasLecherasAptas++;
+
+                if (unaOveja.Sexo == "Hembra")
+                    totalOvejasLecheras++;
+                else
+                    totalOvejasLanudas++;
             }
+
+            porcentajeLanudasAptas = ((float)totalOvejasLanudasAptas/ totalOvejasLanudas)*100;
+            porcentajeLecherasAptas = ((float)totalOvejasLecherasAptas / totalOvejasLecheras) *100;
+
+            Console.WriteLine($"Del total de {totalOvejasLanudas} ovejas lanudas, el {porcentajeLanudasAptas.ToString("0.00")}% son aptas");
+            Console.WriteLine($"Del total de {totalOvejasLecheras} ovejas lecheras, el {porcentajeLecherasAptas.ToString("0.00")}% son aptas\n");
+
+            //Aqui totalizamos producción:
+            int totalLecheProducida = 0, totalLanaProducida = 0;
+
+            for (int i = 0; i < lasOvejas.Length; i++)
+            {
+                if (lasOvejas[i].EsApta)
+                    if (lasOvejas[i].Sexo == "Macho")
+                        totalLanaProducida += lasOvejas[i].Produccion();
+                    else
+                        totalLecheProducida += lasOvejas[i].Produccion();
+            }
+
+            Console.WriteLine($"La producción total de leche es {totalLecheProducida} Lts");
+            Console.WriteLine($"La producción total de lana es {totalLanaProducida} Kgs\n");
+
+            //Aqui calculamos precios de venta y comisiones
+            float valorVentaLeche = 0, valorVentaLana=0;
+            float comisionVentaLeche = 0, comisionVentaLana = 0;
+
+            comisionVentaLana = totalLanaProducida * 800 * 0.05f;
+            comisionVentaLeche = totalLecheProducida * 1500 * 0.05f;
+
+            valorVentaLeche = (totalLecheProducida * 1500) - comisionVentaLeche;
+            valorVentaLana = (totalLanaProducida * 800) - comisionVentaLana;
+
+            Console.WriteLine($"El granjero obtuvo ${valorVentaLana} por lana y ${valorVentaLeche} de leche");
+            Console.WriteLine($"La Cooperativa ganó ${comisionVentaLana} por lana y ${comisionVentaLeche} por leche\n");
         }
     }
 }

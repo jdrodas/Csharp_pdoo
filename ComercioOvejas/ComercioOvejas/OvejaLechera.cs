@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ComercioOvejas
+﻿namespace ComercioOvejas
 {
     public class OvejaLechera : Oveja
     {
@@ -15,18 +9,21 @@ namespace ComercioOvejas
             litrosLeche = 0;
         }
 
-        public OvejaLechera(int peso, 
-                            int edad, 
-                            string sexo, 
-                            int litrosLeche, 
-                            int cantidadLana): base(edad,peso,sexo,cantidadLana)
+        public OvejaLechera(int peso,
+                            int edad,
+                            string sexo,
+                            int litrosLeche) : base(edad, peso, sexo)
         {
             this.litrosLeche = litrosLeche;
         }
         public int LitrosLeche
         {
-            get { return litrosLeche; } 
-            set { litrosLeche = value; }    
+            get { return litrosLeche; }
+            set
+            {
+                litrosLeche = value;
+                EvaluaAptitud();
+            }
         }
 
         public override string ToString()
@@ -34,8 +31,22 @@ namespace ComercioOvejas
             string resultado = base.ToString();
 
             resultado += $"Produce {litrosLeche} litros de leche\n";
-            
+
             return resultado;
+        }
+
+        public override void EvaluaAptitud()
+        {
+            if (edad >= 24 && edad <= 84 && peso >= 35 && litrosLeche >= 2)
+                esApta = true;
+        }
+
+        public override int Produccion()
+        {
+            if (esApta)
+                return litrosLeche;
+            else
+                return 0;
         }
     }
 }

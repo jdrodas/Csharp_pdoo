@@ -1,52 +1,67 @@
-﻿
-namespace ComercioOvejas
+﻿namespace ComercioOvejas
 {
-    public class Oveja
+    public abstract class Oveja
     {
         protected int edad;
         protected int peso;
         protected string sexo;
-        protected int cantidadLana;
+        protected bool esApta;
+
 
         public Oveja()
         {
             edad= 0;
             peso= 0;
             sexo = "";
-            cantidadLana = 0;
+            esApta= false;
         }
 
-        public Oveja(int edad, int peso, string sexo, int cantidadLana)
+        public Oveja(int edad, int peso, string sexo)
         {
             this.edad = edad;
             this.peso = peso;
             this.sexo = sexo;
-            this.cantidadLana = cantidadLana;
         }
 
         public int Edad
         {
             get { return edad; }
-            set { edad = value; }
+            set 
+            {
+                edad = value;
+                EvaluaAptitud();
+            }
         }
 
         public int Peso
         {
             get { return peso;}
-            set { peso = value; }
+            set
+            {
+                peso = value;
+                EvaluaAptitud();
+            }
         }
 
         public string Sexo
         {
             get { return sexo; }
-            set { sexo = value; }
+            set
+            {
+                sexo = value;
+                EvaluaAptitud();
+            }
         }
 
-        public int CantidadLana
+        public bool EsApta
         {
-            get { return cantidadLana; }
-            set { cantidadLana = value; }
+            get { return esApta; }
         }
+
+        public abstract void EvaluaAptitud();
+
+        public abstract int Produccion();
+
 
         public override string ToString()
         {
@@ -54,10 +69,9 @@ namespace ComercioOvejas
                 $"tiene {edad} meses de edad\n" +
                 $"pesa {peso} kgs\n";
 
-            if (sexo == "Macho")
-                informacion += $"Tiene {cantidadLana} kgs de lana\n";
-
             return informacion;
         }
+
+
     }
 }
