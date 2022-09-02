@@ -31,12 +31,15 @@
             return resultado;
         }
 
-        public override int Produccion()
+        public override int Produccion
         {
-            if (esApta)
-                return cantidadLana;
-            else
-                return 0;
+            get
+            {
+                if (esApta)
+                    return cantidadLana;
+                else
+                    return 0;
+            }            
         }
         public override void EvaluaAptitud()
         {

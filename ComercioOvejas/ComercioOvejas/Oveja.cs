@@ -60,7 +60,10 @@
 
         public abstract void EvaluaAptitud();
 
-        public abstract int Produccion();
+        public abstract int Produccion
+        {
+            get;
+        }
 
 
         public override string ToString()

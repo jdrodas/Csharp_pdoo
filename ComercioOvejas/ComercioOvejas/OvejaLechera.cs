@@ -41,12 +41,16 @@
                 esApta = true;
         }
 
-        public override int Produccion()
+        public override int Produccion
         {
-            if (esApta)
-                return litrosLeche;
-            else
-                return 0;
+            get
+            {
+                if (esApta)
+                    return litrosLeche;
+                else
+                    return 0;
+            }
+
         }
     }
 }

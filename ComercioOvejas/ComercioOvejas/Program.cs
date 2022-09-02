@@ -118,9 +118,9 @@ namespace ComercioOvejas
             {
                 if (lasOvejas[i].EsApta)
                     if (lasOvejas[i].Sexo == "Macho")
-                        totalLanaProducida += lasOvejas[i].Produccion();
+                        totalLanaProducida += lasOvejas[i].Produccion;
                     else
-                        totalLecheProducida += lasOvejas[i].Produccion();
+                        totalLecheProducida += lasOvejas[i].Produccion;
             }
 
             Console.WriteLine($"La producción total de leche es {totalLecheProducida} Lts");
