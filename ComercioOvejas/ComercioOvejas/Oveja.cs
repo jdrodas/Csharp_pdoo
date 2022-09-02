@@ -57,13 +57,14 @@
         {
             get { return esApta; }
         }
-
-        public abstract void EvaluaAptitud();
-
         public abstract int Produccion
         {
             get;
         }
+
+        public abstract void EvaluaAptitud();
+
+
 
 
         public override string ToString()
