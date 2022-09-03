@@ -50,6 +50,7 @@ namespace ComercioOvejas
         /// <param name="arregloOvejas"></param>
         /// <param name="precioLitroLeche">Precio del litro de leche</param>
         /// <param name="precioKiloLana">Precio del kilo de lana</param>
+        /// <param name="porcentajeComision">Porcentaje de comisión de la cooperativa</param>
         public Cooperativa(Oveja[] arregloOvejas, int precioLitroLeche, int precioKiloLana, float porcentajeComision)
         {
             lasOvejas = arregloOvejas;
@@ -74,12 +75,12 @@ namespace ComercioOvejas
         }        
 
         /// <summary>
-        /// Función que simula la recepción de 1000 ovejas
+        /// Función que simula la recepción de las ovejas
         /// </summary>
         public void RecepcionOvejas()
         {
             //Aqui validamos si las ovejas vienen asignadas
-            //Verificamos si el primer elemento no sea nulo
+            //Verificamos que el primer elemento no sea nulo
             if (lasOvejas[0] is null)
             {
                 lasOvejas = new Oveja[1000];
@@ -169,6 +170,9 @@ namespace ComercioOvejas
             comisionVentaLeche = totalLecheProducida * precioLitroLeche * porcentajeComision;
         }
 
+        /// <summary>
+        /// Calcula el valor del pago del granjero por la producción de leche y lana
+        /// </summary>
         public void CalculaPagoGranjero()
         {
             valorVentaLeche = (totalLecheProducida * 1500) - comisionVentaLeche;
