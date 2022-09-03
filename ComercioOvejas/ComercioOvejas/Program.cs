@@ -53,91 +53,25 @@ namespace ComercioOvejas
             Console.WriteLine("Comercio de OOOvejas");
             Console.WriteLine("Se simularán 1000 ovejas para identificar su producción\n");
 
-            Oveja[] lasOvejas= new Oveja[1000];
-            Random aleatorio = new Random();
+            //Aqui creamos una instancia de la clase Cooperativa
+            Cooperativa miCooperativa = new Cooperativa(new Oveja[1000], 1500, 800, 0.05f);
 
-            string[] losSexos = { "Macho", "Hembra" };
-            string elSexo = "";
+            //Recibimos las ovejas en la cooperativa
+            miCooperativa.RecepcionOvejas();
 
-            //Aqui inicializamos el arreglo de Ovejas
-            for (int i = 0; i < lasOvejas.Length; i++)
-            {
-                elSexo = losSexos[aleatorio.Next(losSexos.Length)];
+            //Identificamos las ovejas aptas
+            miCooperativa.IdentificaOvejasAptas();
 
-                if (elSexo == "Macho")
-                {
-                    lasOvejas[i] = new OvejaLanuda()
-                    {
-                        Edad = aleatorio.Next(0, 100),
-                        Peso = aleatorio.Next(20, 100),
-                        Sexo = elSexo,
-                        CantidadLana = aleatorio.Next(1, 10)
-                    };
-                }
-                else
-                {
-                    lasOvejas[i] = new OvejaLechera()
-                    {
-                        Edad = aleatorio.Next(0, 100),
-                        Peso = aleatorio.Next(20, 100),
-                        Sexo = elSexo,
-                        LitrosLeche = aleatorio.Next(1, 6)
-                    };
-                }
-            }
+            //Calculamos la producción de las ovejas aptas
+            miCooperativa.CalculaProduccion();
 
-            //Aqui visualizamos El total por tipo de ovejas
-            int totalOvejasLanudas = 0, totalOvejasLecheras = 0;
-            int totalOvejasLanudasAptas = 0, totalOvejasLecherasAptas = 0;
-            float porcentajeLanudasAptas, porcentajeLecherasAptas;
+            ////Aqui calculamos precios de venta y comisiones
+            miCooperativa.CalculaComisionVenta();
+            miCooperativa.CalculaPagoGranjero();
 
-            foreach (Oveja unaOveja in lasOvejas)
-            {
-                if (unaOveja.EsApta)
-                    if (unaOveja.Sexo == "Macho")
-                        totalOvejasLanudasAptas++;
-                    else
-                        totalOvejasLecherasAptas++;
+            //Aqui visualizamos  los resultados de la producción
+            Console.WriteLine(miCooperativa.ToString());
 
-                if (unaOveja.Sexo == "Hembra")
-                    totalOvejasLecheras++;
-                else
-                    totalOvejasLanudas++;
-            }
-
-            porcentajeLanudasAptas = ((float)totalOvejasLanudasAptas/ totalOvejasLanudas)*100;
-            porcentajeLecherasAptas = ((float)totalOvejasLecherasAptas / totalOvejasLecheras) *100;
-
-            Console.WriteLine($"Del total de {totalOvejasLanudas} ovejas lanudas, el {porcentajeLanudasAptas.ToString("0.00")}% son aptas");
-            Console.WriteLine($"Del total de {totalOvejasLecheras} ovejas lecheras, el {porcentajeLecherasAptas.ToString("0.00")}% son aptas\n");
-
-            //Aqui totalizamos producción:
-            int totalLecheProducida = 0, totalLanaProducida = 0;
-
-            for (int i = 0; i < lasOvejas.Length; i++)
-            {
-                if (lasOvejas[i].EsApta)
-                    if (lasOvejas[i].Sexo == "Macho")
-                        totalLanaProducida += lasOvejas[i].Produccion;
-                    else
-                        totalLecheProducida += lasOvejas[i].Produccion;
-            }
-
-            Console.WriteLine($"La producción total de leche es {totalLecheProducida} Lts");
-            Console.WriteLine($"La producción total de lana es {totalLanaProducida} Kgs\n");
-
-            //Aqui calculamos precios de venta y comisiones
-            float valorVentaLeche = 0, valorVentaLana=0;
-            float comisionVentaLeche = 0, comisionVentaLana = 0;
-
-            comisionVentaLana = totalLanaProducida * 800 * 0.05f;
-            comisionVentaLeche = totalLecheProducida * 1500 * 0.05f;
-
-            valorVentaLeche = (totalLecheProducida * 1500) - comisionVentaLeche;
-            valorVentaLana = (totalLanaProducida * 800) - comisionVentaLana;
-
-            Console.WriteLine($"El granjero obtuvo ${valorVentaLana} por lana y ${valorVentaLeche} de leche");
-            Console.WriteLine($"La Cooperativa ganó ${comisionVentaLana} por lana y ${comisionVentaLeche} por leche\n");
         }
     }
 }
