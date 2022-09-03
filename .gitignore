@@ -244,6 +244,7 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 ServiceFabricBackup/
 *.rptproj.bak
+*.bkp # Backup de diagramas UML
 
 # SQL Server files
 *.mdf
