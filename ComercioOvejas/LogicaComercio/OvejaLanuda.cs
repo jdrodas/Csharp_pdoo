@@ -16,7 +16,8 @@
         {
             this.cantidadLana = cantidadLana;
         }
-        public int CantidadLana
+        
+		public int CantidadLana
         {
             get { return cantidadLana; }
             set { cantidadLana = value; }
@@ -41,7 +42,8 @@
                     return 0;
             }            
         }
-        public override void EvaluaAptitud()
+        
+		public override void EvaluaAptitud()
         {
             if (edad >= 24 && edad <= 84 && peso >= 35)
                 esApta = true;

@@ -56,7 +56,8 @@
         {
             get { return esApta; }
         }
-        public abstract int Produccion
+        
+		public abstract int Produccion
         {
             get;
         }

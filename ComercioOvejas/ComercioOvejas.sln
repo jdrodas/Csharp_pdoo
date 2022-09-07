@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComercioOvejas", "ComercioOvejas\ComercioOvejas.csproj", "{992EA531-FC38-4000-BFC0-3744F74745AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaComercio", "LogicaComercio\LogicaComercio.csproj", "{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaComercio", "LogicaComercio\LogicaComercio.csproj", "{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasLogicaComercio", "PruebasLogicaComercio\PruebasLogicaComercio.csproj", "{4791A204-433A-4E38-A558-A23E5904D767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebasLogicaComercio", "PruebasLogicaComercio\PruebasLogicaComercio.csproj", "{4791A204-433A-4E38-A558-A23E5904D767}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

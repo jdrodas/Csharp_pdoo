@@ -7,30 +7,10 @@
         private float valorVentaLeche, valorVentaLana;
         private float porcentajeComision;
         private int precioLitroLeche, precioKiloLana;
-        private int totalOvejasLanudasAptas, totalOvejasLecherasAptas;
         private int totalOvejasLanudas, totalOvejasLecheras;
+        private int totalOvejasLanudasAptas, totalOvejasLecherasAptas;
         private int totalLecheProducida, totalLanaProducida;
         private float porcentajeLanudasAptas, porcentajeLecherasAptas;
-
-        public int TotalOvejasLanudasAptas
-        {
-            get { return totalOvejasLanudasAptas; }
-        }
-
-        public int TotalLecheProducida
-        {
-            get { return totalLecheProducida; }
-        }
-        
-        public float TotalComisionCooperativa
-        {
-            get { return (comisionVentaLana + comisionVentaLeche); }
-        }        
-        
-        public float TotalPagoGranjero
-        {
-            get { return (valorVentaLana + valorVentaLeche); }
-        }
 
         /// <summary>
         /// Constructor predeterminado de la clase
@@ -56,6 +36,9 @@
             comisionVentaLeche = 0;
             valorVentaLana = 0;
             valorVentaLeche = 0;
+			
+			//Invocamos el metodo para asignar el tipo de Oveja
+			RecepcionOvejas();
         }
 
         /// <summary>
@@ -86,7 +69,27 @@
             comisionVentaLeche = 0;
             valorVentaLana = 0;
             valorVentaLeche = 0;
+        } 
+
+        public int TotalOvejasLanudasAptas
+        {
+            get { return totalOvejasLanudasAptas; }
+        }
+
+        public int TotalLecheProducida
+        {
+            get { return totalLecheProducida; }
+        }
+        
+        public float TotalComisionCooperativa
+        {
+            get { return (comisionVentaLana + comisionVentaLeche); }
         }        
+        
+        public float TotalPagoGranjero
+        {
+            get { return (valorVentaLana + valorVentaLeche); }
+        }		
 
         /// <summary>
         /// Función que simula la recepción de las ovejas
@@ -125,7 +128,6 @@
                     };
                 }
             }            
-
         }
 
         /// <summary>

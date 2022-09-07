@@ -16,7 +16,8 @@
         {
             this.litrosLeche = litrosLeche;
         }
-        public int LitrosLeche
+        
+		public int LitrosLeche
         {
             get { return litrosLeche; }
             set
