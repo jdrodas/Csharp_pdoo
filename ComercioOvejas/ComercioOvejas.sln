@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComercioOvejas", "ComercioOvejas\ComercioOvejas.csproj", "{992EA531-FC38-4000-BFC0-3744F74745AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComercioOvejas", "ComercioOvejas\ComercioOvejas.csproj", "{992EA531-FC38-4000-BFC0-3744F74745AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaComercio", "LogicaComercio\LogicaComercio.csproj", "{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasLogicaComercio", "PruebasLogicaComercio\PruebasLogicaComercio.csproj", "{4791A204-433A-4E38-A558-A23E5904D767}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{992EA531-FC38-4000-BFC0-3744F74745AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{992EA531-FC38-4000-BFC0-3744F74745AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{992EA531-FC38-4000-BFC0-3744F74745AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2E69DC-0E8E-44E6-B1E7-57A0DEB42676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4791A204-433A-4E38-A558-A23E5904D767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4791A204-433A-4E38-A558-A23E5904D767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4791A204-433A-4E38-A558-A23E5904D767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4791A204-433A-4E38-A558-A23E5904D767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

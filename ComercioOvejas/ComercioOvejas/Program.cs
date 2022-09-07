@@ -43,6 +43,7 @@ cooperativa por la venta de los productos.
 
 
 using System;
+using LogicaComercio;
 
 namespace ComercioOvejas
 {

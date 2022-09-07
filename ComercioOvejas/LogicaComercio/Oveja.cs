@@ -1,4 +1,4 @@
-﻿namespace ComercioOvejas
+﻿namespace LogicaComercio
 {
     public abstract class Oveja
     {
@@ -6,7 +6,6 @@
         protected int peso;
         protected string sexo;
         protected bool esApta;
-
 
         public Oveja()
         {
@@ -64,9 +63,6 @@
 
         public abstract void EvaluaAptitud();
 
-
-
-
         public override string ToString()
         {
             string informacion = $"Esta oveja es {sexo}\n" +
@@ -75,7 +71,5 @@
 
             return informacion;
         }
-
-
     }
 }

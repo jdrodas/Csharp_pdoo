@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ComercioOvejas
+﻿namespace LogicaComercio
 {
     public class Cooperativa
     {
@@ -17,6 +11,16 @@ namespace ComercioOvejas
         private int totalOvejasLanudas, totalOvejasLecheras;
         private int totalLecheProducida, totalLanaProducida;
         private float porcentajeLanudasAptas, porcentajeLecherasAptas;
+
+        public int TotalOvejasLanudasAptas
+        {
+            get { return totalOvejasLanudasAptas; }
+        }
+
+        public int TotalLecheProducida
+        {
+            get { return totalLecheProducida; }
+        }
 
         /// <summary>
         /// Constructor predeterminado de la clase

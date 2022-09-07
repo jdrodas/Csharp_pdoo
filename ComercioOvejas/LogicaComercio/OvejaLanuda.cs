@@ -1,4 +1,4 @@
-﻿namespace ComercioOvejas
+﻿namespace LogicaComercio
 {
     public class OvejaLanuda : Oveja
     {
