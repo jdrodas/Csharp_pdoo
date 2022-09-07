@@ -50,11 +50,16 @@ namespace ComercioOvejas
     {
         static void Main(string[] args)
         {
+            int cantidadOvejas = 750;
+            int precioLeche = 2300;
+            int precioLana = 950;
+            float valorComision = 0.0623f;
+            
             Console.WriteLine("Comercio de OOOvejas");
-            Console.WriteLine("Se simularán 1000 ovejas para identificar su producción\n");
+            Console.WriteLine($"Se simularán {cantidadOvejas} ovejas para identificar su producción\n");
 
             //Aqui creamos una instancia de la clase Cooperativa
-            Cooperativa miCooperativa = new Cooperativa(new Oveja[1000], 1500, 800, 0.05f);
+            Cooperativa miCooperativa = new Cooperativa(new Oveja[cantidadOvejas], precioLeche, precioLana, valorComision);
 
             //Recibimos las ovejas en la cooperativa
             miCooperativa.RecepcionOvejas();

@@ -79,43 +79,39 @@ namespace ComercioOvejas
         /// </summary>
         public void RecepcionOvejas()
         {
-            //Aqui validamos si las ovejas vienen asignadas
-            //Verificamos que el primer elemento no sea nulo
-            if (lasOvejas[0] is null)
+            //Aqui inicializamos las ovejas
+            Random aleatorio = new Random();
+
+            string[] losSexos = { "Macho", "Hembra" };
+            string elSexo;
+
+            //Aqui inicializamos el arreglo de Ovejas
+            for (int i = 0; i < lasOvejas.Length; i++)
             {
-                lasOvejas = new Oveja[1000];
-                Random aleatorio = new Random();
+                elSexo = losSexos[aleatorio.Next(losSexos.Length)];
 
-                string[] losSexos = { "Macho", "Hembra" };
-                string elSexo;
-
-                //Aqui inicializamos el arreglo de Ovejas
-                for (int i = 0; i < lasOvejas.Length; i++)
+                if (elSexo == "Macho")
                 {
-                    elSexo = losSexos[aleatorio.Next(losSexos.Length)];
+                    lasOvejas[i] = new OvejaLanuda()
+                    {
+                        Edad = aleatorio.Next(0, 100),
+                        Peso = aleatorio.Next(20, 100),
+                        Sexo = elSexo,
+                        CantidadLana = aleatorio.Next(1, 10)
+                    };
+                }
+                else
+                {
+                    lasOvejas[i] = new OvejaLechera()
+                    {
+                        Edad = aleatorio.Next(0, 100),
+                        Peso = aleatorio.Next(20, 100),
+                        Sexo = elSexo,
+                        LitrosLeche = aleatorio.Next(1, 6)
+                    };
+                }
+            }            
 
-                    if (elSexo == "Macho")
-                    {
-                        lasOvejas[i] = new OvejaLanuda()
-                        {
-                            Edad = aleatorio.Next(0, 100),
-                            Peso = aleatorio.Next(20, 100),
-                            Sexo = elSexo,
-                            CantidadLana = aleatorio.Next(1, 10)
-                        };
-                    }
-                    else
-                    {
-                        lasOvejas[i] = new OvejaLechera()
-                        {
-                            Edad = aleatorio.Next(0, 100),
-                            Peso = aleatorio.Next(20, 100),
-                            Sexo = elSexo,
-                            LitrosLeche = aleatorio.Next(1, 6)
-                        };
-                    }
-                }            
-            }
         }
 
         /// <summary>
@@ -186,7 +182,11 @@ namespace ComercioOvejas
         public override string ToString()
         {
             string informe = $"Total de Ovejas en esta simulación: {lasOvejas.Length}\n\n";
-                                
+
+            informe += $"El precio del Kg de lana es {precioKiloLana} \n" +
+                       $"El precio del litro de leche es {precioLitroLeche} \n" +
+                       $"La Cooperativa recibe una comisión del {((porcentajeComision)*100).ToString("0.00")}%\n\n";
+
             informe += $"Del total de {totalOvejasLanudas} ovejas lanudas, " +
                        $"el {porcentajeLanudasAptas.ToString("0.00")}% son aptas \n" +
                        $"Del total de {totalOvejasLecheras} ovejas lecheras, " +
