@@ -21,13 +21,23 @@
         {
             get { return totalLecheProducida; }
         }
+        
+        public float TotalComisionCooperativa
+        {
+            get { return (comisionVentaLana + comisionVentaLeche); }
+        }        
+        
+        public float TotalPagoGranjero
+        {
+            get { return (valorVentaLana + valorVentaLeche); }
+        }
 
         /// <summary>
         /// Constructor predeterminado de la clase
         /// </summary>
         public Cooperativa()
         {
-            lasOvejas = new Oveja[1];
+            lasOvejas = new Oveja[1000];
             precioKiloLana = 800;
             precioLitroLeche = 1500;
             porcentajeComision = 0.05f;
@@ -166,6 +176,10 @@
         /// </summary>
         public void CalculaComisionVenta()
         {
+            //Si se intenta calcular comisión sin haber calculado producción
+            if (totalLanaProducida == 0 && totalLecheProducida == 0)
+                CalculaProduccion();
+
             comisionVentaLana = totalLanaProducida * precioKiloLana * porcentajeComision;
             comisionVentaLeche = totalLecheProducida * precioLitroLeche * porcentajeComision;
         }
@@ -175,6 +189,11 @@
         /// </summary>
         public void CalculaPagoGranjero()
         {
+            //Si se intenta calcular el pago al granjero sin calcular 
+            //la comisión de la Cooperativa
+            if (comisionVentaLana == 0 && comisionVentaLeche == 0)
+                CalculaComisionVenta();
+            
             valorVentaLeche = (totalLecheProducida * 1500) - comisionVentaLeche;
             valorVentaLana = (totalLanaProducida * 800) - comisionVentaLana;
         }
