@@ -7,7 +7,7 @@
     <ProjectGuid>{E454FB3F-43E1-4042-8365-F44A8801043A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LogicaFrutas</RootNamespace>
+    <RootNamespace>FrutasNutritivas.Logica</RootNamespace>
     <AssemblyName>FrutasNutritivas.Logica</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,6 +44,7 @@
     <Compile Include="Fruta.cs" />
     <Compile Include="FrutaFresca.cs" />
     <Compile Include="FrutaSeca.cs" />
+    <Compile Include="Gestor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
