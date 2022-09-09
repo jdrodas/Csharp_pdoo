@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FrutasNutritivas
+﻿
+namespace FrutasNutritivas.Logica
 {
-    class Fruta
+    public class Fruta
     {
-        //atributos
         protected int azucar;
         protected float fibra, proteina;
         protected string tipo;
         protected bool saludable;
 
-        //aqui vienen los constructores
         public Fruta()
         {
             azucar = 0;
@@ -33,7 +26,6 @@ namespace FrutasNutritivas
             this.tipo = tipo;
 
             ValidaSaludable();
-
         }
 
         public bool Saludable
@@ -41,7 +33,6 @@ namespace FrutasNutritivas
             get { return saludable; }
         }
 
-        //aqui vienen las propiedades
         public string Tipo
         {
             get { return tipo; }
@@ -80,14 +71,15 @@ namespace FrutasNutritivas
                 else
                     proteina = 0f;
             }
-
         }
 
-        public virtual string InfoNutricional()
+        public override string ToString()
         {
-            string resultado = ". Azucar: " + azucar + 
-                               ". Fibra: " + fibra.ToString("0.00") +
-                               ". Proteina: " + proteina.ToString("0.00");
+            string resultado = $"Tipo: {tipo}, " +
+                $"Azúcar: {azucar}, " +
+                $"Fibra: {fibra.ToString("0.00")}, " +
+                $"Proteina: {proteina.ToString("0.00")} \n";
+
             return resultado;
         }
 

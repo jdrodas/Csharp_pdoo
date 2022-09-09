@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FrutasNutritivas
+﻿namespace FrutasNutritivas.Logica
 {
-    class FrutaFresca : Fruta
+    public class FrutaFresca : Fruta
     {
-        //atributos
         private int diasCosechado;
 
-        //constructor de la clase
         public FrutaFresca() : base()
         {
             diasCosechado = -1; //valor arbitrario que no afecta positivamente el calculo del atributo saludable
@@ -23,7 +15,6 @@ namespace FrutasNutritivas
             ValidaSaludable();
         }
 
-        //Propiedad para el atributo
         public int DiasCosechado
         {
             get { return diasCosechado; }
@@ -49,14 +40,15 @@ namespace FrutasNutritivas
                 saludable = false;
         }
 
-        public override string InfoNutricional()
+        public override string ToString()
         {
-            string resultado = "Fruta tipo: " + tipo + base.InfoNutricional() + ". Dias cosechados: " + diasCosechado;
+            string resultado = base.ToString() + 
+                               $"Dias cosechados: {diasCosechado}\n";
 
             if (saludable)
-                resultado += ". Es saludable!";
+                resultado += "Es saludable!";
             else
-                resultado += ". No se coma esa vaina!";
+                resultado += "No se coma esa vaina!";
 
             return resultado;
         }

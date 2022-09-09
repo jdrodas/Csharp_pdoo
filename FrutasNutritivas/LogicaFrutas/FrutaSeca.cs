@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FrutasNutritivas
+﻿namespace FrutasNutritivas.Logica
 {
-    class FrutaSeca : Fruta
+    public class FrutaSeca : Fruta
     {
-        //atributos
         private int nivelSodio;
 
-        //constructor de la clase
         public FrutaSeca() : base()
         {
             nivelSodio = 0; //valor arbitrario que no afecta positivamente el calculo del atributo saludable
@@ -23,7 +15,6 @@ namespace FrutasNutritivas
             ValidaSaludable();
         }
 
-        //Propiedad para el atributo
         public int NivelSodio
         {
             get { return nivelSodio; }
@@ -34,7 +25,6 @@ namespace FrutasNutritivas
                 else
                     nivelSodio = 0;
             }
-
         }
 
         public override void ValidaSaludable()
@@ -50,14 +40,14 @@ namespace FrutasNutritivas
                 saludable = false;
         }
 
-        public override string InfoNutricional()
+        public override string ToString()
         {
-            string resultado = "Fruta tipo: " + tipo + base.InfoNutricional() + ". Nivel de sodio: " + nivelSodio;
-
+            string resultado = base.ToString() +
+                               $"Nivel de sodio: {nivelSodio}\n";
             if (saludable)
-                resultado += ". Es saludable!";
+                resultado += "Es saludable!";
             else
-                resultado += ". No se coma esa vaina!";
+                resultado += "No se coma esa vaina!";
 
             return resultado;
         }
