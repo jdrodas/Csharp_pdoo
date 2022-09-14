@@ -11,10 +11,12 @@ namespace LogicaReforestacion
             cantidadVoluntarios = 0;
         }
 
-        public ActividadReforestacionComunidad(string municipio, 
+        public ActividadReforestacionComunidad(string municipio,
+            string tipo,
             int cantidadArboles, 
             float porcentajeSobrevivencia,
             int cantidadVoluntarios):base(municipio,
+                                          tipo,
                                           cantidadArboles,
                                           porcentajeSobrevivencia)
         {
@@ -27,10 +29,12 @@ namespace LogicaReforestacion
             set { cantidadVoluntarios = value; }
         }
 
-        public override float RecursoEspecifico
+        /// <summary>
+        /// Obtiene el recurso específico de los galones de agua para la actividad con proveedor
+        /// </summary>
+        override public float RecursoEspecifico
         {
             get { return cantidadVoluntarios; }
-            set { cantidadVoluntarios = (int)value; }
         }
 
 
