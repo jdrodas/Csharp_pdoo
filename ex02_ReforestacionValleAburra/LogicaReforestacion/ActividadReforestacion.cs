@@ -3,13 +3,10 @@
     abstract public class ActividadReforestacion
     {
         //Atributos de la clase
-        protected string municipio;
+        protected string municipio, tipo;
         protected int cantidadArboles;
         protected float porcentajeSobrevivencia;
-        protected bool esExitosa;
-        protected string tipo;
-
-        #region Constructores
+        protected bool esExitosa;        
 
         //Constructor predeterminado
         public ActividadReforestacion()
@@ -22,18 +19,18 @@
         }
 
         //Constructor sobrecargado
-        public ActividadReforestacion(string municipio, string tipo, int cantidadArboles, float porcentajeSobrevivencia)
+        public ActividadReforestacion(string municipio, 
+                                      string tipo, 
+                                      int cantidadArboles, 
+                                      float porcentajeSobrevivencia)
         {
             this.municipio = municipio;
             this.tipo = tipo;
             this.cantidadArboles = cantidadArboles;
             this.porcentajeSobrevivencia = porcentajeSobrevivencia;
-            esExitosa= false;
+
+            EvaluaExitoActividad();
         }
-
-        #endregion Constructores
-
-        #region Propiedades
 
         /// <summary>
         /// Obtiene o establece el municipio donde se hace la reforestación
@@ -72,7 +69,8 @@
             { 
                 porcentajeSobrevivencia = value;
 
-                //Cada vez que se cambie el porcentaje de sobrevivencia, se recalcula el exito de la actividad
+                //Cada vez que se cambie el porcentaje de sobrevivencia,
+                //se recalcula el exito de la actividad
                 EvaluaExitoActividad();
             }
         }
@@ -93,10 +91,6 @@
             get;
         }
 
-        #endregion Propiedades
-
-        #region Metodos
-
         /// <summary>
         /// Evalua si la actividad de reforestación fue exitosa
         /// </summary>
@@ -109,6 +103,22 @@
                 esExitosa = false;
         }
 
+        /*
+        COMENTARIO DEL DOCENTE:
+
+        Para visualizar la información de la actividad de reforestación tenemos dos maneras:
+
+        1. Sobreescribir el método ToString() que proviene de la clase genérica Object
+           y seguirlo sobreescribiendo en el resto de las clases de la jerarquía de herencia
+
+        2. Crear un método propio (ObtieneInformacion) que lo debes marcar con "virtual" para
+           que pueda ser sobreescrito en el resto de las clases de la jerarquía de herencia
+
+        En este ejercicio implementamos las dos, y puedes escoger cual utilizar.
+        Ambas hacen lo mismo
+
+        */
+
         /// <summary>
         /// Obtiene información sobre la actividad de reforestación
         /// </summary>
@@ -119,16 +129,28 @@
                 $"Se intentaron plantar {cantidadArboles} y sobrevívió {(porcentajeSobrevivencia)}%\n";
 
             if (esExitosa)
-            {
                 informacion += "Fue exitosa!";
-            }
             else
-            {
                 informacion += "No fue exitosa!";
-            }
+
             return informacion;
         }
 
-        #endregion Metodos
+        /// <summary>
+        /// Obtiene la información de la actividad de reforestación
+        /// </summary>
+        /// <returns>la información solicitada</returns>
+        public virtual string ObtieneInformacion()
+        {
+            string informacion = $"Actividad de Reforestación en {municipio} \n" +
+                        $"Se intentaron plantar {cantidadArboles} y sobrevívió {(porcentajeSobrevivencia)}%\n";
+
+            if (esExitosa)
+                informacion += "Fue exitosa!";
+            else
+                informacion += "No fue exitosa!";
+
+            return informacion;
+        }
     }
 }

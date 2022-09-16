@@ -1,20 +1,4 @@
-﻿/*
- Este proyecto Está MUY INCOMPLETO!
- 
-Le falta:
-
-OK! - Crear interfaz de usuario en clase program
-OK! - Invocar el constructor de la gestionReforestacion
-OK! - Totalizar actividades por municipio
-OK! - Totalizar arboles sobrevivientes por municipio
-- Totalizar actividades por tipo
-- Totalizar actividades exitosas
-
-- Totalizar galones
-- Visualizar resultados
- */
-
-using LogicaReforestacion;
+﻿using LogicaReforestacion;
 
 namespace ex02_ReforestacionValleAburra
 {
@@ -22,39 +6,45 @@ namespace ex02_ReforestacionValleAburra
     {
         static void Main(string[] args)
         {
-            GestionReforestacion miGestion = new GestionReforestacion();
+            GestionReforestacion corantioquia = new GestionReforestacion();
             
-            Console.WriteLine("Gestion de reforestación en el valle de aburra");
-            Console.WriteLine("Se realizarán actividades en los siguientes municipios");
+            Console.WriteLine("Gestion de reforestación en el valle de Aburrá");
+            Console.WriteLine("Se realizarán actividades en los siguientes municipios:");
 
-            foreach(string nombreMunicipio in miGestion.LosMunicipios)
+            foreach(string nombreMunicipio in corantioquia.LosMunicipios)
                 Console.WriteLine($"- {nombreMunicipio}");
 
-            //Aqui ejecutamos los totalizadores requeridos
-            miGestion.CalculaTotalActividadesMunicipio();
-            miGestion.CalculaTotalArbolesSobrevivientesMunicipio();
+            Console.WriteLine("\nLos siguientes son los tipos de actividad:");
 
+            foreach (string tipoActividad in corantioquia.LosTiposActividades)
+                Console.WriteLine($"- {tipoActividad}");
 
-            //Aqui visualizamos resultados
-            Console.WriteLine("\n==============================");
-            Console.WriteLine("   Resultados Obtenidos");
-            Console.WriteLine("==============================\n");
+            //Aqui ejecutamos la reforestación
+            corantioquia.EjecutaReforestacion();
 
-            int contadorActividades = 0;
-            for (int i = 0; i < miGestion.LosMunicipios.Length; i++)
+            //Visualizamos resultados
+            Console.WriteLine("\n\n************************************");
+            Console.WriteLine(" Resultados Obtenidos");
+            Console.WriteLine("************************************\n");
+
+            Console.WriteLine("Información por municipios:\n");
+
+            for (int i = 0; i < corantioquia.LosMunicipios.Length; i++)
             {
-                Console.WriteLine($"Municipio: {miGestion.LosMunicipios[i]}, " +
-                    $"Total actividades: {miGestion.TotalActividadesMunicipio[i]}");
-                Console.WriteLine($"sobrevivieron {miGestion.TotalArbolesSobrevivientesMunicipio[i]} árboles\n");
-                
-                contadorActividades += miGestion.TotalActividadesMunicipio[i];
+                Console.WriteLine($"\tMunicipio: {corantioquia.LosMunicipios[i]}");
+                Console.WriteLine($"\tTotal Actividades: {corantioquia.TotalActividadesMunicipio[i]}");
+                Console.WriteLine($"\tTotal arboles sobrevivientes: {corantioquia.TotalArbolesSobrevivientesMunicipio[i]}\n");
             }
 
-            Console.WriteLine($"Total Actividades: {contadorActividades}");
+            Console.WriteLine("Información por Tipos de actividad:\n");
+            for (int i = 0; i < corantioquia.LosTiposActividades.Length; i++)
+            {
+                Console.WriteLine($"\tTipo de Actividad: {corantioquia.LosTiposActividades[i]}");
+                Console.WriteLine($"\tTotal Actividades: {corantioquia.TotalActividadesTipo[i]}");
+                Console.WriteLine($"\tTotal Actividades exitosas: {corantioquia.TotalActividadesExitosasTipo[i]}\n");
+            }
 
-
-                
-
+            Console.WriteLine($"Total agua utilizada: {corantioquia.TotalAguaUtilizada} galones");
         }
     }
 }

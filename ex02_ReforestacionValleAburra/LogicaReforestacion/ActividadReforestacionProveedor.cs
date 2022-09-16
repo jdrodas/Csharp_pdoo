@@ -11,8 +11,6 @@ namespace LogicaReforestacion
         //Atributos
         private float galonesAgua;
 
-        #region Constructores
-
         //Constructor Predeterminado
         public ActividadReforestacionProveedor() : base()
         {
@@ -30,16 +28,15 @@ namespace LogicaReforestacion
             this.cantidadArboles = cantidadArboles;
             this.porcentajeSobrevivencia = porcentajeSobrevivencia;
 
-            //Como se cambió el porcentaje de sobrevivencia, en esta clase se debe recalcular los galones de agua
+            //Como se cambió el porcentaje de sobrevivencia, en esta clase se debe
+            //- recalcular los galones de agua
+            //- recalcular si la actividad fue exitosa
             CalculaGalonesAgua();
+            EvaluaExitoActividad();
         }
 
-        #endregion Constructores
-
-        #region Propiedades
-
-        /*
-        // Parece que no se necesita... 
+        // Parece que no se necesita propiedad para los galones de agua... 
+        // Hagámosla de todas formas
 
         /// <summary>
         /// Obtiene los galones de agua utilizados en la actividad de reforestación
@@ -48,7 +45,7 @@ namespace LogicaReforestacion
         {
             get { return galonesAgua; }
         }
-        */
+
 
         /// <summary>
         /// Obtiene o establece la cantidad de arboles
@@ -89,10 +86,6 @@ namespace LogicaReforestacion
             get { return galonesAgua; }
         }
 
-        #endregion Propiedades
-
-        #region Metodos
-
         /// <summary>
         /// Calcula los galones de agua utilizados según la cantidad de arboles que sobrevivieron
         /// </summary>
@@ -115,6 +108,12 @@ namespace LogicaReforestacion
             return informacion;
         }
 
-        #endregion Metodos
+        public override string ObtieneInformacion()
+        {
+            string informacion = base.ToString() +
+                $"\nActividad realizada por proveedor con {galonesAgua} galones de agua";
+
+            return informacion;
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace LogicaReforestacion
         }
 
         /// <summary>
-        /// Obtiene el recurso específico de los galones de agua para la actividad con proveedor
+        /// Obtiene el recurso específico de la cantidad de voluntarios para la actividad con Comunidad
         /// </summary>
         override public float RecursoEspecifico
         {
@@ -44,6 +44,15 @@ namespace LogicaReforestacion
                 $"\nActividad realizada por la comunidad con {cantidadVoluntarios} voluntarios";
 
             return informacion;
+        }
+
+        public override string ObtieneInformacion()
+        {
+            string informacion = base.ObtieneInformacion() +
+                $"\nActividad realizada por la comunidad con {cantidadVoluntarios} voluntarios";
+
+            return informacion;
+
         }
     }
 }
