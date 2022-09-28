@@ -35,6 +35,28 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 >### [HerenciaFiguras](https://github.com/jdrodas/Csharp_pdoo/tree/master/HerenciaFiguras)
 >>- Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
 
+v### 2. Patrones de Software
+
+### 2.1. Patrones GoF
+
+### 2.1.1. Creacionales
+
+>### [Poo_PS_Singleton](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_Singleton)
+>>- Patrón GoF creacional Singleton
+
+>### [Poo_PS_FabricaAbstracta](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_FabricaAbstracta)
+>>- Patrón GoF creacional Fabrica Abstracta (*Abstract Factory*)
+
+### 2.1.2. Estructurales
+
+>### [Poo_PS_Fachada](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_Fachada)
+>>- Patrón GoF estructural Fachada (*Facade*)
+
+
+### 2.1.3. Comportamiento
+
+>### [Poo_PS_CadenaResponsabilidad](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_CadenaResponsabilidad)
+>>- Patrón GoF de comportamiento Cadena de Responsabilidad (*Chain of Responsibility*)
 
 # ---------------------------------------
 
