@@ -35,7 +35,7 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 >### [HerenciaFiguras](https://github.com/jdrodas/Csharp_pdoo/tree/master/HerenciaFiguras)
 >>- Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
 
-v### 2. Patrones de Software
+### 2. Patrones de Software
 
 ### 2.1. Patrones GoF
 
