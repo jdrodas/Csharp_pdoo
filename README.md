@@ -47,6 +47,7 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 
 >### [Poo_PS_FabricaAbstracta](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_FabricaAbstracta)
 >>- Patrón GoF creacional Fabrica Abstracta (*Abstract Factory*)
+>>- Actualizado a .NET 6.0
 
 ### 2.1.2. Estructurales
 
