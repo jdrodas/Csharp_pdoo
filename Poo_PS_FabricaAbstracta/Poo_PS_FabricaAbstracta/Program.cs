@@ -1,22 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Poo_PS_FabricaAbstracta;
+using System;
 
-namespace Poo_PS_FabricaAbstracta
+namespace POO_PS_AbstractFactory
 {
-    static class Program
+    public class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Console.WriteLine("Cadena alimenticia de un contiente usando patrones de Software");
+            Console.WriteLine("El patrón utilizado es Abstract Factory\n\n");
+
+            Console.WriteLine("\nCreando el continente asiático:");
+            MundoAnimal miMundo = new MundoAnimal("Asia");
+            Console.WriteLine(miMundo.ResultadoCadenaAlimenticia());
+
+            Console.WriteLine("\nCreando el continente americano:");
+            miMundo = new MundoAnimal("America");
+            Console.WriteLine(miMundo.ResultadoCadenaAlimenticia());
+
+            Console.WriteLine("\nCreando el continente africano:");
+            miMundo = new MundoAnimal("Africa");
+            Console.WriteLine(miMundo.ResultadoCadenaAlimenticia());
+
+            Console.WriteLine("\nCreando el continente Oceanía:");
+            miMundo = new MundoAnimal("Oceania");
+            Console.WriteLine(miMundo.ResultadoCadenaAlimenticia());
+
+            //Sin usar patrones, así se logra que un tigre se coma una cabra
+            Cabra unaCabra = new Cabra()
+            {
+                Nombre = "Clarabella",
+                Especie = "hibrido cabra/vaca"
+            };
+
+            Tigre unTigre = new Tigre()
+            {
+                Nombre = "Florencio",
+                Especie = "Tigre de las montañas"
+            };
+
+            Console.WriteLine("\nLa cadena alimenticia sin restricciones");
+            Console.WriteLine(unaCabra.Alimentarse());
+            Console.WriteLine(unTigre.Cazar(unaCabra));
+
         }
     }
 }

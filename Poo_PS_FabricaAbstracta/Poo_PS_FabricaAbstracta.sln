@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29324.140
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poo_PS_FabricaAbstracta", "Poo_PS_FabricaAbstracta\Poo_PS_FabricaAbstracta.csproj", "{923BBE13-29EB-4C81-8A01-F276754C5314}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poo_PS_FabricaAbstracta", "Poo_PS_FabricaAbstracta\Poo_PS_FabricaAbstracta.csproj", "{755706F2-FB3D-49A2-A2CA-7F609B1AD509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{923BBE13-29EB-4C81-8A01-F276754C5314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{923BBE13-29EB-4C81-8A01-F276754C5314}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{923BBE13-29EB-4C81-8A01-F276754C5314}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{923BBE13-29EB-4C81-8A01-F276754C5314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755706F2-FB3D-49A2-A2CA-7F609B1AD509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755706F2-FB3D-49A2-A2CA-7F609B1AD509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755706F2-FB3D-49A2-A2CA-7F609B1AD509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755706F2-FB3D-49A2-A2CA-7F609B1AD509}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {530B8980-56F8-4424-8648-02466C2DAED2}
+		SolutionGuid = {6BEDD2DB-20A9-48E1-8186-D2CDC791E57A}
 	EndGlobalSection
 EndGlobal

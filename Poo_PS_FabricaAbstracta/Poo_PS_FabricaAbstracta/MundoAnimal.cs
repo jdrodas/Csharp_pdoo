@@ -1,72 +1,66 @@
-﻿using System;
-using System.Text;
-
-namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_FabricaAbstracta
 {
-    class MundoAnimal
+    public class MundoAnimal
     {
-        //Los atributos de la clase
+        //Atributos
         private Continente unContinente;
-        private Herbivoro unHerbivoro;
         private Carnivoro unCarnivoro;
+        private Herbivoro unherbivoro;
 
-        /// <summary>
-        /// Constructor de la clase
-        /// </summary>
-        public MundoAnimal(string nombreContinente, string nombreCarnivoro, string nombreHerbivoro)
+        //Constructor de la clase
+        public MundoAnimal(string nombreContinente)
         {
             unContinente = SeleccionaContinente(nombreContinente);
-            
-            unHerbivoro = unContinente.CrearHerbivoro();
-            unHerbivoro.Nombre = nombreHerbivoro;
-
             unCarnivoro = unContinente.CrearCarnivoro();
-            unCarnivoro.Nombre = nombreCarnivoro;
+            unherbivoro = unContinente.CrearHerbivoro();
+        }
+
+        public Continente SeleccionaContinente(string nombre)
+        {
+            Continente continenteSeleccionado;
+
+            switch (nombre)
+            {
+                case "Asia":
+                    continenteSeleccionado = new ContinenteAsia();
+                    continenteSeleccionado.Nombre = "Asia";
+                    break;
+
+                case "America":
+                    continenteSeleccionado = new ContinenteAmerica();
+                    continenteSeleccionado.Nombre = "America";
+                    break;
+
+                case "Africa":
+                    continenteSeleccionado = new ContinenteAfrica();
+                    continenteSeleccionado.Nombre = "Africa";
+                    break;
+
+                case "Oceania":
+                    continenteSeleccionado = new ContinenteOceania();
+                    continenteSeleccionado.Nombre = "Oceania";
+                    break;
+
+
+                //De manera predeterminada, si no se especifica continente
+                //se creará un continente de Asia
+                default:
+                    continenteSeleccionado = new ContinenteAsia();
+                    continenteSeleccionado.Nombre = "Asia";
+                    break;
+            }
+
+            return continenteSeleccionado;
         }
 
         public string ResultadoCadenaAlimenticia()
         {
-            StringBuilder resultado = new StringBuilder();
+            string resultado = $"En el continente {unContinente.Nombre} " +
+                $"la cadena alimenticia funciona asi:\n";
 
-            resultado.Append("En el continente " + unContinente.Nombre + 
-                " ocurre lo siguiente:" + Environment.NewLine);
-            
-            resultado.Append(Environment.NewLine + unHerbivoro.Alimentarse());
-            resultado.Append(Environment.NewLine + unCarnivoro.Cazar(unHerbivoro));
-
-            return resultado.ToString();
-        }
-
-        private Continente SeleccionaContinente(string nombreContinente)
-        {
-            Continente resultado;
-
-            switch (nombreContinente)
-            {
-                case "Africa":
-                    resultado = new ContinenteAfrica();
-                    resultado.Nombre = "Africa";
-                    break;
-
-                case "Asia":
-                    resultado = new ContinenteAsia();
-                    resultado.Nombre = "Asia";
-                    break;
-
-                case "Oceanía":
-                    resultado = new ContinenteOceania();
-                    resultado.Nombre = "Oceanía";
-                    break;
-
-                // De manera predeterminada, injustificada y arbitraria, asignamos el continente Africa
-                default:
-                    resultado = new ContinenteAfrica();
-                    resultado.Nombre = "Africa";
-                    break;
-            }
-
+            resultado += unherbivoro.Alimentarse();
+            resultado += unCarnivoro.Cazar(unherbivoro) + "\n";
             return resultado;
         }
-
     }
 }

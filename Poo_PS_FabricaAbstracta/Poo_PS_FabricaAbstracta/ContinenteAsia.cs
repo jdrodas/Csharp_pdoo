@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Poo_PS_FabricaAbstracta
 {
-    class ContinenteAsia:Continente
+    public class ContinenteAsia : Continente
     {
-        public override Herbivoro CrearHerbivoro()
-        {
-            Herbivoro animalito = new Ardilla();
-            return animalito;
-        }
-
         public override Carnivoro CrearCarnivoro()
         {
-            Carnivoro animalote = new Comadreja();
-            return animalote;
+            Carnivoro animalTragon = new Tigre();
+            return animalTragon;
+        }
+
+        public override Herbivoro CrearHerbivoro()
+        {
+            Herbivoro animalTragado = new Vaca();
+            return animalTragado;
         }
     }
 }

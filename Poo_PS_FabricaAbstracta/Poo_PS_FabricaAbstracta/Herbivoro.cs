@@ -1,23 +1,21 @@
-﻿
-namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_FabricaAbstracta
 {
-    abstract class Herbivoro
+    public abstract class Herbivoro : Animal
     {
-        //atributos de la clase
-        protected string nombre;
-        protected string especie;
-
-        //propiedades para los atributos
-        public string Nombre
+        //propiedades
+        public override string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-        public string Especie
+
+        public override string Especie
         {
             get { return especie; }
+            set { especie = value; }
         }
 
+        //Metodos
         abstract public string Alimentarse();
     }
 }

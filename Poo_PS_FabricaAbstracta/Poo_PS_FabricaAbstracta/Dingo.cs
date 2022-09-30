@@ -1,9 +1,12 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Poo_PS_FabricaAbstracta
 {
-    class Dingo: Carnivoro
+    public class Dingo : Carnivoro
     {
         //Constructor de la clase
         public Dingo()

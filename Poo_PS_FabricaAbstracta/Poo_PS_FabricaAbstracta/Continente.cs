@@ -1,10 +1,13 @@
-﻿using System;
-
-namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_FabricaAbstracta
 {
-    abstract class Continente
+    public abstract class Continente
     {
         protected string nombre;
+
+        public Continente()
+        {
+            nombre = "";
+        }
 
         public string Nombre
         {

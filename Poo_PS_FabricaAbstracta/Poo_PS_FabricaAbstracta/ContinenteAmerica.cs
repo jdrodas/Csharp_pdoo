@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Poo_PS_FabricaAbstracta
 {
-    public class ContinenteAfrica : Continente
+    public class ContinenteAmerica : Continente
     {
-        public override Herbivoro CrearHerbivoro()
+        public override Carnivoro CrearCarnivoro()
         {
-            Herbivoro animalTragon = new Gacela();
+            Carnivoro animalTragon = new Chupacabras();
             return animalTragon;
         }
 
-        public override Carnivoro CrearCarnivoro()
+        public override Herbivoro CrearHerbivoro()
         {
-            Carnivoro animalTragado = new Leon();
+            Herbivoro animalTragado = new Cabra();
             return animalTragado;
         }
     }
