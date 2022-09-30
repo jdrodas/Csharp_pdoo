@@ -1,13 +1,13 @@
-﻿using System;
-
-namespace Poo_PS_Singleton
+﻿namespace Poo_PS_Singleton
 {
     public class AsignaEstacionador
     {
-        //Atributo de la clase
-        static AsignaEstacionador estacionador;
-        static Random aleatorio;
-        private string espacio;
+        //Se utiliza el simbolo "?" después del tipo de dato para indicar al compilador
+        //Que esa variable puede ser nula
+        //Para .NET 5 o superior
+        private static AsignaEstacionador? estacionador;
+        private static Random? aleatorio;
+        private readonly string espacio;
 
         /// <summary>
         /// Constructor de la clase
@@ -15,9 +15,9 @@ namespace Poo_PS_Singleton
         public AsignaEstacionador()
         {
             aleatorio = new Random(DateTime.Now.Millisecond);
-            string[] letras = { "A", "B", "C", "D", "E", "F", "G", "H"};
+            string[] letras = { "A", "B", "C", "D", "E", "F", "G", "H" };
 
-            espacio = letras[aleatorio.Next(letras.Length)] + 
+            espacio = letras[aleatorio.Next(letras.Length)] +
                 aleatorio.Next(10);
         }
 
@@ -28,7 +28,7 @@ namespace Poo_PS_Singleton
         public static AsignaEstacionador ObtieneEspacioParqueo()
         {
             //Si no hay instancia creada, se hace una nueva instancia
-            if(estacionador == null)
+            if (estacionador == null)
                 estacionador = new AsignaEstacionador();
 
             return estacionador;

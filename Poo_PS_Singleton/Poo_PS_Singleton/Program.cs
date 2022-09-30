@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Threading;
 
+
 namespace Poo_PS_Singleton
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            //Se utiliza el simbolo "?" después del tipo de dato para indicar al compilador
+            //Que esa variable puede ser nula
+            //Para .NET 5 o superior
+
             Console.WriteLine("Programa para demostrar el patrón GoF Singleton");
 
             //Creamos dos instancias de la clase sin invocar el constructor
-            AsignaEstacionador espacio1 = AsignaEstacionador.ObtieneEspacioParqueo();
+            AsignaEstacionador? espacio1 = AsignaEstacionador.ObtieneEspacioParqueo();
             Thread.Sleep(1000); //Esperamos un segundo...
-            AsignaEstacionador espacio2 = AsignaEstacionador.ObtieneEspacioParqueo();
+            AsignaEstacionador? espacio2 = AsignaEstacionador.ObtieneEspacioParqueo();
 
             //Comparamos las instancias para validar que son iguales
             Console.WriteLine("\nComparamos las instancia espacio1 y espacio2...");
@@ -30,9 +35,9 @@ namespace Poo_PS_Singleton
             }
 
             //Creamos dos instancias de la clase invocando directamente el constructor
-            AsignaEstacionador espacio3 = new AsignaEstacionador();
+            AsignaEstacionador? espacio3 = new AsignaEstacionador();
             Thread.Sleep(1000); //Esperamos un segundo...
-            AsignaEstacionador espacio4 = new AsignaEstacionador();
+            AsignaEstacionador? espacio4 = new AsignaEstacionador();
 
             //Comparamos las instancias para validar que NO son iguales
             Console.WriteLine("\nComparamos las instancia espacio3 y espacio4...");
