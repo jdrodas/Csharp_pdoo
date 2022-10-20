@@ -1,4 +1,4 @@
-﻿namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_GoF_AbstractFactory
 {
     public abstract class Continente
     {

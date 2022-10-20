@@ -1,4 +1,4 @@
-﻿namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_GoF_AbstractFactory
 {
     public abstract class Animal
     {
@@ -12,7 +12,7 @@
             especie = "";
         }
 
-        //propiedades
+        //propiedades definidas abstractas
         abstract public string Nombre
         {
             get;set;

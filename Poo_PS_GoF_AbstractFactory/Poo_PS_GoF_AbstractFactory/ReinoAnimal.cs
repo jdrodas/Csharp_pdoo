@@ -1,6 +1,6 @@
-﻿namespace Poo_PS_FabricaAbstracta
+﻿namespace Poo_PS_GoF_AbstractFactory
 {
-    public class MundoAnimal
+    public class ReinoAnimal
     {
         //Atributos
         private Continente unContinente;
@@ -8,7 +8,7 @@
         private Herbivoro unherbivoro;
 
         //Constructor de la clase
-        public MundoAnimal(string nombreContinente)
+        public ReinoAnimal(string nombreContinente)
         {
             unContinente = SeleccionaContinente(nombreContinente);
             unCarnivoro = unContinente.CrearCarnivoro();
@@ -59,7 +59,7 @@
                 $"la cadena alimenticia funciona asi:\n";
 
             resultado += unherbivoro.Alimentarse();
-            resultado += unCarnivoro.Cazar(unherbivoro) + "\n";
+            resultado += unCarnivoro.Cazar(unherbivoro);
             return resultado;
         }
     }
