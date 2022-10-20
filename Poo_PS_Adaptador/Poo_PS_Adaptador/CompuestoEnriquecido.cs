@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Poo_PS_Adaptador
 {
     public class CompuestoEnriquecido:Compuesto
@@ -34,6 +29,5 @@ namespace Poo_PS_Adaptador
 
             return informacion;
         }
-
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace Poo_PS_Singleton
+﻿namespace Poo_PS_GoF_Singleton
 {
     public class AsignaEstacionador
     {
         //Se utiliza el simbolo "?" después del tipo de dato para indicar al compilador
-        //Que esa variable puede ser nula
+        //que esa variable puede ser nula
         //Para .NET 5 o superior
         private static AsignaEstacionador? estacionador;
         private static Random? aleatorio;

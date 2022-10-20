@@ -2,7 +2,7 @@
 using System.Threading;
 
 
-namespace Poo_PS_Singleton
+namespace Poo_PS_GoF_Singleton
 {
     public class Program
     {

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poo_PS_GoF_Singleton", "Poo_PS_GoF_Singleton\Poo_PS_GoF_Singleton.csproj", "{ABD4E241-5E96-4C55-9E66-63ED1405AA38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABD4E241-5E96-4C55-9E66-63ED1405AA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD4E241-5E96-4C55-9E66-63ED1405AA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD4E241-5E96-4C55-9E66-63ED1405AA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD4E241-5E96-4C55-9E66-63ED1405AA38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9530C0AF-D98E-41A4-99B0-0CD6434C8539}
+	EndGlobalSection
+EndGlobal
