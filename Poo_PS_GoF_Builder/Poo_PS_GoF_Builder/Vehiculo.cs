@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-
-
-namespace Poo_PS_Builder
+﻿namespace Poo_PS_GoF_Builder
 {
     public class Vehiculo
     {
@@ -12,7 +9,7 @@ namespace Poo_PS_Builder
         //Constructor de la clase
         public Vehiculo(string tipoVehiculo)
         {
-            this.tipoVehiculo = tipoVehiculo;
+            this.tipoVehiculo = tipoVehiculo!;
             partes = new Dictionary<string, string>();
         }
 
@@ -37,7 +34,7 @@ namespace Poo_PS_Builder
             else
                 informacion += $"No vino con extintor, sople!\n";
 
-            return informacion;
+            return informacion!;
         }
     }
 }

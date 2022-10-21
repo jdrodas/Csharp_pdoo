@@ -42,11 +42,15 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 ### 2.1.1. Creacionales
 
 >### [Poo_PS_GoF_Singleton](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_GoF_Singleton)
->>- Patrón GoF creacional Singleton
+>>- Patrón GoF creacional *Singleton*
 >>- Actualizado a .NET 6.0
 
 >### [Poo_PS_GoF_AbstractFactory](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_GoF_AbstractFactory)
->>- Patrón GoF creacional Fabrica Abstracta (*Abstract Factory*)
+>>- Patrón GoF creacional *Abstract Factory*
+>>- Actualizado a .NET 6.0
+
+>### [Poo_PS_GoF_Builder](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_GoF_Builder)
+>>- Patrón GoF creacional *Builder*
 >>- Actualizado a .NET 6.0
 
 ### 2.1.2. Estructurales

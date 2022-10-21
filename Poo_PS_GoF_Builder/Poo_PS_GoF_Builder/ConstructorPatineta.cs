@@ -1,37 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_Builder
+﻿namespace Poo_PS_GoF_Builder
 {
-    public class ConstructorMotocicleta : ConstructorVehiculo
+    public class ConstructorPatineta : ConstructorVehiculo
     {
         //Constructor de la clase
-        public ConstructorMotocicleta()
+        public ConstructorPatineta()
         {
-            elVehiculo = new Vehiculo("Motocicleta");
+            elVehiculo = new Vehiculo("Patineta Pulsar");
         }
 
         public override void ConstruirChasis()
         {
-            elVehiculo["chasis"] = "Chasis de motocicleta";
+            elVehiculo!["chasis"] = "Chasis de patineta china";
         }
 
         public override void ConstruirMotor()
         {
-            elVehiculo["motor"] = "1000 cc V8";
+            elVehiculo!["motor"] = "No tiene motor, a pata!";
         }
 
         public override void ConstruirPuertas()
         {
-            elVehiculo["puertas"] = "sin puertas";
+            elVehiculo!["puertas"] = "Sin puertas, siente la brisa... y la lluvia!";
         }
 
         public override void ConstruirRuedas()
         {
-            elVehiculo["ruedas"] = "2 ruedas Michelin";
+            elVehiculo!["ruedas"] = "2 ruedas que no se pinchan!";
         }
 
         public override void InvocarConstructorPartes()

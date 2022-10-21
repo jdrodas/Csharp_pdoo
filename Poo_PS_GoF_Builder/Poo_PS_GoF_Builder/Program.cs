@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Poo_PS_Builder
+namespace Poo_PS_GoF_Builder
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Programa para demostrar el uso del patron GoF - Builder");
 
@@ -18,22 +14,20 @@ namespace Poo_PS_Builder
             //Aqui construimos una moto
             Console.WriteLine("\nInvocamos el constructor de la motocicleta");
             elConstructor = new ConstructorMotocicleta();
-            laTienda = new Tienda(elConstructor);
-            Console.WriteLine(elConstructor.ElVehiculo.Visualizar());
+            laTienda = new (elConstructor);
+            Console.WriteLine(elConstructor.ElVehiculo!.Visualizar());
 
             //Aqui construimos un automovil
             Console.WriteLine("\nInvocamos el constructor del automovil");
             elConstructor = new ConstructorAutomovil();
-            laTienda = new Tienda(elConstructor);
-            Console.WriteLine(elConstructor.ElVehiculo.Visualizar());
+            laTienda = new (elConstructor);
+            Console.WriteLine(elConstructor.ElVehiculo!.Visualizar());
 
             //Aqui construimos una patineta
             Console.WriteLine("\nInvocamos el constructor de la patineta");
             elConstructor = new ConstructorPatineta();
-            laTienda = new Tienda(elConstructor);
-            Console.WriteLine(elConstructor.ElVehiculo.Visualizar());
-
-
+            laTienda = new (elConstructor);
+            Console.WriteLine(elConstructor.ElVehiculo!.Visualizar());
         }
     }
 }

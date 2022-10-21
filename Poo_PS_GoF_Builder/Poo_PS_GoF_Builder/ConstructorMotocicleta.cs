@@ -1,31 +1,31 @@
-﻿namespace Poo_PS_Builder
+﻿namespace Poo_PS_GoF_Builder
 {
-    public class ConstructorPatineta : ConstructorVehiculo
+    public class ConstructorMotocicleta : ConstructorVehiculo
     {
         //Constructor de la clase
-        public ConstructorPatineta()
+        public ConstructorMotocicleta()
         {
-            elVehiculo = new Vehiculo("Patineta Pulsar");
+            elVehiculo = new Vehiculo("Motocicleta");
         }
 
         public override void ConstruirChasis()
         {
-            elVehiculo["chasis"] = "Chasis de patineta china";
+            elVehiculo!["chasis"] = "Chasis de motocicleta";
         }
 
         public override void ConstruirMotor()
         {
-            elVehiculo["motor"] = "No tiene motor, a pata!";
+            elVehiculo!["motor"] = "1000 cc V8";
         }
 
         public override void ConstruirPuertas()
         {
-            elVehiculo["puertas"] = "Sin puertas, siente la brisa... y la lluvia!";
+            elVehiculo!["puertas"] = "sin puertas";
         }
 
         public override void ConstruirRuedas()
         {
-            elVehiculo["ruedas"] = "2 ruedas que no se pinchan!";
+            elVehiculo!["ruedas"] = "2 ruedas Michelin";
         }
 
         public override void InvocarConstructorPartes()

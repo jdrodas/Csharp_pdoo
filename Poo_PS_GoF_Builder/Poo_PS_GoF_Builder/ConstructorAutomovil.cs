@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_Builder
+﻿namespace Poo_PS_GoF_Builder
 {
     public class ConstructorAutomovil : ConstructorVehiculo
     {
@@ -16,27 +10,27 @@ namespace Poo_PS_Builder
 
         public override void ConstruirChasis()
         {
-            elVehiculo["chasis"] = "Chasis de automovil sedan";
+            elVehiculo!["chasis"] = "Chasis de automovil sedan";
         }
 
         public override void ConstruirMotor()
         {
-            elVehiculo["motor"] = "1500 cc";
+            elVehiculo!["motor"] = "1500 cc";
         }
 
         public override void ConstruirPuertas()
         {
-            elVehiculo["puertas"] = "4 puertas";
+            elVehiculo!["puertas"] = "4 puertas";
         }
 
         public override void ConstruirRuedas()
         {
-            elVehiculo["ruedas"] = "4 ruedas rin deportivo";
+            elVehiculo!["ruedas"] = "4 ruedas rin deportivo";
         }
 
         public void ConstruirExtintor()
         {
-            elVehiculo["extintor"] = "Extintor de propósito general";
+            elVehiculo!["extintor"] = "Extintor de propósito general";
         }
 
         public override void InvocarConstructorPartes()
