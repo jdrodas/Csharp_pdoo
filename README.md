@@ -55,7 +55,7 @@ Este repo se encuentra en proceso de actualización a .NET 6. Cada proyecto tend
 
 ### 2.1.2. Estructurales
 
->### [Poo_PS_Fachada](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_Fachada)
+>### [Poo_PS_GoF_Facade](https://github.com/jdrodas/Csharp_pdoo/tree/master/Poo_PS_GoF_Facade)
 >>- Patrón GoF estructural Fachada (*Facade*)
 
 
