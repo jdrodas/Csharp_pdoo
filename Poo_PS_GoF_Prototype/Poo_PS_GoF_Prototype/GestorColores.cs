@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_Prototipo
+﻿namespace Poo_PS_GoF_Prototype
 {
     public class GestorColores
     {
@@ -20,9 +14,12 @@ namespace Poo_PS_Prototipo
         {
             get { return losColores[llave]; }
             set 
-            { 
-                losColores.Add(llave, value);
-                losColores[llave].Nombre = llave;
+            {
+                if (!string.IsNullOrEmpty(llave))
+                {
+                    losColores.Add(llave, value);
+                    losColores[llave].Nombre = llave;
+                }
             }
         }
     }

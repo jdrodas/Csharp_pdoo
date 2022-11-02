@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_Prototipo
+﻿namespace Poo_PS_GoF_Prototype
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,10 +11,10 @@ namespace Poo_PS_Prototipo
 
             //Vamos a agregar colores
             paletaColores["rojo"] = new Color(255, 0, 0);
-            paletaColores["azul"] = new Color(0,0,255);
-            paletaColores["verde"] = new Color(0,255,0);
+            paletaColores["azul"] = new Color(0, 0, 255);
+            paletaColores["verde"] = new Color(0, 255, 0);
 
-            paletaColores["morado"] = new Color(128,0,255);
+            paletaColores["morado"] = new Color(128, 0, 255);
             paletaColores["Cafe Popó"] = new Color(128, 64, 0);
 
             //Aqui visualizamos los colores creados
@@ -31,18 +25,18 @@ namespace Poo_PS_Prototipo
             //Aqui visualizamos colores clonados
             Console.WriteLine("\n\nAqui vemos los colore clonados:");
             //Aqui clonamos un color
-            Color otroRojo = paletaColores["rojo"].Clonar() as Color;
-            Console.WriteLine(otroRojo.ToString());
+            Color? otroRojo = paletaColores["rojo"].Clonar() as Color;
+            Console.WriteLine(otroRojo!.ToString());
 
-            Color otroMorado = paletaColores["morado"].Clonar() as Color;
-            Console.WriteLine(otroMorado.ToString());
+            Color? otroMorado = paletaColores["morado"].Clonar() as Color;
+            Console.WriteLine(otroMorado!.ToString());
 
-            Color cafeDesagradable = paletaColores["Cafe Popó"].Clonar() as Color;
-            Console.WriteLine(cafeDesagradable.ToString());
+            Color? cafeDesagradable = paletaColores["Cafe Popó"].Clonar() as Color;
+            Console.WriteLine(cafeDesagradable!.ToString());
 
 
             //Aqui un color de la manera tradicioal
-            Color amarilloTradicional = new Color(255,255,0);
+            Color amarilloTradicional = new Color(255, 255, 0);
             amarilloTradicional.Nombre = "Amarillo Tradicional";
             Console.WriteLine(amarilloTradicional.ToString());
 

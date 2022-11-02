@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_Prototipo
+﻿namespace Poo_PS_GoF_Prototype
 {
     public class Color : PrototipoColor
     {
@@ -23,7 +17,7 @@ namespace Poo_PS_Prototipo
         /// Devuelve una copia "superficial" del método actual
         /// </summary>
         /// <returns></returns>
-        public override PrototipoColor Clonar()
+        public override PrototipoColor? Clonar()
         {
             return this.MemberwiseClone() as PrototipoColor;
         }
