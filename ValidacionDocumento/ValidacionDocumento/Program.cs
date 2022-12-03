@@ -72,11 +72,11 @@ namespace ValidacionDocumento
                     Console.WriteLine($"\nIngresando información para la persona No. {contadorDocs + 1}");
 
                     Console.Write("Género de la persona: (F)emenino o (M)ásculino: ");
-                    datoGenero = Console.ReadLine().ToUpper();
+                    datoGenero = Console.ReadLine()!.ToUpper();
                     Console.Write("Tipo de documento: (T)arjeta o (C)édula: ");
-                    datoTipo = Console.ReadLine().ToUpper();
+                    datoTipo = Console.ReadLine()!.ToUpper();
                     Console.Write("Número del documento: ");
-                    datoNumero = long.Parse(Console.ReadLine());
+                    datoNumero = long.Parse(Console.ReadLine()!);
 
                     //aqui validamos el género
                     if (datoGenero != "F" && datoGenero != "M")

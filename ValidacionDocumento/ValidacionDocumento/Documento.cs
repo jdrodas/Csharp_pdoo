@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ValidacionDocumento
+﻿namespace ValidacionDocumento
 {
     class Documento
     {
