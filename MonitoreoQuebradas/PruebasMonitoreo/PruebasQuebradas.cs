@@ -1,4 +1,4 @@
-Ôªøusing Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MonitoreoQuebradas;
 
 namespace PruebasMonitoreo
@@ -7,9 +7,9 @@ namespace PruebasMonitoreo
     public class PruebasQuebradas
     {
         /// <summary>
-        /// Evalua si hay 3 quebradas en estado cr√≠tico
+        /// Evalua si hay 3 quebradas en estado crÌtico
         /// </summary>
-        [TestMethod]        
+        [TestMethod]
         public void EvaluaCantidadCritica()
         {
             //Arrange -- Preparar
@@ -19,7 +19,7 @@ namespace PruebasMonitoreo
                 new Quebrada{Nombre = "La Presidenta", Caudal =20 },
                 new Quebrada{Nombre = "La Hueso", Caudal =92 },
                 new Quebrada{Nombre = "Santa Elena", Caudal =20 },
-                new Quebrada{Nombre = "La Iguan√°", Caudal =81 }
+                new Quebrada{Nombre = "La Iguan·", Caudal =81 }
             };
             //Act -- Actuar
             int totalEsperado = 3;
@@ -30,7 +30,7 @@ namespace PruebasMonitoreo
         }
 
         /// <summary>
-        /// Verifica que no se presenta condici√≥n de Emergencia por
+        /// Verifica que no se presenta condiciÛn de Emergencia por
         /// la cantidad de quebradas en etado critico
         /// </summary>
         [TestMethod]
@@ -43,7 +43,7 @@ namespace PruebasMonitoreo
                 new Quebrada{Nombre = "La Presidenta", Caudal =20 },
                 new Quebrada{Nombre = "La Hueso", Caudal =92 },
                 new Quebrada{Nombre = "Santa Elena", Caudal =20 },
-                new Quebrada{Nombre = "La Iguan√°", Caudal =80 }
+                new Quebrada{Nombre = "La Iguan·", Caudal =80 }
             };
 
             //Act -- Actuar
