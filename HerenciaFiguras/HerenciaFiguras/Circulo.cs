@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace HerenciaFiguras
 {
     public class Circulo : Figura
@@ -66,7 +65,7 @@ namespace HerenciaFiguras
         public void Informacion(ref string informacion)
         {
             informacion = base.Informacion() +
-            $"\nEsta figura es un círculo con radio {_radio}";            
+            $"\nEsta figura es un círculo con radio {_radio}";
         }
 
         /// <summary>

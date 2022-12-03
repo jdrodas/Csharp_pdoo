@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HerenciaFiguras
+﻿namespace HerenciaFiguras
 {
     class Triangulo : Figura
     {

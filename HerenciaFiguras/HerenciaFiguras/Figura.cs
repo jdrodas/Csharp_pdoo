@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace HerenciaFiguras
+﻿namespace HerenciaFiguras
 {
     public class Figura
     {

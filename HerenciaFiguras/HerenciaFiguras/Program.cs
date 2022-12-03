@@ -41,7 +41,7 @@ namespace HerenciaFiguras
             Circulo miCirculo = new Circulo(3, 4, 10);
 
             //Aqui invoco el método Información del círculo que utiliza parametros por referencia
-            string datoInformacion="";
+            string datoInformacion = "";
             miCirculo.Informacion(ref datoInformacion);
             Console.WriteLine($"Información: \n{datoInformacion}");
             Console.WriteLine($"Area: {miCirculo.AreaFigura()}");
