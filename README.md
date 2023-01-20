@@ -24,6 +24,7 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 - Demostración de separación funcional en clases con propósito específico: visualizacion en consola (UI) y lógica del problema
 - Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
 - Implementación de métodos utilizando parametros por referencia.
+- Actualizado a .NET 7
 
 ### [TiendaGomita_OO](https://github.com/jdrodas/Csharp_pdoo/tree/master/TiendaGomita_OO)
 - Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
