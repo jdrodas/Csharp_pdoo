@@ -20,7 +20,7 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 - Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
 - Implementación funcionalidad de memoria de frecuencias, almacenando los valores en un arreglo
 
-### [TiendaZapatos_POO](https://github.com/jdrodas/Csharp_pdoo/tree/master/TiendaZapatos_POO)
+### [TiendaDeZapatos_POO](https://github.com/jdrodas/Csharp_pdoo/tree/master/TiendaDeZapatos_POO)
 - Demostración de separación funcional en clases con propósito específico: visualizacion en consola (UI) y lógica del problema
 - Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
 - Implementación de métodos utilizando parametros por referencia.
