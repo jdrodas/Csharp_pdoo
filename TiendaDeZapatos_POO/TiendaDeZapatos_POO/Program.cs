@@ -6,53 +6,66 @@ namespace TiendaDeZapatos_POO
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Aplicación para simular la venta de 100 zapatos");
+            Console.WriteLine("Aplicación para simular la venta de zapatos");
+
+            //Aqui pedimos cuantos zapatos tendrá la tienda
+            int cantidadZapatos =0;
+            bool datoCorrecto = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("\nIngresa la cantidad de zapatos que tendrá la tienda: ");
+                    cantidadZapatos = int.Parse(Console.ReadLine()!);
+
+                    if (cantidadZapatos > 0)
+                        datoCorrecto = true;
+                    else
+                    {
+                        Console.WriteLine("El dato ingresado no representa una cantidad válida. Intenta nuevamente!");
+                    }
+                }
+                catch (FormatException errorDato)
+                {
+                    Console.WriteLine("El dato ingresado no está en el formato correcto. Intenta nuevamente!");
+                    Console.WriteLine($"{errorDato.Message}");                    
+                }
+            }
+            while (!datoCorrecto);
+
+
+            //Aqui creo una instancia de la clase tienda
+            Tienda miTiendita = new Tienda(cantidadZapatos);
+
+            //Aqui leo los estilos disponibles
             Console.WriteLine("Los estilos disponibles son:");
 
-            string[] losEstilos = {
-                "Tenis",
-                "Botas",
-                "Crocs Metaleras",
-                "Mocasines",
-                "Sandalia Gladiadora" };
+            string[] losEstilos = miTiendita.GetEstilos();
 
             foreach (string unEstilo in losEstilos)
                 Console.WriteLine($"- {unEstilo}");
 
+            //Aqui leo los colores
             Console.WriteLine("\nLos Colores Disponibles son:");
 
-            string[] losColores =
-            {
-                "Verde Selva",
-                "Azul Petróleo",
-                "Rojo Sangre",
-                "Café derrumbe de montaña"
-            };
+            string[] losColores = miTiendita.LosColores;
 
             foreach (string unColor in losColores)
                 Console.WriteLine($"- {unColor}");
 
+            //Aqui leo las tallas
             Console.WriteLine("\nLas tallas disponibles son:");
-            int[] lasTallas = { 28, 30, 32, 34, 36, 38, 40, 42, 44 };
+
+            int[] lasTallas = miTiendita.LasTallas;
 
             foreach (int unaTalla in lasTallas)
                 Console.WriteLine($"- {unaTalla}");
 
-            Zapato[] losZapatos = new Zapato[100];
-            Random aleatorio = new Random();
-
-            for (int i = 0; i < losZapatos.Length; i++)
-            {
-                losZapatos[i] = new Zapato();
-
-                losZapatos[i].Talla = lasTallas[aleatorio.Next(lasTallas.Length)];
-                losZapatos[i].Color = losColores[aleatorio.Next(losColores.Length)];
-                losZapatos[i].Estilo = losEstilos[aleatorio.Next(losEstilos.Length)];
-            }
-
             Console.WriteLine("La tienda quedó surtida con estos zapatos:");
 
             int contador = 1;
+            Zapato[] losZapatos = miTiendita.LosZapatos;
 
             foreach (Zapato unZapato in losZapatos)
             {
