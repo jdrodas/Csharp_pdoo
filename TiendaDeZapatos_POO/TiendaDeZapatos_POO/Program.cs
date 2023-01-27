@@ -22,9 +22,7 @@ namespace TiendaDeZapatos_POO
                     if (cantidadZapatos > 0)
                         datoCorrecto = true;
                     else
-                    {
                         Console.WriteLine("El dato ingresado no representa una cantidad válida. Intenta nuevamente!");
-                    }
                 }
                 catch (FormatException errorDato)
                 {
@@ -41,25 +39,19 @@ namespace TiendaDeZapatos_POO
             //Aqui leo los estilos disponibles
             Console.WriteLine("Los estilos disponibles son:");
 
-            string[] losEstilos = miTiendita.GetEstilos();
-
-            foreach (string unEstilo in losEstilos)
+            foreach (string unEstilo in miTiendita.GetEstilos())
                 Console.WriteLine($"- {unEstilo}");
 
             //Aqui leo los colores
             Console.WriteLine("\nLos Colores Disponibles son:");
 
-            string[] losColores = miTiendita.LosColores;
-
-            foreach (string unColor in losColores)
+            foreach (string unColor in miTiendita.GetColores())
                 Console.WriteLine($"- {unColor}");
 
             //Aqui leo las tallas
             Console.WriteLine("\nLas tallas disponibles son:");
 
-            int[] lasTallas = miTiendita.LasTallas;
-
-            foreach (int unaTalla in lasTallas)
+            foreach (int unaTalla in miTiendita.GetTallas())
                 Console.WriteLine($"- {unaTalla}");
 
             Console.WriteLine("La tienda quedó surtida con estos zapatos:");
@@ -69,10 +61,18 @@ namespace TiendaDeZapatos_POO
 
             foreach (Zapato unZapato in losZapatos)
             {
-                Console.WriteLine($"No. {contador}, Talla: {unZapato.Talla}," +
-                    $"Color: {unZapato.Color}, Estilo: {unZapato.Estilo}");
+                Console.WriteLine($"No. {contador}, Talla: {unZapato.GetTalla()}," +
+                    $"Color: {unZapato.GetColor()}, Estilo: {unZapato.GetEstilo()}");
                 contador++;
             }
+
+            int valorModa;
+            string estiloModa;
+
+            // Obtenemos los resultados a través de los argumentos, declarándolos de salida (out)
+            miTiendita.ObtieneEstiloModa(out valorModa, out estiloModa);
+
+            Console.WriteLine($"\nEl estilo de moda es {estiloModa} con {valorModa} pares de zapatos");
         }
     }
 }

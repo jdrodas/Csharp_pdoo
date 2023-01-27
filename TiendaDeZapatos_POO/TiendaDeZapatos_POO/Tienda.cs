@@ -101,6 +101,11 @@ namespace TiendaDeZapatos_POO
             get { return losEstilos; } 
         }
 
+        public int[] GetTallas()
+        {
+            return lasTallas;
+        }
+
         public int[] LasTallas
         {
             get { return lasTallas; }
@@ -109,6 +114,52 @@ namespace TiendaDeZapatos_POO
         public Zapato[] LosZapatos
         {
             get { return losZapatos;}
+        }
+
+        public void ObtieneEstiloModa(out int valorModa, out string estiloModa)
+        {
+            estiloModa = string.Empty;
+            valorModa = 0;
+
+            CalculaEstiloMayor(losZapatos, losEstilos, out valorModa, out estiloModa);
+        }
+
+        public void CalculaEstiloMayor(Zapato[] arregloZapatos, string[] arregloEstilos, out int valorModa, out string estiloModa)
+        {
+            estiloModa = string.Empty;
+            valorModa = 0;
+
+            int[] contadorEstilos = new int[arregloEstilos.Length];
+
+            //Precaución: Garantiza que todos los contadores inicien en 0
+            for (int i = 0; i < contadorEstilos.Length; i++)
+                contadorEstilos[i] = 0;
+
+            //Aqui recorremos los arreglos de estilo y zapato
+            for (int i = 0; i < arregloEstilos.Length; i++)
+            {
+                for (int j = 0; j < arregloZapatos.Length; j++)
+                {
+                    if (arregloEstilos[i] == arregloZapatos[j].GetEstilo())
+                        contadorEstilos[i]++;
+                }
+            }
+
+            //Aqui identificamos el mayor
+            int valorMayor = contadorEstilos[0];
+            int posicionMayor = 0;
+
+            for (int i = 1; i < contadorEstilos.Length; i++)
+            {
+                if (contadorEstilos[i] > valorMayor)
+                {
+                    valorMayor = contadorEstilos[i];
+                    posicionMayor = i;
+                }
+            }
+
+            estiloModa = losEstilos[posicionMayor];
+            valorModa = valorMayor;
         }
     }
 }
