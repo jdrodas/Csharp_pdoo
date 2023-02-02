@@ -2,7 +2,7 @@
 
 namespace TiendaDeZapatos_POO
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -57,22 +57,18 @@ namespace TiendaDeZapatos_POO
             Console.WriteLine("La tienda quedó surtida con estos zapatos:");
 
             int contador = 1;
-            Zapato[] losZapatos = miTiendita.LosZapatos;
+            Zapato[] losZapatos = miTiendita.GetZapatos();
 
             foreach (Zapato unZapato in losZapatos)
             {
-                Console.WriteLine($"No. {contador}, Talla: {unZapato.GetTalla()}," +
-                    $"Color: {unZapato.GetColor()}, Estilo: {unZapato.GetEstilo()}");
+                Console.WriteLine($"No. {contador}, {unZapato.ToString()}"); 
                 contador++;
             }
 
-            int valorModa;
-            string estiloModa;
-
             // Obtenemos los resultados a través de los argumentos, declarándolos de salida (out)
-            miTiendita.ObtieneEstiloModa(out valorModa, out estiloModa);
+            ZapatoModa zapatoFavorito = miTiendita.ObtieneEstiloModa(); 
 
-            Console.WriteLine($"\nEl estilo de moda es {estiloModa} con {valorModa} pares de zapatos");
+            Console.WriteLine($"\nEl estilo de moda es {zapatoFavorito.GetEstilo()} con {zapatoFavorito.GetCantidad()} pares de zapatos");
         }
     }
 }

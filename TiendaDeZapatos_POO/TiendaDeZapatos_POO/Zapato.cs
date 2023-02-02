@@ -5,8 +5,8 @@ namespace TiendaDeZapatos_POO
     public class Zapato
     {
         //Zona de Atributos
-        private string estilo, color;
-        private int talla;
+        protected string estilo, color;
+        protected int talla;
 
         //Zona de Constructor
         public Zapato()
@@ -107,6 +107,16 @@ namespace TiendaDeZapatos_POO
                 else
                     talla = 0;
             }
+        }
+
+        /// <summary>
+        /// Obtiene una cadena de caracteres con la información del zapato
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string resultado = $"Talla: {talla}, Color: {color}, Estilo: {estilo}";
+            return resultado;
         }
     }
 }

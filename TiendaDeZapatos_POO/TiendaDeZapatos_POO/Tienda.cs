@@ -16,6 +16,10 @@ namespace TiendaDeZapatos_POO
         private bool estaLista;
 
         //Zona de Constructores
+
+        /// <summary>
+        /// Constructor Predeterminado de la clase
+        /// </summary>
         public Tienda()
         {
             cantidadZapatos= 0;
@@ -40,6 +44,9 @@ namespace TiendaDeZapatos_POO
             InicializaArreglos();
         }
 
+        /// <summary>
+        /// Inicializa los arreglos que tienen los valores a utilizar en la tienda
+        /// </summary>
         private void InicializaArreglos()
         {
             losEstilos = new string[]{
@@ -81,6 +88,10 @@ namespace TiendaDeZapatos_POO
             }
         }
 
+        /// <summary>
+        /// Obtiene el arreglo de colores de los zapatos de la tienda
+        /// </summary>
+        /// <returns>arreglo de strings con los valores</returns>
         public string[] GetColores()
         {
             return losColores;
@@ -90,7 +101,11 @@ namespace TiendaDeZapatos_POO
         {
             get { return losColores; }
         }
-        
+
+        /// <summary>
+        /// Obtiene el arreglo de estilos de los zapatos de la tienda
+        /// </summary>
+        /// <returns>arreglo de strings con los valores</returns>
         public string[] GetEstilos()
         {
             return losEstilos;
@@ -101,6 +116,10 @@ namespace TiendaDeZapatos_POO
             get { return losEstilos; } 
         }
 
+        /// <summary>
+        /// Obtiene el arreglo de tallas de los zapatos de la tienda
+        /// </summary>
+        /// <returns>arreglo de int con los valores</returns>
         public int[] GetTallas()
         {
             return lasTallas;
@@ -111,24 +130,38 @@ namespace TiendaDeZapatos_POO
             get { return lasTallas; }
         }
 
+        /// <summary>
+        /// Obtiene el arreglo de zapatos de la tienda
+        /// </summary>
+        /// <returns>arreglo de zapatos con los valores</returns>
         public Zapato[] LosZapatos
         {
             get { return losZapatos;}
         }
 
-        public void ObtieneEstiloModa(out int valorModa, out string estiloModa)
+        public Zapato[] GetZapatos()
         {
-            estiloModa = string.Empty;
-            valorModa = 0;
-
-            CalculaEstiloMayor(losZapatos, losEstilos, out valorModa, out estiloModa);
+            return losZapatos;
         }
 
-        public void CalculaEstiloMayor(Zapato[] arregloZapatos, string[] arregloEstilos, out int valorModa, out string estiloModa)
+        /// <summary>
+        /// Obtiene el Zapato de Moda según el estilo
+        /// </summary>
+        /// <returns>El zapato con el estilo de moda</returns>
+        public ZapatoModa ObtieneEstiloModa()
         {
-            estiloModa = string.Empty;
-            valorModa = 0;
+            ZapatoModa zapatoResultado = CalculaEstiloMayor(losZapatos, losEstilos);
+            return zapatoResultado;
+        }
 
+        /// <summary>
+        /// Calcula cual es el zapato de moda de acuerdo al estilo
+        /// </summary>
+        /// <param name="arregloZapatos">Arreglo de Zapatos</param>
+        /// <param name="arregloEstilos">Arreglo de estilos</param>
+        /// <returns></returns>
+        public ZapatoModa CalculaEstiloMayor(Zapato[] arregloZapatos, string[] arregloEstilos)
+        {
             int[] contadorEstilos = new int[arregloEstilos.Length];
 
             //Precaución: Garantiza que todos los contadores inicien en 0
@@ -145,7 +178,7 @@ namespace TiendaDeZapatos_POO
                 }
             }
 
-            //Aqui identificamos el mayor
+            //Aqui identificamos el mayor, el estilo que más zapatos tiene, el primero de ellos
             int valorMayor = contadorEstilos[0];
             int posicionMayor = 0;
 
@@ -158,8 +191,13 @@ namespace TiendaDeZapatos_POO
                 }
             }
 
-            estiloModa = losEstilos[posicionMayor];
-            valorModa = valorMayor;
+            //Aqui declaramos el objeto resultado
+            ZapatoModa zapatoResultado = new ZapatoModa();
+
+            zapatoResultado.SetCantidad(valorMayor);
+            zapatoResultado.SetEstilo(losEstilos[posicionMayor]);
+
+            return zapatoResultado;
         }
     }
 }
