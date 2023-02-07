@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FabricadorArepas
 {
-    interface IAsable
+    public interface IAsable
     {
         string InfoCoccion();
     }

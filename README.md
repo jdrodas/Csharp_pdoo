@@ -23,7 +23,13 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 ### [TiendaDeZapatos_POO](https://github.com/jdrodas/Csharp_pdoo/tree/master/TiendaDeZapatos_POO)
 - Demostración de separación funcional en clases con propósito específico: visualizacion en consola (UI) y lógica del problema
 - Revisión de conceptos básicos de programación: condicionales, ciclos, excepciones, funciones, arreglos, clases y objetos
-- Implementación de métodos utilizando parametros por referencia.
+- Implementación de métodos de totalización definitiendo un objeto ZapatoModa
+- Actualizado a .NET 7
+
+### [FabricadorArepas](https://github.com/jdrodas/Csharp_pdoo/tree/master/FabricadorArepas)
+- Demostración de separación funcional en clases con propósito específico: visualizacion en consola (UI) y lógica del problema.
+- Implementación de conceptos de POO: Encapsulación, Herencia, clases abstractas, polimorfismo por sobrecarga y sobreescritura.
+- Implementación de comportamientos utilizando interfaces.
 - Actualizado a .NET 7
 
 ### [TiendaGomita_OO](https://github.com/jdrodas/Csharp_pdoo/tree/master/TiendaGomita_OO)

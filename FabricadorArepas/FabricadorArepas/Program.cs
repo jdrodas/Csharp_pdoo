@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FabricadorArepas
 {
@@ -10,129 +6,71 @@ namespace FabricadorArepas
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Programa para gestionar arepas de una fábrica");
-            Console.WriteLine("Se producirán 1.000 arepas");
 
-            /*            
-            //Probamos las clases que implementamos
-            ArepaAsada miCarboncito = new ArepaAsada();
-            miCarboncito.TipoDeMasa = "Chocolo";
-            miCarboncito.TemperaturaCoccion = 20;
-            miCarboncito.NumeroMolino = 3;
-            miCarboncito.DiasCaducidad = 2;
+            //Aqui probamos que podemos crear una instancia de ArepaAsada
+            //ArepaAsada miCarboncito = new ArepaAsada();
+            //miCarboncito.SetTipoDeMasa("Chocolo");
+            //miCarboncito.SetTemperaturaCoccion(20);
+            //miCarboncito.SetNumeroMolino(1);
+            //miCarboncito.SetDiasCaducidad(5);
+            //miCarboncito.SetTipoArepa("Asada");
 
-            Console.WriteLine(miCarboncito.ObtieneInformacion() + "\n");
+            //Console.WriteLine($"\n{miCarboncito.ObtieneInformacion()}");
 
-            Arepa unaArepa = new ArepaProcesada(
-                "Yuca",
-                35,
-                2,
-                87,
-                9,
-                "Procesada"
-                );
+            //Aqui probamos que podemos crear una instancia de ArepaProcesada
+            //ArepaProcesada unaArepa = new ArepaProcesada(
+            //    "Yuca",
+            //    "Procesada",
+            //    7,
+            //    3,
+            //    45,
+            //    28);
 
-            Console.WriteLine(unaArepa.ObtieneInformacion() + "\n");
-            */
+            //Console.WriteLine($"\n{unaArepa.ObtieneInformacion()}");
 
-            //Aqui hacemos el arreglo de 1.000 arepas
-            Arepa[] lasArepas = new Arepa[1000];
 
-            //Aqui inicializamos el arreglo del tipo de masa
-            string[] tiposMasa = { "Chocolo", "Yuca", "Maiz", "Quinua", "Arroz" };
-            InicializaLoteArepas(lasArepas, tiposMasa);
+            Console.WriteLine("Programa para gestionar la fabricación de arepas");
+            Console.WriteLine("Se producirán cierta cantidad de arepas\n");
 
-            VisualizaLoteArepas(lasArepas);
+            int cantidadArepas=0;
+            bool cantidadArepasCorrecta = false;
 
-            //Aqui vemos totales
-            int[] totalesMasa = TotalesPorMasa(lasArepas, tiposMasa);
-
-            Console.WriteLine("\n\nLos totales por masa son:");
-            for (int k = 0; k < tiposMasa.Length; k++)
+            do
             {
-                Console.WriteLine($"Masa: {tiposMasa[k]}, total: {totalesMasa[k]}");
-            }
-        }
-
-        public static void InicializaLoteArepas(Arepa[] arregloArepas, string[] arregloMasas)
-        {
-            //Variables del proceso
-            Random aleatorio = new Random();
-
-            int tipoDeArepa; // 0: Congelada, 1: Asada, 2: Procesada
-            int numeroMolino; // Toma valores entre 1 y 7
-            int diasCaducidad; // Toma Valores entre 1 y 30 días            
-
-            for (int i = 0; i < arregloArepas.Length; i++)
-            {
-                tipoDeArepa = aleatorio.Next(3);
-                numeroMolino = aleatorio.Next(1, 8);
-                diasCaducidad = aleatorio.Next(1, 31);
-
-                switch (tipoDeArepa)
+                try
                 {
-                    case 0:
-                        arregloArepas[i] = new ArepaCongelada(
-                            arregloMasas[aleatorio.Next(arregloMasas.Length)],
-                            diasCaducidad,
-                            numeroMolino,
-                            aleatorio.Next(30, 91), //Dias de Congelado
-                            "Congelada");
-                        break;
+                    Console.Write("\nCuantas arepas quieres en este lote? ");
+                    cantidadArepas = int.Parse(Console.ReadLine()!);
 
-                    case 1:
-                        arregloArepas[i] = new ArepaAsada(
-                            arregloMasas[aleatorio.Next(arregloMasas.Length)],
-                            diasCaducidad,
-                            numeroMolino,
-                            aleatorio.Next(20, 101), // Temperatura de Coccion
-                            "Asada");
-                        break;
+                    if (cantidadArepas <= 0)
+                        Console.WriteLine("El dato ingresado debe ser entero positivo. Intenta nuevamente.");
+                    else
+                        cantidadArepasCorrecta = true;
 
-                    case 2:
-                        arregloArepas[i] = new ArepaProcesada(
-                           arregloMasas[aleatorio.Next(arregloMasas.Length)],
-                            diasCaducidad,
-                            numeroMolino,
-                            aleatorio.Next(20, 101), // Temperatura de Coccion
-                            aleatorio.Next(30, 91), //Dias de Congelado
-                            "Procesada");
-                        break;
+                }
+                catch (FormatException elError)
+                {
+                    Console.WriteLine("El dato ingresado no representa una cantidad. Intenta nuevamente.");
+                    Console.WriteLine(elError.Message);
                 }
             }
-        }
+            while (cantidadArepasCorrecta == false);
 
-        public static int[] TotalesPorMasa(Arepa[] arregloArepas, string[] arregloMasas)
-        {
-            int[] resultado = new int[arregloMasas.Length];
 
-            //Inicializo el arreglo
-            for (int i = 0; i < resultado.Length; i++)
-                resultado[i] = 0;
+            //Creamos la fabrica de arepa
+            Fabrica fabricaDeArepas = new Fabrica(cantidadArepas);
 
-            //Aqui contamos
-            for (int i = 0; i < arregloArepas.Length; i++)
-                for (int j = 0; j < arregloMasas.Length; j++)
-                    if (arregloArepas[i].TipoDeMasa == arregloMasas[j])
-                        resultado[j]++;
+            Console.WriteLine("\nAsi está compuesto el lote de arepas:\n");
 
-            return resultado;
-        }
+            int contadorArepas = 1;
 
-        public static void VisualizaLoteArepas(Arepa[] arregloArepas)
-        {
-            //foreach (Arepa unaArepa in arregloArepas)
-            //{
-            //    Console.WriteLine(unaArepa.ObtieneInformacion() + "\n");
-            //}
-
-            for (int i = 0; i < arregloArepas.Length; i++)
+            foreach (Arepa unaArepa in fabricaDeArepas.GetLasArepas())
             {
-                Console.WriteLine($"Arepa No {(i + 1)} " +
-                    $"- Del tipo {arregloArepas[i].TipoArepa} " +
-                    $"- De masa {arregloArepas[i].TipoDeMasa}");
+                Console.WriteLine($"No. {contadorArepas}\n{unaArepa.ObtieneInformacion()}\n");
+                contadorArepas++;
             }
 
+            Console.WriteLine($"\nDe este lote, hay {fabricaDeArepas.ObtieneArepasVencidas()} arepas que se tienen que comer hoy!");
         }
     }
 }

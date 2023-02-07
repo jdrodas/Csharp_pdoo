@@ -1,61 +1,77 @@
-﻿namespace FabricadorArepas
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FabricadorArepas
 {
     public class ArepaProcesada : Arepa, IAsable, ICongelable
     {
         private int temperaturaCoccion;
         private int diasMaximosCongelado;
 
-        public ArepaProcesada() : base()
+        public ArepaProcesada(): base()
         {
-            this.diasMaximosCongelado = 0;
-            this.temperaturaCoccion = 0;
+            temperaturaCoccion = 0;
+            diasMaximosCongelado= 0;
         }
 
-        public ArepaProcesada(string tipoDeMasa,
-                              int diasCaducidad,
-                              int numeroMolino,
-                              int temperaturaCoccion,
-                              int diasMaximosCongelado,
-                              string tipoArepa) : base(
-                                  tipoDeMasa, diasCaducidad, numeroMolino, tipoArepa)
+        public ArepaProcesada(string tipoDeMasa, string tipoArepa,
+                      int diasCaducidad, int numeroMolino, int diasMaximosCongelado, int temperaturaCoccion)
+                        : base(tipoDeMasa, tipoArepa, diasCaducidad, numeroMolino)
         {
-            this.temperaturaCoccion = temperaturaCoccion;
             this.diasMaximosCongelado = diasMaximosCongelado;
+            this.temperaturaCoccion = temperaturaCoccion;
         }
 
-        public int TemperaturaCoccion
+        public int GetDiasMaximosCongelado()
         {
-            get { return temperaturaCoccion; }
-            set { temperaturaCoccion = value; }
+            return diasMaximosCongelado;
         }
 
-        public int DiasMaximosCongelado
+        public void SetDiasMaximosCongelado(int diasMaximosCongelado)
         {
-            get { return diasMaximosCongelado; }
-            set { diasMaximosCongelado = value; }
+            if (diasMaximosCongelado > 0)
+                this.diasMaximosCongelado = diasMaximosCongelado;
+            else
+                this.diasMaximosCongelado = 0;
+        }
+
+        public int GetTemperaturaCoccion()
+        {
+            return temperaturaCoccion;
+        }
+
+        public void SetTemperaturaCoccion(int temperaturaCoccion)
+        {
+            if (temperaturaCoccion > 0)
+                this.temperaturaCoccion = temperaturaCoccion;
+            else
+                this.temperaturaCoccion = 0;
         }
 
         public string InfoCongelacion()
         {
-            string info = $"Dias maximos de congelacion: {diasMaximosCongelado}";
-            return info; ;
+            string info = $"Días máximos de congelación: {diasMaximosCongelado}";
+            return info;
         }
 
         public string InfoCoccion()
         {
-            string info = $"Temperatura para cocción: {temperaturaCoccion}";
-            return info; ;
+            string info = $"Temperatura de cocción: {temperaturaCoccion}";
+            return info;
         }
 
         public override string ObtieneInformacion()
         {
-            string info = $"Esta arepa fue {tipoArepa}. \n" +
+            string informacion = $"Esta es una arepa {tipoArepa}. \n" +
                 $"La masa es de {tipoDeMasa} \n" +
                 $"Salió del molino {numeroMolino} \n" +
-                $"Dias caducidad: {diasCaducidad} \n" +
-                InfoCoccion() + " \n" +
-                InfoCongelacion();
-            return info;
+                $"Días de caducidad: {diasCaducidad} \n" +
+                InfoCongelacion() + "\n" +
+                InfoCoccion();
+            return informacion;
         }
     }
 }
