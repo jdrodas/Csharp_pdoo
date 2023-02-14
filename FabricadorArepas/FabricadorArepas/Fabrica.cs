@@ -5,12 +5,20 @@
         private int cantidad;
         private string[] tiposMasa;
         private Arepa[] lasArepas;
+        private int totalArepasAsadas;
+        private float SumaTemperaturaCoccionAsadas, promedioTemperaturaCoccion;
 
         public Fabrica()
         {
             cantidad = 1; //Valor arbitrario y predeterminado para que produzca al menos 1 arepa
+
+            totalArepasAsadas = 0;
+            SumaTemperaturaCoccionAsadas = 0f;
+            promedioTemperaturaCoccion = 0f;
+
             tiposMasa = AsignaTiposMasa();
             lasArepas = AsignaArepas();
+
         }
 
         public Fabrica(int cantidad)
@@ -20,8 +28,13 @@
             else
                 this.cantidad = cantidad;
 
+            totalArepasAsadas = 0;
+            SumaTemperaturaCoccionAsadas = 0f;
+            promedioTemperaturaCoccion = 0f;
+
             tiposMasa = AsignaTiposMasa();
             lasArepas = AsignaArepas();
+
         }
 
         private Arepa[] AsignaArepas()
@@ -34,6 +47,7 @@
 
             Random aleatorio = new Random();
             int tipoDeArepa=0, numeroMolino=0, diasCaducidad=0;
+            int temperaturaCoccion;
 
             //Inicializamos cada posición del arreglo de arepas
             //con una arepa de tipo aleatorio
@@ -47,12 +61,14 @@
                 switch (tipoDeArepa)
                 {
                     case 0:
+                        temperaturaCoccion = aleatorio.Next(20, 101);
                         arregloArepas[i] = new ArepaAsada(
                             tiposMasa[aleatorio.Next(tiposMasa.Length)],
                             "Asada",
                             diasCaducidad,
                             numeroMolino,
-                            aleatorio.Next(20, 101));
+                            temperaturaCoccion);
+                        ContabilizaArepaAsada(temperaturaCoccion);
                         break;
 
                     case 1:
@@ -76,7 +92,15 @@
                 }
             }
 
+            CalculaPromedioTemperaturaCoccion();
+
             return arregloArepas;            
+        }
+
+        private void CalculaPromedioTemperaturaCoccion()
+        {
+            promedioTemperaturaCoccion = SumaTemperaturaCoccionAsadas
+                / totalArepasAsadas;
         }
 
         private string[] AsignaTiposMasa()
@@ -101,6 +125,12 @@
             return lasArepas;
         }
 
+        private void ContabilizaArepaAsada(int temperaturaCoccion)
+        {
+            totalArepasAsadas++;
+            SumaTemperaturaCoccionAsadas += temperaturaCoccion;
+        }
+
 
         public int ObtieneArepasVencidas()
         {
@@ -112,6 +142,16 @@
                     contadorArepasVencidas++;
             }
             return contadorArepasVencidas;
+        }
+
+        public int GetTotalArepasAsadas()
+        {
+            return totalArepasAsadas;
+        }
+
+        public float GetPromedioTemperaturaCoccion()
+        {
+            return promedioTemperaturaCoccion;
         }
     }
 }

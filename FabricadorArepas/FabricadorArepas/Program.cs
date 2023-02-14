@@ -71,6 +71,9 @@ namespace FabricadorArepas
             }
 
             Console.WriteLine($"\nDe este lote, hay {fabricaDeArepas.ObtieneArepasVencidas()} arepas que se tienen que comer hoy!");
+
+            Console.WriteLine($"\nDe este lote, hay {fabricaDeArepas.GetTotalArepasAsadas()} arepas asadas " +
+                $"con promedio de temperatura de coccion de {fabricaDeArepas.GetPromedioTemperaturaCoccion().ToString("00.00")} °C");
         }
     }
 }
