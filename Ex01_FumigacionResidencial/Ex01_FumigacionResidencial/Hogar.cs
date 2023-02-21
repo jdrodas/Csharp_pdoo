@@ -33,6 +33,11 @@ namespace Ex01_FumigacionResidencial
             return estaFumigado;
         }
 
+        public Fumigacion GetAccionFumigacion()
+        {
+            return accionFumigacion;
+        }
+
         public override string ToString()
         {
             string informacion;

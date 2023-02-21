@@ -9,11 +9,36 @@ namespace Ex01_FumigacionResidencial
     public class ConjuntoResidencial
     {
         private Hogar[] losHogares;
+        private FumigacionDisponible[] fumigacionesAccesibles;
 
         public ConjuntoResidencial(int cantidadHogares)
         {
+            fumigacionesAccesibles = InicializaFumigacionesAccesibles();
             losHogares = new Hogar[cantidadHogares];
             InicializaHogares();
+        }
+
+        public FumigacionDisponible[] GetFumigacionesAccesibles()
+        {
+            return fumigacionesAccesibles;
+        }
+
+        private FumigacionDisponible[] InicializaFumigacionesAccesibles()
+        {
+            FumigacionDisponible[] unasFumigaciones = new FumigacionDisponible[]
+                {
+                    new FumigacionDisponible("Roedores","Anticoagulantes"),
+                    new FumigacionDisponible("Roedores","Neurotóxicos"),
+                    new FumigacionDisponible("Roedores","Repelentes"),
+                    new FumigacionDisponible("Hongos","Desinfectantes"),
+                    new FumigacionDisponible("Hongos","Fungicidas"),
+                    new FumigacionDisponible("Hongos","Inhibidores"),
+                    new FumigacionDisponible("Insectos","Insecticidas"),
+                    new FumigacionDisponible("Insectos","Repelentes"),
+                    new FumigacionDisponible("Insectos","Desinfectantes")
+        };
+
+            return unasFumigaciones;
         }
 
         public Hogar[] GetLosHogares()
@@ -25,11 +50,6 @@ namespace Ex01_FumigacionResidencial
         {
             //0: No hubo fumigacion, 1: Hubo Fumigacion
             int visitaFumigador = 0;
-
-            //0: Roedores, 1: Insectos; 2: Hongos
-            int plagaIdentificada = 0;
-            Fumigacion accionFumigacion = new Fumigacion();
-
             Random aleatorio = new Random();
 
             for(int i=0;i<losHogares.Length;i++)
@@ -40,99 +60,33 @@ namespace Ex01_FumigacionResidencial
                     losHogares[i] = new Hogar();
                 else
                 {
-                    plagaIdentificada = aleatorio.Next(3);
-
-                    switch (plagaIdentificada)
-                    {
-                        //Rodedores
-                        case 0:
-                            accionFumigacion = ObtieneAccionFumigacion("Roedores");
-                            break;
-
-                        //Insectos
-                        case 1:
-                            accionFumigacion = ObtieneAccionFumigacion("Insectos");
-                            break;
-
-                        //Hongos
-                        case 2:
-                            accionFumigacion = ObtieneAccionFumigacion("Hongos");
-                            break;
-                    }
-
-                    losHogares[i] = new Hogar(accionFumigacion);
+                    losHogares[i] = new Hogar(
+                            fumigacionesAccesibles[
+                                aleatorio.Next(
+                                    fumigacionesAccesibles.Length
+                                    )
+                                ]
+                                );
                 }
             }
+
+            //Aqui totalizamos las fumigaciones disponibles utilizadas
+            TotalizaFumigacionesDisponibles();
         }
 
-        private Fumigacion ObtieneAccionFumigacion(string plaga)
+        private void TotalizaFumigacionesDisponibles()
         {
-            Fumigacion fumigacionSeleccionada = new Fumigacion();
-            Random aleatorio = new Random();
-            string metodoFumigacion = "";
-            int metodoSeleccionado = 0;
-
-            if (plaga == "Roedores")
+            foreach (Hogar unHogar in losHogares)
             {
-                metodoSeleccionado = aleatorio.Next(3);
-                switch (metodoSeleccionado)
+                if (unHogar.GetEstaFumigado())
                 {
-                    case 0:
-                        metodoFumigacion = "Anticoagulantes";
-                        break;
-
-                    case 1:
-                        metodoFumigacion = "Neurotóxicos";
-                        break;
-
-                    case 2:
-                        metodoFumigacion = "Repelentes";
-                        break;
+                    for (int i = 0; i < fumigacionesAccesibles.Length; i++)
+                    {
+                        if (unHogar.GetAccionFumigacion() == fumigacionesAccesibles[i])
+                            fumigacionesAccesibles[i].IncrementaCantidad();
+                    }
                 }
             }
-
-
-            if (plaga == "Insectos")
-            {
-                metodoSeleccionado = aleatorio.Next(3);
-                switch (metodoSeleccionado)
-                {
-                    case 0:
-                        metodoFumigacion = "Insecticidas";
-                        break;
-
-                    case 1:
-                        metodoFumigacion = "Repelentes";
-                        break;
-
-                    case 2:
-                        metodoFumigacion = "Desinfectantes";
-                        break;
-                }
-            }
-
-            if (plaga == "Hongos")
-            {
-                metodoSeleccionado = aleatorio.Next(3);
-                switch (metodoSeleccionado)
-                {
-                    case 0:
-                        metodoFumigacion = "Desinfectantes";
-                        break;
-
-                    case 1:
-                        metodoFumigacion = "Fungicidas";
-                        break;
-
-                    case 2:
-                        metodoFumigacion = "Inhibidores";
-                        break;
-                }
-            }
-
-            fumigacionSeleccionada = new Fumigacion(plaga, metodoFumigacion);
-
-            return fumigacionSeleccionada;
         }
 
         public double ObtienePorcentajeHogaresFumigados()
@@ -146,6 +100,36 @@ namespace Ex01_FumigacionResidencial
             }
 
             return ((porcentaje/losHogares.Length)*100);
+        }
+
+        public string ObtieneProductoPlagaMasUtilizado()
+        {
+            int cantidadMayor = fumigacionesAccesibles[0].GetCantidad();
+            int posicionMayor = 0;
+            int cuantosMayores = 0;
+
+            for (int i = 1; i < fumigacionesAccesibles.Length; i++)
+            {
+                if (fumigacionesAccesibles[i].GetCantidad() > cantidadMayor)
+                {
+                    posicionMayor = i;
+                    cantidadMayor = fumigacionesAccesibles[i].GetCantidad();
+                }
+            }
+
+            string resultado = string.Empty;
+
+            foreach (FumigacionDisponible unaFumigacion in fumigacionesAccesibles)
+            {
+                if (unaFumigacion.GetCantidad() == cantidadMayor)
+                {
+                    cuantosMayores++;
+                    resultado += unaFumigacion.ToString() + "\n";
+                }
+            }
+            resultado += $"En total fueron {cuantosMayores}";
+
+            return resultado;
         }
     }
 }

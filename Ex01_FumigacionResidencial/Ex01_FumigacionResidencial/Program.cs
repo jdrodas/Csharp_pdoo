@@ -2,7 +2,7 @@
 
 namespace Ex01_FumigacionResidencial
 {
-    public class program
+    public class Program
     {
         static public void Main(string[] args)
         {
@@ -42,30 +42,18 @@ namespace Ex01_FumigacionResidencial
                     $"\n {casasDelaMontaña.GetLosHogares()[i].ToString()}");
             }
 
-            Console.WriteLine($"El porcentaje de hogares fumigados fue " +
+            Console.WriteLine($"\nEl porcentaje de hogares fumigados fue " +
                 $"{casasDelaMontaña.ObtienePorcentajeHogaresFumigados().ToString("00.00")}%");
 
+            Console.WriteLine($"\nLos totales por fumigaciones disponibles son");
 
-            //Fumigacion fumigacionHongos = new Fumigacion("Hongos", "Fungicida");
-            //Fumigacion fumigacionRoedores = new Fumigacion("Roedores", "Anticoagulantes");
-            //Fumigacion fumigacionInsectos = new Fumigacion("Insectos", "Desinfectantes");
+            foreach (FumigacionDisponible unaFumigacion in casasDelaMontaña.GetFumigacionesAccesibles())
+            {
+                Console.WriteLine(unaFumigacion.ToString());
+            }
 
-            //Console.WriteLine("Algunos métodos de fumigación disponibles son");
-            //Console.WriteLine(fumigacionInsectos.ToString());
-            //Console.WriteLine(fumigacionHongos.ToString());
-            //Console.WriteLine(fumigacionRoedores.ToString());
-
-            //Hogar miCasita = new Hogar(fumigacionHongos);
-
-            //Console.WriteLine("\nAlgunos hogares fumigados");
-            //Console.WriteLine(miCasita.ToString());
-
-            //Hogar otraCasita = new Hogar();
-
-
-            //Console.WriteLine("\nAlgunos hogares NO fumigados");
-            //Console.WriteLine(otraCasita.ToString());
-
+            Console.WriteLine($"\nResultado del Producto-Plaga más utilizado:\n " +
+                $"{casasDelaMontaña.ObtieneProductoPlagaMasUtilizado()}");
         }
     }
 }
