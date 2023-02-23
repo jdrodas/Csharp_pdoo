@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex01_FumigacionResidencial
+namespace LogicaFumigacion
 {
     public class Fumigacion
     {

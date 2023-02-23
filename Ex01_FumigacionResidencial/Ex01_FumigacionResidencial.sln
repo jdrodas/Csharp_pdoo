@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01_FumigacionResidencial", "Ex01_FumigacionResidencial\Ex01_FumigacionResidencial.csproj", "{C3798F56-C868-47D3-8733-0EE3CC38E971}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ex01_FumigacionResidencial", "Ex01_FumigacionResidencial\Ex01_FumigacionResidencial.csproj", "{C3798F56-C868-47D3-8733-0EE3CC38E971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaFumigacion", "LogicaFumigacion\LogicaFumigacion.csproj", "{32877018-CC92-43CB-AB8B-7F06BC08FF32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C3798F56-C868-47D3-8733-0EE3CC38E971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3798F56-C868-47D3-8733-0EE3CC38E971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3798F56-C868-47D3-8733-0EE3CC38E971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32877018-CC92-43CB-AB8B-7F06BC08FF32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32877018-CC92-43CB-AB8B-7F06BC08FF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32877018-CC92-43CB-AB8B-7F06BC08FF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32877018-CC92-43CB-AB8B-7F06BC08FF32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

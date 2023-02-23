@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaFumigacion;
+using System;
 
 namespace Ex01_FumigacionResidencial
 {
