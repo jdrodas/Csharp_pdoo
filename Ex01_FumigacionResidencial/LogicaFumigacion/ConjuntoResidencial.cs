@@ -46,6 +46,11 @@ namespace LogicaFumigacion
             return losHogares;
         }
 
+        public void SetLosHogares(Hogar[] arregloHogares)
+        {
+            losHogares = arregloHogares;
+        }
+
         private void InicializaHogares()
         {
             //0: No hubo fumigacion, 1: Hubo Fumigacion
