@@ -107,6 +107,30 @@ namespace LogicaFumigacion
             return ((porcentaje/losHogares.Length)*100);
         }
 
+        public List<FumigacionDisponible> ObtieneProductoPlagaMasUtilizado(FumigacionDisponible[] lasFumigacionesDispoibles)
+        {
+            List<FumigacionDisponible> fumigacionesMasUtilizadas 
+                = new List<FumigacionDisponible>();
+
+            int cantidadMayor = lasFumigacionesDispoibles[0].GetCantidad();
+            int posicionMayor = 0;
+
+            for (int i = 1; i < lasFumigacionesDispoibles.Length; i++)
+                if (lasFumigacionesDispoibles[i].GetCantidad() > cantidadMayor)
+                {
+                    posicionMayor = i;
+                    cantidadMayor = lasFumigacionesDispoibles[i].GetCantidad();
+                }
+
+
+            foreach (FumigacionDisponible unaFumigacion in lasFumigacionesDispoibles)
+
+                if (unaFumigacion.GetCantidad() == cantidadMayor)
+                    fumigacionesMasUtilizadas.Add(unaFumigacion);
+
+            return fumigacionesMasUtilizadas;
+        }
+
         public string ObtieneProductoPlagaMasUtilizado()
         {
             int cantidadMayor = fumigacionesAccesibles[0].GetCantidad();
@@ -122,7 +146,7 @@ namespace LogicaFumigacion
                 }
             }
 
-            string resultado = string.Empty;
+            string resultado = "";
 
             foreach (FumigacionDisponible unaFumigacion in fumigacionesAccesibles)
             {

@@ -21,6 +21,12 @@ namespace LogicaFumigacion
             cantidad = 0;
         }
 
+        public FumigacionDisponible(string plaga,
+            string metodoFumigacion, int cantidad) : base(plaga, metodoFumigacion)
+        {
+            this.cantidad = cantidad;
+        }
+
         public int GetCantidad()
         { 
             return cantidad; 

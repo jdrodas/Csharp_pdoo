@@ -55,6 +55,18 @@ namespace Ex01_FumigacionResidencial
 
             Console.WriteLine($"\nResultado del Producto-Plaga más utilizado:\n " +
                 $"{casasDelaMontaña.ObtieneProductoPlagaMasUtilizado()}");
+
+            Console.WriteLine($"\nResultado del Producto-Plaga más utilizado: ");
+
+            List<FumigacionDisponible> lasFumigaciones = 
+                casasDelaMontaña.ObtieneProductoPlagaMasUtilizado(casasDelaMontaña.GetFumigacionesAccesibles());
+
+            foreach (FumigacionDisponible unaFumigacion in lasFumigaciones)
+            {
+                Console.WriteLine(unaFumigacion.ToString());
+            }
+
+            Console.WriteLine($"En total fueron {lasFumigaciones.Count}");
         }
     }
 }

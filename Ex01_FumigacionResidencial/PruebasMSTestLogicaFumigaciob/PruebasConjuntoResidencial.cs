@@ -11,7 +11,7 @@ namespace PruebasMSTestLogicaFumigaciob
             //Arrange
             Hogar[] hogaresPrueba =
             {
-                new Hogar(),
+                new Hogar(new Fumigacion("Insectos","Desinfectantes")),
                 new Hogar(new Fumigacion("Hongos","Fungicidas")),
                 new Hogar(new Fumigacion("Roedores","Neurotóxicos"))
             };
@@ -52,6 +52,33 @@ namespace PruebasMSTestLogicaFumigaciob
 
             //Assert
             Assert.AreNotEqual(porcentajeEsperado, porcentajeObtenido);
+        }
+
+        [TestMethod]
+        public void VerificaProductoPlagaMasUtilizadoEsHongosFungicidas()
+        {
+            //Arrange - Preparar
+            FumigacionDisponible[] fumigacionesPrueba =
+            {
+                new FumigacionDisponible("Hongos","Fungicidas",10),
+                new FumigacionDisponible("Roedores","Neurotóxicos",2),
+                new FumigacionDisponible("Hongos","Inhibidores",5),
+                new FumigacionDisponible("Insectos","Repelentes",17),
+                new FumigacionDisponible("Roedores","Anticoagulantes",3)
+            };
+
+            ConjuntoResidencial urbanizacionPrueba = new ConjuntoResidencial(fumigacionesPrueba.Length);
+
+            //Act - Actuar
+            List<FumigacionDisponible> pruebaFumigacionesExitosas =
+                urbanizacionPrueba.ObtieneProductoPlagaMasUtilizado(fumigacionesPrueba);
+
+            //Assert - Verificar
+            string valorEsperado = "Insectos - Repelentes";
+            string valorObtenido = $"{pruebaFumigacionesExitosas.FirstOrDefault()!.GetPlaga()} - " +
+                $"{pruebaFumigacionesExitosas.FirstOrDefault()!.GetMetodoFumigacion()}";
+
+            Assert.AreEqual(valorEsperado,valorObtenido);
         }
     }
 }
