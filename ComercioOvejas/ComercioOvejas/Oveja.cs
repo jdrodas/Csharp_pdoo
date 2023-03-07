@@ -41,7 +41,17 @@
         { 
             return esApta;
         }
-
         public abstract void EvaluaSiEsApta();
+
+        public override string ToString()
+        {
+            string resultado = $"Oveja {sexo}, peso: {peso}, edad: {edad} ";
+
+            if (esApta)
+                resultado += "Es Apta";
+            else
+                resultado += "No es Apta";
+            return resultado;
+        }
     }
 }
