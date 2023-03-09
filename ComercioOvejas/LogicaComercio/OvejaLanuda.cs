@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComercioOvejas
+namespace LogicaComercio
 {
     public class OvejaLanuda : Oveja
     {
@@ -39,6 +39,11 @@ namespace ComercioOvejas
 
             if(edad>=24 && edad<=84 && peso>=35 && sexo == "macho")
                 esApta = true;
+        }
+
+        public override double GetProduccion()
+        {
+            return cantidadLana;
         }
 
         public override string ToString()

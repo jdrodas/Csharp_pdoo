@@ -1,4 +1,5 @@
 ﻿using System;
+using LogicaComercio;
 
 namespace ComercioOvejas
 {
@@ -8,53 +9,50 @@ namespace ComercioOvejas
         {
             Console.WriteLine("Programa para simular el comercio de Ovejas");
 
-            int cantidadOvejas = 100;
-
-            //Aqui declaramos el arreglo de Ovejas
-            Oveja[] lasOvejas = new Oveja[cantidadOvejas];
-
-            Random aleatorio = new Random();
-            string[] losSexos = { "macho", "hembra" };
-            string elSexo;
-            int elPeso, laEdad;
-            double laCantidadLeche;
-
-            for (int i = 0; i < lasOvejas.Length; i++)
+            int cantidadOvejas =0;
+            bool datoCorrecto = false;
+            do
             {
-                elSexo = losSexos[aleatorio.Next(losSexos.Length)];
-                elPeso = aleatorio.Next(1, 181);
-                laEdad = aleatorio.Next(1, 145);
-
-                //0: Oveja Lechera, 1: Oveja Lanuda
-                switch (aleatorio.Next(2))
+                try
                 {
-                    case 0:
-                        laCantidadLeche = aleatorio.NextDouble() * 3.5f; 
-                        lasOvejas[i] = new OvejaLechera(elSexo, elPeso, laEdad, laCantidadLeche);
-                        break;
+                    Console.Write("Ingresa la cantidad de Ovejas a procesar en la Cooperativa: ");
+                    cantidadOvejas = int.Parse(Console.ReadLine()!);
 
-                    case 1:
-                        lasOvejas[i] = new OvejaLanuda(elSexo, elPeso, laEdad);
-                        break;
-
+                    if (cantidadOvejas > 0)
+                        datoCorrecto = true;
+                    else
+                        Console.WriteLine("La cantidad de ovejas debe ser un entero positivo. Intenta nuevamente");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("El dato ingresado no tiene el formato requerido. Intenta nuevamente");
                 }
             }
+            while (!datoCorrecto);
 
-            //Aqui visualizamos las ovejas aptas:
-            int contadorOvejasAptas = 0;
-            int totalOvejas = 1;
+            Console.WriteLine("\n Llevando las ovejas a la cooperativa...");
 
-            foreach (Oveja unaOveja in lasOvejas)
-            {
-                if (unaOveja.GetEsApta())
-                {
-                    Console.WriteLine($"No. {totalOvejas} - {unaOveja.ToString()}");
-                    contadorOvejasAptas++;
-                }
-                totalOvejas++;
-            }
+            Cooperativa miCoop = new Cooperativa(cantidadOvejas);
 
-            Console.WriteLine($"De las {cantidadOvejas} Ovejas, {contadorOvejasAptas} son aptas");
+            //Calculamos la producción
+            miCoop.ContabilizaProduccion();
+
+            //Calculamos la Comision
+            miCoop.CalculaComision();
+
+            Console.WriteLine(miCoop.ToString());
+            Console.WriteLine("\n" + miCoop.VisualizaResultadoComercio());
+
+            ////Aqui declaramos el arreglo de Ovejas
+
+
+            ////Aqui visualizamos las ovejas aptas:
+            //int contadorOvejasAptas = 0;
+            //int totalOvejas = 1;
+
+
+
+            //Console.WriteLine($"De las {cantidadOvejas} Ovejas, {contadorOvejasAptas} son aptas");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ComercioOvejas
+﻿namespace LogicaComercio
 {
     public abstract class Oveja
     {
@@ -41,6 +41,10 @@
         { 
             return esApta;
         }
+
+        public abstract double GetProduccion();
+
+
         public abstract void EvaluaSiEsApta();
 
         public override string ToString()
