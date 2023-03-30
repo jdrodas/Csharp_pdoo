@@ -45,10 +45,15 @@ namespace EX02_RiesgoInundacion
             Console.WriteLine(gestor.ObtieneInformacionZonas());
 
             Console.WriteLine($"Porcentaje zonas en riesgo: " +
-                $"{gestor.ObtienePorcentajeZonasEnRiesgo()}%");
+                $"{gestor.ObtienePorcentajeZonasEnRiesgo().ToString(".00")}%");
 
-            Console.WriteLine("\n\nEl porcentaje de zonas en riesgo por tipo de zona es:");
-            Console.WriteLine(gestor.ObtienePorcentajeZonasEnRiesgoPorTipo());
+            Console.WriteLine("\nEl porcentaje de zonas en riesgo por tipo de zona es:");
+            Console.WriteLine(gestor.ObtienePorcentajeZonasEnRiesgoPorTipoZona());
+
+            Console.WriteLine("\nEl porcentaje de zonas en riesgo por tipo de riesgo es:");
+            Console.WriteLine(gestor.ObtienePorcentajeZonasEnRiesgoPorTipoRiesgo());
+
+
         }
     }
 }

@@ -130,7 +130,7 @@
             string resultado = $"Total Zonas monitoreadas: {cantidadZonas} \n";
 
             for (int i = 0; i < lasZonas.Length; i++)
-                resultado += $"Zona No. {i + 1}\n{lasZonas[i].ToString()}\n\n"; 
+                resultado += $"Zona No. {i + 1}\n{lasZonas[i].ToString()}\n\n";
 
             return resultado;
         }
@@ -142,7 +142,7 @@
 
             foreach (Zona unaZona in lasZonas)
             {
-                if (unaZona.GetEstadoRiesgo())
+                if (unaZona.EstaEnRiesgo)
                     totalZonasEnRiesgo++;
             }
 
@@ -151,35 +151,78 @@
             return porcentaje;
         }
 
-        public string ObtienePorcentajeZonasEnRiesgoPorTipo()
+        public string ObtienePorcentajeZonasEnRiesgoPorTipoZona()
         {
             float[] valoresPorcentajes = new float[losTiposDeZona.Length];
 
             for (int i = 0; i < valoresPorcentajes.Length; i++)
                 valoresPorcentajes[i] = 0;
 
-            //Recorremos la colección de zonas, preguntando por el tipo de zona
+            //Recorremos la colección de zonas, preguntando si está en riesgo y que en tipo de zona está
             for (int i = 0; i < lasZonas.Length; i++)
             {
-                for (int j = 0; j < losTiposDeZona.Length; j++)
+                if (lasZonas[i].EstaEnRiesgo)
                 {
-                    if (lasZonas[i].GetTipoDeZona() == losTiposDeZona[j])
-                        valoresPorcentajes[j]++;
+                    for (int j = 0; j < losTiposDeZona.Length; j++)
+                    {
+                        if (lasZonas[i].TipoZona == losTiposDeZona[j])
+                        {
+                            valoresPorcentajes[j]++;
+                        }
+                    }
                 }
             }
 
             string informacionPorcentajes = "";
 
+            //Luego de totalizado, calculamos el porcentaje
+            for (int i = 0; i < valoresPorcentajes.Length; i++)
+            {
+                informacionPorcentajes += $"{losTiposDeZona[i]}: {valoresPorcentajes[i]}, ";
+
+                valoresPorcentajes[i] =
+                    (valoresPorcentajes[i] / cantidadZonas) * 100;
+
+                informacionPorcentajes += $"que equivale a {valoresPorcentajes[i].ToString("0.00")}% \n";
+            }
+
+            return informacionPorcentajes;
+        }
+
+        public string ObtienePorcentajeZonasEnRiesgoPorTipoRiesgo()
+        {
+            float[] valoresPorcentajes = new float[losTiposDeRiesgos.Length];
+
+            for (int i = 0; i < valoresPorcentajes.Length; i++)
+                valoresPorcentajes[i] = 0;
+
+            //Recorremos la colección de zonas, preguntando si está en riesgo y que en tipo de riesgo está 
+            for (int i = 0; i < lasZonas.Length; i++)
+            {
+                if (lasZonas[i].EstaEnRiesgo)
+                {
+                    for (int j = 0; j < losTiposDeRiesgos.Length; j++)
+                    {
+                        if (lasZonas[i].LosRiesgos.Contains(losTiposDeRiesgos[j]))
+                        {
+                            valoresPorcentajes[j]++;
+                        }
+                    }
+                }
+            }
+
+            string informacionPorcentajes = "";
 
             //Luego de totalizado, calculamos el porcentaje
             for (int i = 0; i < valoresPorcentajes.Length; i++)
             {
+                informacionPorcentajes += $"{losTiposDeRiesgos[i]}: {valoresPorcentajes[i]}, ";
+
                 valoresPorcentajes[i] =
                     (valoresPorcentajes[i] / cantidadZonas) * 100;
 
-                informacionPorcentajes += $"{losTiposDeZona[i]}: {valoresPorcentajes[i].ToString(".00")}% \n";
+                informacionPorcentajes += $"que equivale a {valoresPorcentajes[i].ToString("0.00")}% \n";
             }
-
 
             return informacionPorcentajes;
         }
