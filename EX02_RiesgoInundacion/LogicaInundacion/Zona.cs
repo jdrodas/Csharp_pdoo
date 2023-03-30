@@ -18,8 +18,9 @@
             densidadPoblacional = 0;
             ubicacion = string.Empty;
             tipoZona = "";
-
-            EvaluaRiesgo();
+            
+            estaEnRiesgo = false;
+            //EvaluaRiesgo();
         }
 
         public Zona(int nivelMar, 
@@ -36,10 +37,32 @@
             this.ubicacion = ubicacion;
             this.tipoZona = tipoZona;
 
-            densidadPoblacional = (double)totalHabitantes / areaPoblacion;
+            if (areaPoblacion == 0)
+                densidadPoblacional = 0;
+            else
+                densidadPoblacional = (double)totalHabitantes / areaPoblacion;
+            
             losRiesgos = new List<string>();
 
-            EvaluaRiesgo();
+            estaEnRiesgo = false;
+            //EvaluaRiesgo();
+        }
+
+        // Propiedades para acceso a los atributos
+        public bool EstaEnRiesgo
+        {
+            get { return estaEnRiesgo; }
+            set { estaEnRiesgo = value;}
+        }
+
+        public string TipoZona
+        {
+            get { return tipoZona; }
+        }
+
+        public string Ubicacion
+        {
+            get { return ubicacion; }
         }
 
         public bool GetEstadoRiesgo()
@@ -47,6 +70,53 @@
             return estaEnRiesgo; 
         }
 
+        public string GetTipoDeZona()
+        {
+            return tipoZona;
+        }
+
+        public int NivelMar
+        {
+            get { return nivelMar; }
+        }
+
+        public int DistanciaRio
+        {
+            get { return distanciaRio; }
+        }
+
+        public double DensidadPoblacional
+        {
+            get { return densidadPoblacional; }
+        }
+
+        public List<string> LosRiesgos
+        {
+            get { return losRiesgos; }
+        }
+        public override string ToString()
+        {
+            string informacion = $"Esta es una zona {ubicacion} del tipo {tipoZona},\n " +
+                $"con un nivel del mar de {nivelMar} mts, y a una distancia del rio de {distanciaRio},\n " +
+                $"tiene {totalHabitantes} habitantes y un área de {areaPoblacion.ToString(".00")},\n " +
+                $"con una densidad de {densidadPoblacional.ToString(".00")}.\n";
+
+            if (!estaEnRiesgo)
+                informacion += "No está en riesgo";
+            else
+            {
+                informacion += "Está en riesgo de:";
+
+                foreach (string riesgo in losRiesgos)
+                    informacion += $"\n\t {riesgo}";
+            }
+
+            return informacion;
+        }
+
+        /*
+        
+        //Este método se lleva a la clase GestionRiesgo y a través de propiedades se realiza la valoración
         private void EvaluaRiesgo()
         {
             //Evaluamos Riesgo Fluvial
@@ -66,25 +136,6 @@
             else
                 estaEnRiesgo = false;
         }
-
-        public override string ToString()
-        {
-            string informacion = $"Esta es una zona ubicada en {ubicacion} del tipo {tipoZona}, " +
-                $"con un nivel del mar de {nivelMar} mts, y a una distancia del rio de {distanciaRio}, " +
-                $"tiene {totalHabitantes} habitantes y un área de {areaPoblacion}, " +
-                $"con una densidad de {densidadPoblacional}.\n";
-
-            if (!estaEnRiesgo)
-                informacion += "No está en riesgo";
-            else
-            {
-                informacion += "Está en riesgo de:";
-
-                foreach (string riesgo in losRiesgos)
-                    informacion += $"\n\t {riesgo}";
-            }
-
-            return informacion;
-        }
+        */
     }
 }
