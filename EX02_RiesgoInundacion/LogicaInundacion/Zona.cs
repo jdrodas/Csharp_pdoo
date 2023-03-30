@@ -20,7 +20,6 @@
             tipoZona = "";
             
             estaEnRiesgo = false;
-            //EvaluaRiesgo();
         }
 
         public Zona(int nivelMar, 
@@ -43,9 +42,7 @@
                 densidadPoblacional = (double)totalHabitantes / areaPoblacion;
             
             losRiesgos = new List<string>();
-
             estaEnRiesgo = false;
-            //EvaluaRiesgo();
         }
 
         // Propiedades para acceso a los atributos
@@ -63,16 +60,6 @@
         public string Ubicacion
         {
             get { return ubicacion; }
-        }
-
-        public bool GetEstadoRiesgo()
-        { 
-            return estaEnRiesgo; 
-        }
-
-        public string GetTipoDeZona()
-        {
-            return tipoZona;
         }
 
         public int NivelMar
@@ -113,29 +100,5 @@
 
             return informacion;
         }
-
-        /*
-        
-        //Este método se lleva a la clase GestionRiesgo y a través de propiedades se realiza la valoración
-        private void EvaluaRiesgo()
-        {
-            //Evaluamos Riesgo Fluvial
-            if (distanciaRio < 50 && ubicacion == "Montañosa")
-                losRiesgos.Add("Riesgo inundación fluvial");
-
-            //Evaluamos Riesgo Costero
-            if (ubicacion == "Costera" && nivelMar < 10)
-                losRiesgos.Add("Riesgo inundacion costera");
-
-            //Evaluamos Riesgo Urbano
-            if (tipoZona == "Urbana" && densidadPoblacional >= 100)
-                losRiesgos.Add("Riesgo inundación urbana");
-
-            if (losRiesgos.Count > 0)
-                estaEnRiesgo = true;
-            else
-                estaEnRiesgo = false;
-        }
-        */
     }
 }

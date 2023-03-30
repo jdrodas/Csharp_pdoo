@@ -75,6 +75,7 @@
 
             //finalmente, se asigna al atributo
             this.lasZonas = lasZonas;
+            this.cantidadZonas = lasZonas.Length;
         }
 
         private string[] InicializaUbicaciones()
@@ -93,7 +94,7 @@
         {
             string[] arregloRiesgos = {
                 "Riesgo inundación fluvial",
-                "Riesgo inundacion costera",
+                "Riesgo inundación costera",
                 "Riesgo inundación urbana"
             };
             return arregloRiesgos;
@@ -138,7 +139,7 @@
         public float ObtienePorcentajeZonasEnRiesgo()
         {
             float porcentaje = 0;
-            int totalZonasEnRiesgo = 0;
+            float totalZonasEnRiesgo = 0;
 
             foreach (Zona unaZona in lasZonas)
             {
@@ -146,7 +147,7 @@
                     totalZonasEnRiesgo++;
             }
 
-            porcentaje = ((float)totalZonasEnRiesgo / cantidadZonas) * 100;
+            porcentaje = (totalZonasEnRiesgo / cantidadZonas) * 100;
 
             return porcentaje;
         }
