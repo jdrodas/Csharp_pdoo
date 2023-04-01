@@ -87,3 +87,10 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 >### [ex01_UsoAlternativoOrquideas](https://github.com/jdrodas/Csharp_pdoo/tree/master/ex01_UsoAlternativoOrquideas)
 >>- Revisión de conceptos básicos de programación orientada a objetos
 >>- Implementación de proyecto de pruebas unitarias con MSTEST
+
+### Examen No. 2
+
+>### [EX02_RiesgoInundacion](https://github.com/jdrodas/Csharp_pdoo/tree/master/ex01_UsoAlternativoOrquideas)
+>>- Revisión de conceptos básicos de programación orientada a objetos
+>>- Implementación de diagramas UML de clases
+>>- Actualizado a .NET 7
