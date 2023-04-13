@@ -45,6 +45,11 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 - Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
 - Actualizado a .NET 7
 
+### [FabricaMotocicletas](https://github.com/jdrodas/Csharp_pdoo/tree/master/FabricaMotocicletas)
+- Demostrar implementación de un enunciado de dominio de problema generado por ChatGPT
+- Demostrar los conceptos de programación orientada a objetos: Herencia, Polimorfismo por sobrecarga y por sobreescritura.
+- Actualizado a .NET 7
+
 ### 2. Patrones de Software
 
 ### 2.1. Patrones GoF
