@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_Singleton
+﻿using System;
+
+namespace Poo_PS_GoF_Singleton
 {
     public class AsignaEstacionador
     {
@@ -25,7 +27,7 @@
         /// Obtiene la instancia utilizando el patrón Singleton
         /// </summary>
         /// <returns>instancia de la clase</returns>
-        public static AsignaEstacionador ObtieneEspacioParqueo()
+        public static AsignaEstacionador ObtieneEstacionador()
         {
             //Si no hay instancia creada, se hace una nueva instancia
             if (estacionador == null)
@@ -37,9 +39,9 @@
         /// <summary>
         /// Obtiene el valor del espacio de parqueo
         /// </summary>
-        public string Espacio
+        public string GetEspacio()
         {
-            get { return espacio; }
+            return espacio; 
         }
     }
 }

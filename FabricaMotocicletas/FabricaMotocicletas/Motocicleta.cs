@@ -12,7 +12,7 @@ namespace FabricaMotocicletas
         protected double capacidadTanque;
         protected int potenciaMotor;
         protected int velocidadActual;
-        protected double precio;Set
+        protected double precio;
         protected string descripcion;
 
         public Motocicleta(int velocidadMaxima, double capacidadTanque, int potenciaMotor)
