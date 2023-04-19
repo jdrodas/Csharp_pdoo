@@ -1,4 +1,7 @@
-﻿namespace Poo_PS_GoF_Builder
+﻿using System.Collections.Generic;
+using System.Text;
+
+namespace Poo_PS_GoF_Builder
 {
     public class Vehiculo
     {
@@ -23,18 +26,21 @@
         //Metodos
         public string Visualizar()
         {
-            string informacion = $"Este vehiculo es {tipoVehiculo}.\n" +
-                $"Chasis: {partes["chasis"]} \n" +
-                $"Motor: {partes["motor"]} \n" +
-                $"# Ruedas: {partes["ruedas"]}\n" +
-                $"Puertas: {partes["puertas"]}\n";
+            //utilizaremos un StringBuilder para concatenar información
+            //más eficientemente utilizando un ciclo
 
-            if(partes.ContainsKey("extintor"))
-                informacion += $"extintor: {partes["extintor"]}\n";
-            else
-                informacion += $"No vino con extintor, sople!\n";
+            StringBuilder informacion = new StringBuilder();
 
-            return informacion!;
+            informacion.Append($"Este vehiculo es {tipoVehiculo}.\n");
+
+            //Aqui recorremos el diccionario con un ciclo
+            foreach(KeyValuePair<string, string> unaParte in partes)
+                informacion.Append($"{unaParte.Key}: {unaParte.Value} \n");
+
+            if (!partes.ContainsKey("extintor"))
+                informacion.Append("*** No vino con extintor, sople! ***\n");
+
+            return informacion.ToString();
         }
     }
 }

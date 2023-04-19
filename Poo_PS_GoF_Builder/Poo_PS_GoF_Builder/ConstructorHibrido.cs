@@ -1,21 +1,28 @@
-﻿namespace Poo_PS_GoF_Builder
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Poo_PS_GoF_Builder
 {
-    public class ConstructorAutomovil : ConstructorVehiculo
+    internal class ConstructorHibrido : ConstructorVehiculo
     {
         //Constructor de la clase
-        public ConstructorAutomovil()
+        public ConstructorHibrido()
         {
             elVehiculo = new Vehiculo("Automovil");
         }
 
         public override void ConstruirChasis()
         {
-            elVehiculo!["chasis"] = "Chasis de automovil sedan";
+            elVehiculo!["chasis"] = "Chasis reforzado multimotor";
         }
 
         public override void ConstruirMotor()
         {
-            elVehiculo!["motor"] = "1500 cc";
+            elVehiculo!["motor gasolina"] = "1500 cc";
+            elVehiculo!["motor eléctrico"] = "200 KVh";
         }
 
         public override void ConstruirPuertas()
@@ -25,12 +32,12 @@
 
         public override void ConstruirRuedas()
         {
-            elVehiculo!["ruedas"] = "4 ruedas rin deportivo";
+            elVehiculo!["ruedas"] = "4 ruedas de alto desempeño";
         }
 
         public void ConstruirExtintor()
         {
-            elVehiculo!["extintor"] = "Extintor de propósito general";
+            elVehiculo!["extintor"] = "Extintor multipropósito";
         }
 
         public override void InvocarConstructorPartes()
