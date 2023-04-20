@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_AbstractFactory
+﻿using System;
+
+namespace Poo_PS_GoF_AbstractFactory
 {
     internal class Chupacabras : Carnivoro
     {
@@ -13,7 +15,7 @@
         {
             string resultado = $"Este carnivoro de la especie {especie} " +
                 $"llamado {nombre} se alimenta desangrando {presa.Especie} " +
-                $"que se llama {presa.Nombre} \n";
+                $"que se llama {presa.Nombre} " + Environment.NewLine;
 
             return resultado;
         }

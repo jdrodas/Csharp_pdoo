@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_AbstractFactory
+﻿using System;
+
+namespace Poo_PS_GoF_AbstractFactory
 {
     public class Gacela: Herbivoro
     {

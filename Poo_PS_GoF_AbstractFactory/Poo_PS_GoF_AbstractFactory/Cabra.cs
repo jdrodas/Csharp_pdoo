@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_AbstractFactory
+﻿using System;
+
+namespace Poo_PS_GoF_AbstractFactory
 {
     public class Cabra : Herbivoro
     {
@@ -11,7 +13,7 @@
         public override string Alimentarse()
         {
             string resultado = $"Este herbívoro de la especie {especie} " +
-                $"llamado {nombre} se alimenta de lamiendo las piedras.\n";
+                $"llamado {nombre} se alimenta de lamer las piedras." + Environment.NewLine;
             return resultado;
         }
     }
