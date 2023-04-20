@@ -12,8 +12,8 @@ namespace Poo_PS_GoF_ChainOfResponsibility
         //constructor de la clase
         public Ejecutivo()
         {
-            nombre = "Ejecutivo sin cargo";
-            cargo = "Ejecutivo";
+            nombre = string.Empty;
+            cargo = string.Empty;
             monto = 0;
             jefe = null;
         }
@@ -28,6 +28,7 @@ namespace Poo_PS_GoF_ChainOfResponsibility
         public string? Cargo
         {
             get { return cargo; }
+            set { cargo = value; }
         }
 
         public int Monto
@@ -36,11 +37,23 @@ namespace Poo_PS_GoF_ChainOfResponsibility
             set { monto = value; }
         }
 
-        public void AsignaJefe(Ejecutivo jefe)
+        public Ejecutivo? Jefe
         {
-            this.jefe = jefe;
+            set { jefe = value; }
+            get { return jefe; }
         }
 
         public abstract void ProcesaPedido(Pedido laCompra);
+
+        public override string ToString()
+        {
+            string informacion = $"{nombre} es {cargo} y puede aprobar hasta {monto}\n";
+            if (jefe != null) 
+                informacion += $"\tel jefe es {jefe.Nombre}";
+            else
+                informacion += $"\tNo tiene jefe asignado";
+
+            return informacion;
+        }
     }
 }

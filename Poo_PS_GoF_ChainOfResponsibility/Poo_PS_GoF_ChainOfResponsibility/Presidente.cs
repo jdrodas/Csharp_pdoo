@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poo_PS_GoF_ChainOfResponsibility
+﻿namespace Poo_PS_GoF_ChainOfResponsibility
 {
     public class Presidente: Ejecutivo
     {
         public Presidente()
         {
-            nombre = "Presidente sin nombre";
+            nombre = string.Empty;
             cargo = "Presidente";
             monto = 0;
             jefe = null;
@@ -18,7 +12,7 @@ namespace Poo_PS_GoF_ChainOfResponsibility
 
         public override void ProcesaPedido(Pedido laCompra)
         {
-            //Si el valor del pedido es menor que el monto del coordinador
+            //Si el valor del pedido es menor que el monto del Presidente
             //se puede aprobar el pedido
             if (laCompra.Valor <= monto)
                 laCompra.Aprobador = $"Aprobado por Presidente {nombre}";

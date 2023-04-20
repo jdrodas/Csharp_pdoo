@@ -5,11 +5,13 @@
         //atributos de la clase
         private string aprobador;
         private int valor;
+        private string descripcion;
 
         //constructor de la clase
         public Pedido()
         {
-            aprobador = "sin aprobación";
+            aprobador = string.Empty;
+            descripcion = string.Empty;
             valor = 0;
         }
 
@@ -18,6 +20,12 @@
         {
             get { return aprobador; }
             set { aprobador = value; }
+        }
+
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
         }
 
         public int Valor

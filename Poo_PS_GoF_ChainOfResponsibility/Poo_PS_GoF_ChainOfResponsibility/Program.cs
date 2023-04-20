@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Threading;
+﻿using System;
 
 namespace Poo_PS_GoF_ChainOfResponsibility
 {
@@ -18,73 +17,68 @@ namespace Poo_PS_GoF_ChainOfResponsibility
             JerarquiaEjecutivos[1] = new Director();
             JerarquiaEjecutivos[2] = new Presidente();
 
-            //Aqui definimos nombres, montos y jefes
-            for (int i = 0; i < JerarquiaEjecutivos.Length; i++)
-            {
-                AsignaValoresEjecutivo(JerarquiaEjecutivos[i]);
+            //Asignación de atributos para el coordinador
+            JerarquiaEjecutivos[0].Nombre = "Bob el Coordinador";
+            JerarquiaEjecutivos[0].Monto = 50000;
+            JerarquiaEjecutivos[0].Jefe = JerarquiaEjecutivos[1];
 
-                //Aqui asignamos los jefes
-                if (i < JerarquiaEjecutivos.Length - 1)
-                    JerarquiaEjecutivos[i].AsignaJefe(JerarquiaEjecutivos[i + 1]);
-            }
+            //Asignación de atributos para el director
+            JerarquiaEjecutivos[1].Nombre = "Dora la directora";
+            JerarquiaEjecutivos[1].Monto = 500000;
+            JerarquiaEjecutivos[1].Jefe = JerarquiaEjecutivos[2];
 
-            //2 - Validar que los montos de aprobación estén de acuerdo a la jerarquía
-            string resultadoEvaluacion;
-            bool evaluacionJerarquiaCorrecta = EvaluaJerarquia(JerarquiaEjecutivos, out resultadoEvaluacion);
+            //Asignación de atributos para el director
+            JerarquiaEjecutivos[2].Nombre = "Vicente el Presidente";
+            JerarquiaEjecutivos[2].Monto = 5000000;
+            JerarquiaEjecutivos[2].Jefe = null;
 
-            if (evaluacionJerarquiaCorrecta == false)
-            {
-                Console.WriteLine("La jerarquía de ejecutivos no es válida");
-                Console.WriteLine($"{resultadoEvaluacion}");
-            }
+            Console.WriteLine("\nLa jerarquía de cargos de la empresa es asi:");
+
+            foreach (Ejecutivo unEjecutivo in JerarquiaEjecutivos)
+                Console.WriteLine($"- {unEjecutivo.ToString()}");
+
+            Console.WriteLine("\nValidamos la integridad de la jerarquía de ejecutivos...");
+
+            string mensajeEvaluacion;
+            bool resultadoEvaluacion = EvaluaJerarquia(JerarquiaEjecutivos, out mensajeEvaluacion);
+
+            if (resultadoEvaluacion)
+                Console.WriteLine($"Jerarquía válida. {mensajeEvaluacion}");
             else
-            {
-                //De lo contrario, la jerarquía es correcta podemos hacer el pedido de compra
-                Console.WriteLine("Jerarquía de ejecutivos es correcta!");
+                Console.WriteLine($"Jerarquía errónea. {mensajeEvaluacion}");
 
-                //3 - Leer la información del pedido
-                Pedido elPedido = new Pedido();
-                bool valorPedidoCorrecto = false;
+            //Aqui comenzamos a realizar pedidos y verificar quien los aprueba
+            Pedido pedidoUno = new Pedido
+                                    {
+                                        Descripcion = "Palito de Queso Gluten Free con hilos de oro",
+                                        Valor = 7500000
+                                    };
 
-                do
-                {
-                    try
-                    {
-                        Console.Write("\nIngresa el valor del pedido: ");
-                        elPedido.Valor = int.Parse(Console.ReadLine()!);
-                        valorPedidoCorrecto = true;
-                    }
-                    catch (FormatException elError)
-                    {
-                        Console.WriteLine("El valor ingresado no es un dato numérico. Intenta nuevamente!");
-                        Console.WriteLine(elError.Message);
-                    }
-                }
-                while (valorPedidoCorrecto == false);
+            //Aqui le pasamos el pedido al ejecutivo más bajo en la cadena
+            JerarquiaEjecutivos[0].ProcesaPedido(pedidoUno);
 
-                //4 - Iniciar la cadena de aprobación según la jerarquía de ejecutivos
-                JerarquiaEjecutivos[0].ProcesaPedido(elPedido);
-
-                //5 - Visualizar resultados de la aprobación
-                Console.WriteLine($"El resultado del proceso de validación es \n" +
-                    $"{elPedido.Aprobador}");
-            }
+            Console.WriteLine($"\nSe intentó comprar {pedidoUno.Descripcion} " +
+                $"con un valor de {pedidoUno.Valor} y el resultado de la compra fue: {pedidoUno.Aprobador}");
         }
 
-        //Evalua si la jerarquia es válida para aprobar pedidos
         static bool EvaluaJerarquia(Ejecutivo[] losEjecutivos, out string mensajeError)
         {
             bool resultado = false;
             mensajeError = "";
 
+            //TODO Validar con un ciclo que los montos de los ejecutivos sean mayores que cero
+
             //aqui verificamos que tengan valores asignados diferentes a los predeterminados
             if (losEjecutivos[0].Monto > 0 && losEjecutivos[1].Monto > 0 && losEjecutivos[2].Monto > 0)
             {
+                //TODO Validar con un ciclo que los montos de los ejecutivos tengan jerarquía
+                
                 //aqui validamos que los valores estén escalonados de menor a mayor
-                if (losEjecutivos[0].Monto < losEjecutivos[1].Monto && losEjecutivos[1].Monto < losEjecutivos[2].Monto)
-                {                     
+                if (losEjecutivos[0].Monto < losEjecutivos[1].Monto && 
+                    losEjecutivos[1].Monto < losEjecutivos[2].Monto)
+                {
                     resultado = true;
-                    mensajeError = "Jerarquia Válida";
+                    mensajeError = "Todas las validaciones se ejecutaron correctamente";
                 }
                 else
                 {
@@ -99,31 +93,6 @@ namespace Poo_PS_GoF_ChainOfResponsibility
             }
 
             return resultado;
-        }
-
-        static void AsignaValoresEjecutivo(Ejecutivo unEjecutivo)
-        {
-            bool datosCorrectos = false;
-
-            do
-            {
-                try
-                {
-                    Console.Write($"\nIngresa el nombre del {unEjecutivo.Cargo}: ");
-                    unEjecutivo.Nombre = Console.ReadLine();
-
-                    Console.Write("Ingresa el monto máximo de aprobación: ");
-                    unEjecutivo.Monto = int.Parse(Console.ReadLine()!);
-
-                    datosCorrectos = true;
-                }
-                catch (FormatException elError)
-                {
-                    Console.WriteLine("El monto ingresado no es un dato numérico. Intenta nuevamente!");
-                    Console.WriteLine(elError.Message);
-                }
-            }
-            while (datosCorrectos == false);
         }
     }
 }

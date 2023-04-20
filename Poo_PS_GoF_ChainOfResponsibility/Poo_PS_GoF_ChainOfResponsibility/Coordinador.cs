@@ -4,7 +4,7 @@
     {
         public Coordinador()
         {
-            nombre = "Coordinador sin nombre";
+            nombre = string.Empty;
             cargo = "Coordinador";
             monto = 0;
             jefe = null;
@@ -20,8 +20,8 @@
                 //Si hay jefe asignado, le pasamos el pedido para que lo apruebe
                 if (jefe != null)
                     jefe.ProcesaPedido(laCompra);
-            else
-                laCompra.Aprobador = "El coordinador no tiene jefe. No se puede aprobar!";
+                else
+                    laCompra.Aprobador = "El coordinador no tiene jefe. No se puede aprobar!";
         }
     }
 }
