@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_Prototype
+﻿using System.Collections.Generic;
+
+namespace Poo_PS_GoF_Prototype
 {
     public class GestorColores
     {

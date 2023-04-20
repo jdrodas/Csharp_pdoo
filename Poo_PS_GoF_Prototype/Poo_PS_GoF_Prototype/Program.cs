@@ -1,4 +1,6 @@
-﻿namespace Poo_PS_GoF_Prototype
+﻿using System;
+
+namespace Poo_PS_GoF_Prototype
 {
     public class Program
     {
@@ -25,17 +27,21 @@
             //Aqui visualizamos colores clonados
             Console.WriteLine("\n\nAqui vemos los colore clonados:");
             //Aqui clonamos un color
+            Console.WriteLine("Clonando el color rojo...");
             Color? otroRojo = paletaColores["rojo"].Clonar() as Color;
             Console.WriteLine(otroRojo!.ToString());
 
+            Console.WriteLine("Clonando el color morado...");
             Color? otroMorado = paletaColores["morado"].Clonar() as Color;
             Console.WriteLine(otroMorado!.ToString());
 
+            Console.WriteLine("Clonando el color café popó...");
             Color? cafeDesagradable = paletaColores["Cafe Popó"].Clonar() as Color;
             Console.WriteLine(cafeDesagradable!.ToString());
 
 
-            //Aqui un color de la manera tradicioal
+            //Aqui un color de la manera tradicional
+            Console.WriteLine("\nComparando los objetos cuando son copiados tradicionalmente...");
             Color amarilloTradicional = new Color(255, 255, 0);
             amarilloTradicional.Nombre = "Amarillo Tradicional";
             Console.WriteLine(amarilloTradicional.ToString());
@@ -46,8 +52,15 @@
             if (amarilloTradicional == otroAmarillo)
                 Console.WriteLine("Los amarillos son iguales");
             else
-                Console.WriteLine("Los amarillos no son iguales");
+                Console.WriteLine("Los amarillos NO son iguales");
 
+            Console.WriteLine("\nComparando los objetos cuando son clonados ...");
+
+
+            if (otroRojo == paletaColores["rojo"])
+                Console.WriteLine("Los rojos son iguales");
+            else
+                Console.WriteLine("Los rojos NO son iguales");
         }
     }
 }

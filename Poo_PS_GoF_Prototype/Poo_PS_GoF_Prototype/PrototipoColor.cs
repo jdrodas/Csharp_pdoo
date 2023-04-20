@@ -2,7 +2,7 @@
 {
     public abstract class PrototipoColor
     {
-        public abstract PrototipoColor Clonar();
+        public abstract PrototipoColor? Clonar();
 
         public string? Nombre { get; set; }
     }
