@@ -57,42 +57,41 @@ namespace Poo_PS_GoF_ChainOfResponsibility
             //Aqui le pasamos el pedido al ejecutivo más bajo en la cadena
             JerarquiaEjecutivos[0].ProcesaPedido(pedidoUno);
 
-            Console.WriteLine($"\nSe intentó comprar {pedidoUno.Descripcion} " +
-                $"con un valor de {pedidoUno.Valor} y el resultado de la compra fue: {pedidoUno.Aprobador}");
+            Console.WriteLine($"\nSe intentó comprar: \n{pedidoUno.Descripcion} " +
+                $"con un valor de {pedidoUno.Valor}. " +
+                $"\nEl resultado de la compra fue: {pedidoUno.Aprobador}");
         }
 
         static bool EvaluaJerarquia(Ejecutivo[] losEjecutivos, out string mensajeError)
         {
-            bool resultado = false;
             mensajeError = "";
 
-            //TODO Validar con un ciclo que los montos de los ejecutivos sean mayores que cero
-
-            //aqui verificamos que tengan valores asignados diferentes a los predeterminados
-            if (losEjecutivos[0].Monto > 0 && losEjecutivos[1].Monto > 0 && losEjecutivos[2].Monto > 0)
+            //Validar con un ciclo que los montos de los ejecutivos sean mayores que cero
+            for (int i = 0; i < losEjecutivos.Length; i++)
             {
-                //TODO Validar con un ciclo que los montos de los ejecutivos tengan jerarquía
-                
-                //aqui validamos que los valores estén escalonados de menor a mayor
-                if (losEjecutivos[0].Monto < losEjecutivos[1].Monto && 
-                    losEjecutivos[1].Monto < losEjecutivos[2].Monto)
+                if (losEjecutivos[i].Monto <= 0)
                 {
-                    resultado = true;
-                    mensajeError = "Todas las validaciones se ejecutaron correctamente";
-                }
-                else
-                {
-                    resultado = false;
-                    mensajeError = "Montos no definen jerarquia de aprobación";
+                    mensajeError = $"El monto asingado para el ejecutivo {losEjecutivos[i].Cargo} " +
+                        $"- {losEjecutivos[i].Nombre} no es mayor que cero";
+                    return false;
                 }
             }
-            else
+
+            //Validar con un ciclo que los montos de los ejecutivos tengan jerarquía
+            for (int i = 0; i < losEjecutivos.Length - 1; i++)
             {
-                resultado = false;
-                mensajeError = "No se han asignado valores o los valores son negativos para los montos de los ejecutivos!";
+                if (losEjecutivos[i].Monto >= losEjecutivos[i + 1].Monto)
+                {
+                    mensajeError = $"El monto ${losEjecutivos[i].Monto} del ejecutivo " +
+                        $"{losEjecutivos[i].Cargo} no es inferior al de {losEjecutivos[i+1].Cargo} " +
+                        $"que tiene un monto de ${losEjecutivos[i+1].Monto}";
+                    return false;
+                }
             }
 
-            return resultado;
+            //Si las validaciones funcionaron correctamente, se da el parte de confianza            
+            mensajeError = "Todas las validaciones se ejecutaron correctamente";
+            return true;            
         }
     }
 }
