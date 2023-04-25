@@ -15,7 +15,7 @@
             //Si el valor del pedido es menor que el monto del Presidente
             //se puede aprobar el pedido
             if (laCompra.Valor <= monto)
-                laCompra.Aprobador = $"Aprobado por Presidente {nombre}";
+                laCompra.Aprobador = $"Aprobado por {cargo} {nombre}";
             else
                 laCompra.Aprobador = "El pedido debe aprobarse en Junta Directiva";
         }

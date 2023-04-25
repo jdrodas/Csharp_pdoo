@@ -15,7 +15,7 @@
             //Si el valor del pedido es menor que el monto del director
             //se puede aprobar el pedido
             if (laCompra.Valor <= monto)
-                laCompra.Aprobador = $"Aprobado por Director {nombre}";
+                laCompra.Aprobador = $"Aprobado por {cargo} {nombre}";
             else
                 //Si hay jefe asignado, le pasamos el pedido para que lo apruebe
                 if (jefe != null)
