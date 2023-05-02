@@ -97,6 +97,12 @@ Este repo se encuentra en proceso de actualización a **.NET 7**. Cada proyecto 
 >>- Revisión de conceptos básicos de programación orientada a objetos
 >>- Implementación de proyecto de pruebas unitarias con MSTEST
 
+>### [Ex01_FumigacionResidencial](https://github.com/jdrodas/Csharp_pdoo/tree/master/Ex01_FumigacionResidencial)
+>>- Revisión de conceptos básicos de programación orientada a objetos
+>>- Implementación de proyecto de pruebas unitarias con MSTEST
+
+
+
 ### Examen No. 2
 
 >### [EX02_RiesgoInundacion](https://github.com/jdrodas/Csharp_pdoo/tree/master/EX02_RiesgoInundacion)

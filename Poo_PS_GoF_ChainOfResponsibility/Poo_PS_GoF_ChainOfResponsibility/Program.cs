@@ -22,8 +22,8 @@ namespace Poo_PS_GoF_ChainOfResponsibility
 
             Console.WriteLine("\nValidamos la integridad de la jerarquía de ejecutivos...");
 
-            string mensajeEvaluacion;
-            bool resultadoEvaluacion = laLogica.EvaluaJerarquia(out mensajeEvaluacion);
+            string mensajeEvaluacion, motivoError;
+            bool resultadoEvaluacion = laLogica.EvaluaJerarquia(out mensajeEvaluacion, out motivoError);
 
             if (resultadoEvaluacion == false)
             {

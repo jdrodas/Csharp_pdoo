@@ -44,7 +44,7 @@
 
             //Asignación de atributos para el Gerente
             jerarquiaEjecutivos[2].Nombre = "Clemente";
-            jerarquiaEjecutivos[2].Monto = 750000;
+            jerarquiaEjecutivos[2].Monto = 7500;
             jerarquiaEjecutivos[2].Jefe = jerarquiaEjecutivos[3];
 
             //Asignación de atributos para el Presidente
@@ -58,9 +58,10 @@
             jerarquiaEjecutivos = losEjecutivos;
         }
 
-        public bool EvaluaJerarquia(out string mensajeError)
+        public bool EvaluaJerarquia(out string mensajeError, out string motivoError)
         {
             mensajeError = "";
+            motivoError = "";
 
             //Validar que solamente el último ejecutivo de la jerarquía sea el único sin jefe
             int contadorEjecutivosSinJefe = 0;
@@ -74,12 +75,14 @@
             if (contadorEjecutivosSinJefe > 1)
             {
                 mensajeError = $"Hay {contadorEjecutivosSinJefe} ejecutivos sin jefe";
+                motivoError = "ejecutivos sin jefe";
                 return false;
             }
 
             if (jerarquiaEjecutivos[(jerarquiaEjecutivos.Length - 1)].Jefe != null)
             {
                 mensajeError = $"El último ejecutivo en la jerarquía no es el único sin jefe";
+                motivoError = "ultimo no es unico sin jefe";
                 return false;
             }
 
@@ -90,6 +93,7 @@
                 {
                     mensajeError = $"El monto asingado para el ejecutivo {jerarquiaEjecutivos[i].Cargo} " +
                         $"- {jerarquiaEjecutivos[i].Nombre} no es mayor que cero";
+                    motivoError = "montos negativos";
                     return false;
                 }
             }
@@ -102,12 +106,14 @@
                     mensajeError = $"El monto ${jerarquiaEjecutivos[i].Monto} del ejecutivo " +
                         $"{jerarquiaEjecutivos[i].Cargo} no es inferior al de {jerarquiaEjecutivos[i + 1].Cargo} " +
                         $"que tiene un monto de ${jerarquiaEjecutivos[i + 1].Monto}";
+                    motivoError = "montos sin jerarquia";
                     return false;
                 }
             }
 
             //Si las validaciones funcionaron correctamente, se da el parte de confianza            
             mensajeError = "Todas las validaciones se ejecutaron correctamente";
+            motivoError = "sin error";
             return true;
         }
 
