@@ -91,7 +91,7 @@
             {
                 if (jerarquiaEjecutivos[i].Monto <= 0)
                 {
-                    mensajeError = $"El monto asingado para el ejecutivo {jerarquiaEjecutivos[i].Cargo} " +
+                    mensajeError = $"El monto asignado para el ejecutivo {jerarquiaEjecutivos[i].Cargo} " +
                         $"- {jerarquiaEjecutivos[i].Nombre} no es mayor que cero";
                     motivoError = "montos negativos";
                     return false;
