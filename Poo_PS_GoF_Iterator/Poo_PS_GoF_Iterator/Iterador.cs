@@ -2,13 +2,15 @@
 {
     public class Iterador : IIteradorAbstracto
     {
-        Album unaColeccion;
-        int actual = 0;
-        int incremento = 1;
+        private Album unaColeccion;
+        private int actual;
+        private int incremento;
 
         public Iterador(Album laColeccion)
         {
             this.unaColeccion = laColeccion;
+            actual = 0;
+            incremento = 1;
         }
 
         public Lamina Primera()
@@ -39,12 +41,12 @@
 
         public bool EstaTerminado
         {
-            get 
+            get
             {
                 if (actual >= unaColeccion.Cantidad)
                     return true;
                 else
-                    return false; 
+                    return false;
             }
         }
     }

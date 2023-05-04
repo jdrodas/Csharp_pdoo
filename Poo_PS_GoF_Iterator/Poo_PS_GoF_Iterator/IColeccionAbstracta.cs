@@ -2,6 +2,6 @@
 {
     public interface IColeccionAbstracta
     {
-        Iterador CrearIterador();
+        public Iterador CrearIterador();
     }
 }

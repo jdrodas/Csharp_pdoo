@@ -2,9 +2,9 @@
 {
     public interface IIteradorAbstracto
     {
-        Lamina Primera();
-        Lamina Siguiente();
-        bool EstaTerminado { get; }
-        Lamina LaminaActual { get; }
+        public Lamina Primera();
+        public Lamina Siguiente();
+        public bool EstaTerminado { get; }
+        public Lamina LaminaActual { get; }
     }
 }

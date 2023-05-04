@@ -2,8 +2,8 @@
 {
     public class Lamina
     {
-        string? nombre;
-        int consecutivo;
+        private string? nombre;
+        private int consecutivo;
 
         public Lamina(int consecutivo, string nombre)
         {

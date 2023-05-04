@@ -2,13 +2,24 @@
 {
     public class Album : IColeccionAbstracta
     {
-        List<Lamina> lasLaminas = new List<Lamina>();
+        List<Lamina> lasLaminas;
+        public string? nombre;
         public Iterador CrearIterador()
         {
             return new Iterador(this);
         }
 
-        public string? Nombre {get; set;}
+        public Album()
+        {
+            lasLaminas = new List<Lamina>();
+            nombre = string.Empty;
+        }
+
+        public string Nombre
+        {
+            get { return nombre!; }
+            set { nombre = value; }
+        }
 
         public int Cantidad
         {
